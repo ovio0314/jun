@@ -1,0 +1,2067 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+    <title>인사노무 궁금해?</title>
+    <meta name="description" content="오비오 인사총무팀을 위한 법령·판례·AI 업무혁신·급여 지표·지원사업 요약 대시보드">
+<style>
+:root{
+  --primary:#1B5FA8;
+  --primary-dk:#154B85;
+  --primary-bg:#EDF3FA;
+  --danger:#C4322B;
+  --danger-bg:#FBEEED;
+  --ok:#15704B;
+  --ok-bg:#EAF3EF;
+  --warn:#8E6410;
+  --warn-bg:#FBF3E3;
+  --text:#2A2F36;
+  --text-2:#4A5560;
+  --muted:#6B7684;
+  --muted-2:#8B95A1;
+  --bg:#F4F5F6;
+  --panel:#FFFFFF;
+  --bd:#E4E7EB;
+  --bd-2:#D3D8DE;
+  --head:#F7F8F9;
+  --sans:"Pretendard",-apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--sans);font-size:13px;line-height:1.62;
+  letter-spacing:-.01em;word-break:keep-all;overflow-wrap:break-word;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--primary);text-decoration:none}
+a:hover{text-decoration:underline}
+.num{font-variant-numeric:tabular-nums}
+
+.crumb{padding:10px 20px 0;font-size:12px;color:var(--muted-2)}
+.crumb b{color:var(--muted);font-weight:500}
+.ptitle{padding:6px 20px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ptitle h1{font-size:20px;font-weight:700;letter-spacing:-.03em}
+.ptitle .meta{margin-left:auto;display:flex;gap:14px;align-items:center;font-size:12px;color:var(--muted)}
+.ptitle .meta b{color:var(--text-2);font-weight:600}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.badge.access{background:var(--primary-bg);color:var(--primary-dk)}
+.btn{display:inline-flex;align-items:center;gap:5px;height:28px;padding:0 11px;border:1px solid var(--bd-2);border-radius:4px;background:#fff;color:var(--text-2);font-family:var(--sans);font-size:12px;font-weight:500;cursor:pointer}
+.btn:hover{border-color:var(--primary);color:var(--primary)}
+
+.tabbar{margin:14px 0 0;padding:0 20px;border-bottom:1px solid var(--bd-2);display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabbar::-webkit-scrollbar{display:none}
+.tabbar button{
+  position:relative;border:0;background:none;font-family:var(--sans);
+  font-size:13.5px;font-weight:600;color:var(--muted);padding:11px 15px 12px;
+  cursor:pointer;white-space:nowrap;letter-spacing:-.02em;
+}
+.tabbar button:hover{color:var(--text)}
+.tabbar button[aria-selected="true"]{color:var(--primary)}
+.tabbar button[aria-selected="true"]::after{content:"";position:absolute;left:8px;right:8px;bottom:-1px;height:2px;background:var(--primary)}
+.tabbar .cnt{display:inline-block;margin-left:5px;min-width:17px;height:17px;line-height:17px;padding:0 4px;border-radius:9px;background:#EBEEF1;color:var(--muted);font-size:11px;font-weight:600;text-align:center}
+.tabbar button[aria-selected="true"] .cnt{background:var(--primary);color:#fff}
+
+.body{padding:16px 20px 40px}
+.panel{display:none}
+.panel.active{display:block}
+
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:8px;margin-bottom:16px}
+.kpi div{background:var(--panel);border:1px solid var(--bd);border-radius:4px;padding:12px 14px}
+.kpi .lb{font-size:12px;color:var(--muted);margin-bottom:4px}
+.kpi .vl{font-size:20px;font-weight:700;letter-spacing:-.02em}
+.kpi .vl small{font-size:12px;font-weight:500;color:var(--muted);margin-left:4px}
+
+.section{background:var(--panel);border:1px solid var(--bd);border-radius:6px;margin-bottom:14px;overflow:hidden}
+.section > .shead{padding:12px 16px;border-bottom:1px solid var(--bd);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.section > .shead h2{font-size:14.5px;font-weight:700;letter-spacing:-.02em}
+.section > .shead .sub{font-size:12px;color:var(--muted)}
+.section > .shead .tag{margin-left:auto;font-size:11px;color:var(--muted-2)}
+.section > .sbody{padding:14px 16px}
+.section > .sfoot{padding:9px 16px;border-top:1px dashed var(--bd);font-size:11.5px;color:var(--muted)}
+
+.rec-item{border:1px solid var(--bd);border-radius:5px;padding:12px 14px;margin-bottom:8px}
+.rec-item:last-child{margin-bottom:0}
+.rec-item .rhead{display:flex;align-items:center;gap:8px;margin-bottom:5px;flex-wrap:wrap}
+.rec-item .rnum{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:4px;background:var(--primary-bg);color:var(--primary-dk);font-size:11.5px;font-weight:700;flex-shrink:0}
+.rec-item .rtitle{font-size:13.5px;font-weight:700;flex:1;min-width:200px}
+.pill{display:inline-flex;align-items:center;padding:2px 7px;border-radius:9px;font-size:10.5px;font-weight:700;letter-spacing:0;white-space:nowrap}
+.pill.now{background:var(--danger-bg);color:var(--danger)}
+.pill.done{background:var(--ok-bg);color:var(--ok)}
+.pill.watch{background:var(--warn-bg);color:var(--warn)}
+.pill.plan{background:var(--primary-bg);color:var(--primary-dk)}
+.conf{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:9px;font-size:10.5px;font-weight:700;white-space:nowrap}
+.conf.high{background:var(--ok-bg);color:var(--ok)}
+.conf.mid{background:var(--warn-bg);color:var(--warn)}
+.conf.low{background:var(--danger-bg);color:var(--danger)}
+.conf::before{content:"●";font-size:8px}
+
+.mixwrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.mixcard{background:var(--panel);border:1px solid var(--bd);border-radius:6px;padding:12px 14px}
+.mixcard .mixlabel{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.03em;text-transform:uppercase;margin-bottom:8px}
+.mixrow{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:11.5px}
+.mixrow:last-child{margin-bottom:0}
+.mixrow .mname{width:74px;flex-shrink:0;color:var(--text-2)}
+.mixrow .mbar{flex:1;height:8px;background:var(--head);border-radius:4px;overflow:hidden}
+.mixrow .mbar > span{display:block;height:100%;background:var(--primary);border-radius:4px}
+.mixrow .mpct{width:60px;flex-shrink:0;text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+
+.callout{background:#FFFBF2;border:1px solid #F0DFAE;border-radius:6px;padding:12px 14px;font-size:12px;color:var(--text-2);line-height:1.7;margin-top:10px}
+.callout b.chead{display:block;color:var(--warn);font-size:12.5px;font-weight:700;margin-bottom:5px}
+
+.linkgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:14px}
+.linkcard{background:var(--panel);border:1px solid var(--bd);border-radius:6px;padding:11px 13px}
+.linkcard .llabel{font-size:11px;color:var(--muted);margin-bottom:4px}
+.linkcard .lval{font-size:17px;font-weight:700}
+.linkcard .lval.ok{color:var(--ok)}
+.linkcard .lval.warn{color:var(--warn)}
+.linkcard .ldesc{font-size:11px;color:var(--muted-2);margin-top:3px;line-height:1.5}
+
+.linkcard{cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.linkcard:hover{border-color:var(--primary);box-shadow:0 2px 8px rgba(27,95,168,.08)}
+.linkcard .lhint{font-size:10.5px;color:var(--primary-dk);margin-top:6px;font-weight:600}
+
+/* 오늘의 브리핑 요약 대시보드 */
+.brief-hero{
+  position:relative;overflow:hidden;margin-bottom:14px;padding:22px 24px;border-radius:12px;
+  background:linear-gradient(120deg,#103E70 0%,#1B5FA8 62%,#2D78C5 100%);color:#fff;
+  box-shadow:0 8px 22px rgba(21,75,133,.16)
+}
+.brief-hero::after{content:"";position:absolute;right:-70px;top:-95px;width:260px;height:260px;border:48px solid rgba(255,255,255,.07);border-radius:50%}
+.brief-hero-main{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:28px}
+.brief-hero-copy{min-width:0}
+.brief-hero .eyebrow{position:relative;z-index:1;font-size:12px;font-weight:700;letter-spacing:.08em;color:#CFE3F7;margin-bottom:6px}
+.brief-hero h2{position:relative;z-index:1;font-size:25px;line-height:1.35;letter-spacing:-.04em;margin-bottom:8px}
+.brief-hero p{position:relative;z-index:1;max-width:780px;font-size:14px;line-height:1.7;color:#EAF3FB}
+.brief-live-info{display:grid;grid-template-columns:repeat(3,minmax(112px,1fr));gap:8px;min-width:390px}
+.brief-live-item{min-height:72px;padding:11px 13px;border:1px solid rgba(255,255,255,.24);border-radius:9px;background:rgba(7,43,82,.24);backdrop-filter:blur(4px)}
+.brief-live-label{display:block;margin-bottom:5px;color:#CFE3F7;font-size:11px;font-weight:700;letter-spacing:.035em}
+.brief-live-item strong{display:block;color:#fff;font-size:15px;line-height:1.35;white-space:nowrap}
+.brief-live-item small{display:block;margin-top:3px;color:#DCEBFA;font-size:10.5px;line-height:1.35}
+.dash-stats{position:relative;z-index:1;display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.dash-stat{min-width:118px;padding:8px 11px;border:1px solid rgba(255,255,255,.23);border-radius:7px;background:rgba(255,255,255,.1);backdrop-filter:blur(3px)}
+.dash-stat b{display:block;font-size:17px;line-height:1.25}.dash-stat span{font-size:11.5px;color:#D7E8F8}
+
+.brief-board{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:11px;margin-bottom:14px}
+.brief-card{grid-column:span 4;display:flex;flex-direction:column;min-height:310px;background:#fff;border:1px solid var(--bd);border-top:4px solid var(--primary);border-radius:9px;padding:16px;box-shadow:0 3px 12px rgba(35,51,66,.055);transition:transform .16s,box-shadow .16s,border-color .16s}
+.brief-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(27,95,168,.11);border-color:#C8D9EA}
+.brief-card.urgent{border-top-color:var(--danger)}
+.brief-card.ai{border-top-color:#6045C5}
+.brief-card.support{border-top-color:#0B7A6D}
+.brief-card.future{border-top-color:#B77910}
+.brief-card .cardtop{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.brief-card .cardcat{font-size:11.5px;font-weight:800;letter-spacing:.04em;color:var(--primary-dk)}
+.brief-card.ai .cardcat{color:#6045C5}.brief-card.support .cardcat{color:#0B7A6D}.brief-card.future .cardcat{color:#8E6410}.brief-card.urgent .cardcat{color:var(--danger)}
+.brief-card h3{font-size:16px;line-height:1.45;letter-spacing:-.025em;margin-bottom:12px;color:#1E2A36}
+.brief-fields{display:grid;gap:8px;margin-bottom:14px}
+.brief-field{display:grid;grid-template-columns:78px 1fr;gap:8px;padding-top:8px;border-top:1px solid #EDF0F3;font-size:13px;line-height:1.58}
+.brief-field:first-child{padding-top:0;border-top:0}
+.brief-field dt{color:var(--muted);font-weight:700}.brief-field dd{color:var(--text-2)}
+.brief-field dd strong{color:var(--text)}
+.brief-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:auto;padding-top:2px}
+.detail-btn{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:0 12px;border:0;border-radius:5px;background:var(--primary);color:#fff;font:700 12px var(--sans);cursor:pointer}
+.detail-btn:hover{background:var(--primary-dk)}
+.source-btn{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:0 11px;border:1px solid var(--bd-2);border-radius:5px;background:#fff;color:var(--text-2);font-size:12px;font-weight:700}
+.source-btn:hover{text-decoration:none;border-color:var(--primary);color:var(--primary-dk)}
+.deadline-bar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;margin-bottom:14px;border:1px solid var(--bd);border-radius:8px;overflow:hidden;background:var(--bd)}
+.deadline-item{background:#fff;padding:11px 12px;min-height:70px}.deadline-item b{display:block;font-size:13px;color:var(--primary-dk);margin-bottom:3px}.deadline-item span{display:block;font-size:11.5px;line-height:1.45;color:var(--muted)}
+.dashboard-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:19px 0 10px}
+.dashboard-heading h2{font-size:17px;letter-spacing:-.03em}.dashboard-heading p{font-size:12px;color:var(--muted)}
+
+/* 메인 요약 대시보드 */
+.overview-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(300px,.85fr);gap:12px;margin-bottom:18px}
+.overview-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--bd);border-radius:10px;overflow:hidden;box-shadow:0 4px 16px rgba(35,51,66,.05)}
+.overview-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:16px 18px;border-bottom:1px solid var(--bd)}
+.overview-head .overline{display:block;margin-bottom:3px;color:var(--primary);font-size:11.5px;font-weight:800;letter-spacing:.06em}
+.overview-head h2{font-size:18px;line-height:1.4;letter-spacing:-.035em}
+.overview-head p{margin-top:3px;color:var(--muted);font-size:12.5px}
+.overview-link{flex-shrink:0;border:0;background:none;color:var(--primary-dk);font:700 12px var(--sans);cursor:pointer;padding:4px 0}
+.overview-link:hover{text-decoration:underline}
+.mini-gantt-controls{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-bottom:1px solid var(--bd);background:#FCFDFE}
+.mini-month-nav{display:flex;align-items:center;gap:6px}.mini-month-nav button{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;padding:0 9px;border:1px solid var(--bd-2);border-radius:5px;background:#fff;color:var(--text-2);font:700 12px var(--sans);cursor:pointer}.mini-month-nav button:hover{border-color:var(--primary);color:var(--primary-dk)}.mini-month-nav button:disabled{cursor:not-allowed;opacity:.4;border-color:var(--bd-2);color:var(--muted)}
+.mini-month-title{min-width:96px;text-align:center;color:#18344F;font-size:14px;font-weight:900}.mini-gantt-meta{color:var(--muted);font-size:12px}.mini-gantt-meta b{color:var(--primary-dk)}
+.mini-gantt-scroll{overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-color:#A9B6C2 #EEF1F4}
+.mini-gantt{--day-step:3.333333%;--today-left:50%;width:100%;min-width:0;background:#fff}
+.mini-gantt-row{display:grid;grid-template-columns:minmax(150px,28%) minmax(0,1fr);min-height:43px;border-bottom:1px solid #E9EDF1}.mini-gantt-row:last-child{border-bottom:0}.mini-gantt-row.head{min-height:34px;background:#F6F8FA}
+.mini-gantt-task{display:flex;align-items:center;gap:7px;padding:6px 11px;border-right:1px solid var(--bd);background:#fff;min-width:0}.mini-gantt-row.head .mini-gantt-task{background:#F6F8FA;color:var(--muted);font-size:12px;font-weight:800}.mini-gantt-task b{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#263B4F;font-size:12px}.mini-gantt-task .schedule-cat{flex-shrink:0}
+.mini-gantt-scale,.mini-gantt-track{position:relative;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(var(--day-step) - 1px),#EDF0F3 calc(var(--day-step) - 1px),#EDF0F3 var(--day-step))}
+.mini-day-label{position:absolute;top:50%;transform:translate(-50%,-50%);color:var(--muted);font-size:10.5px;font-weight:700}.mini-day-label.first{transform:translate(0,-50%)}.mini-day-label.last{transform:translate(-100%,-50%)}
+.mini-gantt.show-today .mini-gantt-scale::after,.mini-gantt.show-today .mini-gantt-track::after{content:"";position:absolute;z-index:5;left:var(--today-left);top:0;bottom:0;border-left:2px dashed #E02D2D;pointer-events:none}
+.mini-gantt-bar{position:absolute;z-index:2;left:var(--bar-left);width:var(--bar-width);top:9px;height:24px;display:flex;align-items:center;justify-content:center;min-width:9px;padding:0 6px;border-radius:5px;background:#2F73B7;color:#fff;font-size:10.5px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-shadow:0 1px 3px rgba(27,95,168,.16)}
+.mini-gantt-bar.focus{background:#238779}.mini-gantt-bar.deadline{background:#3D70A8}.mini-gantt-bar.recurring{background:transparent;color:#607080;border:1px dashed #A8B7C5;box-shadow:none}
+.mini-gantt-empty{padding:28px;text-align:center;color:var(--muted)}
+.mini-gantt-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 14px;border-top:1px solid var(--bd);background:#FCFDFE;color:var(--muted);font-size:11.5px}.mini-today-key{display:inline-flex;align-items:center;gap:6px}.mini-today-key i{width:18px;border-top:2px dashed #E02D2D}
+.routine-common{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:4px 12px;padding:13px 17px;border-bottom:1px solid var(--bd);background:#F7FAFD}
+.routine-common .routine-label{grid-row:1/3;display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 11px;border-radius:18px;background:var(--primary);color:#fff;font-size:12px;font-weight:800;white-space:nowrap}
+.routine-common b{color:#18344F;font-size:14px;line-height:1.45}
+.routine-common small{color:var(--muted);font-size:13px;line-height:1.45}
+.gantt-tools{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;border-bottom:1px solid var(--bd);background:#FCFDFE}
+.gantt-legend{display:flex;align-items:center;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:12.5px}
+.gantt-legend span{display:inline-flex;align-items:center;gap:6px}.gantt-dot{width:10px;height:10px;border-radius:3px;background:var(--primary)}
+.gantt-dot.plan{background:#0B7A6D}.gantt-dot.check{background:#B77910}.gantt-dot.deadline{background:var(--danger)}
+.gantt-dot.recurring{background:transparent;border:1px dashed #A8B7C5}
+.gantt-scroll{overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-color:#A9B6C2 #EEF1F4}
+.gantt-chart{--current-month:1;min-width:1040px;background:#fff}
+.gantt-row{display:grid;grid-template-columns:240px minmax(0,1fr);min-height:58px;border-bottom:1px solid #E8EBEF}
+.gantt-row:last-child{border-bottom:0}.gantt-row.gantt-head{min-height:42px;background:#F5F7F9}
+.gantt-task{position:sticky;left:0;z-index:4;display:flex;flex-direction:column;justify-content:center;padding:9px 14px;border-right:1px solid var(--bd);background:#fff}
+.gantt-head .gantt-task{background:#F5F7F9;color:var(--text-2);font-size:13px;font-weight:800}
+.gantt-task b{color:#263B4F;font-size:14px;line-height:1.35}.gantt-task small{margin-top:2px;color:var(--muted);font-size:12px;line-height:1.35}
+.gantt-month-head,.gantt-months{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));position:relative}
+.gantt-month-head span{display:flex;align-items:center;justify-content:center;border-right:1px solid #E1E5E9;color:var(--muted);font-size:12.5px;font-weight:700}
+.gantt-month-head span:last-child{border-right:0}.gantt-month-head span.current{background:#E7F1FB;color:var(--primary-dk);font-weight:900}
+.gantt-months{align-items:center;padding:8px 0;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(8.333333% - 1px),#EDF0F3 calc(8.333333% - 1px),#EDF0F3 8.333333%)}
+.gantt-months::before{content:"";z-index:0;grid-row:1;grid-column:var(--current-month)/span 1;align-self:stretch;margin:-8px 0;background:rgba(27,95,168,.06);box-shadow:inset 1px 0 rgba(27,95,168,.12),inset -1px 0 rgba(27,95,168,.12)}
+.gantt-bar{z-index:1;grid-row:1;grid-column:var(--g-start)/span var(--g-span);display:flex;align-items:center;justify-content:center;min-width:0;height:30px;margin:0 4px;padding:0 8px;border-radius:7px;background:linear-gradient(90deg,#1B5FA8,#3279BD);color:#fff;font-size:12px;font-weight:800;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-shadow:0 2px 5px rgba(27,95,168,.16)}
+.gantt-bar.plan{background:linear-gradient(90deg,#0B7A6D,#21988A);box-shadow:0 2px 5px rgba(11,122,109,.16)}
+.gantt-bar.check{background:linear-gradient(90deg,#A96D08,#C58A23);box-shadow:0 2px 5px rgba(183,121,16,.16)}
+.gantt-bar.deadline{background:linear-gradient(90deg,#B62D27,#D0544D);box-shadow:0 2px 5px rgba(196,50,43,.16)}
+.gantt-bar.recurring,.gantt-bar.recurring.plan,.gantt-bar.recurring.check,.gantt-bar.recurring.deadline{background:transparent;color:#607080;border:1px dashed #A8B7C5;box-shadow:none}
+.routine-note{padding:10px 16px;border-top:1px solid var(--bd);background:#FCFDFE;color:var(--muted);font-size:12.5px;line-height:1.55}
+.schedule-hero{display:grid;grid-template-columns:minmax(0,1fr) repeat(4,minmax(112px,.22fr));gap:10px;margin-bottom:14px;padding:18px;border:1px solid #CFE0EF;border-radius:10px;background:linear-gradient(120deg,#F8FBFE,#EDF4FA)}
+.schedule-hero-copy{padding:4px 8px}.schedule-hero-copy .overline{display:block;color:var(--primary);font-size:11px;font-weight:900;letter-spacing:.07em;margin-bottom:4px}.schedule-hero-copy h2{font-size:22px;letter-spacing:-.04em}.schedule-hero-copy p{margin-top:5px;color:var(--text-2);font-size:13px;line-height:1.6}
+.schedule-stat{display:flex;flex-direction:column;justify-content:center;min-height:78px;padding:12px;border:1px solid rgba(27,95,168,.16);border-radius:8px;background:#fff}.schedule-stat b{font-size:20px;color:#18344F}.schedule-stat span{margin-top:2px;color:var(--muted);font-size:11.5px}
+.schedule-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--bd);background:#fff}
+.schedule-filters{display:flex;gap:6px;flex-wrap:wrap}.schedule-filter{min-height:29px;padding:4px 10px;border:1px solid var(--bd-2);border-radius:15px;background:#fff;color:var(--text-2);font:700 11.5px var(--sans);cursor:pointer}.schedule-filter:hover,.schedule-filter.active{border-color:var(--primary);background:var(--primary-bg);color:var(--primary-dk)}
+.schedule-result{flex-shrink:0;color:var(--muted);font-size:12px}.schedule-result b{color:var(--primary-dk)}
+.schedule-gantt .gantt-row{min-height:54px}.schedule-gantt .gantt-task{gap:2px}.schedule-cat{display:inline-flex;align-items:center;width:max-content;min-height:19px;padding:1px 6px;border-radius:10px;background:#EEF2F5;color:#526171;font-size:10px;font-weight:800}.schedule-gantt .gantt-task b{font-size:13px}.schedule-gantt .gantt-task small{font-size:11px}
+.schedule-gantt-empty{padding:32px;text-align:center;color:var(--muted)}
+.event-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.event-card{padding:13px 14px;border:1px solid var(--bd);border-radius:7px;background:#fff}.event-card b{display:block;color:#263B4F;font-size:13px}.event-card span{display:block;margin-top:4px;color:var(--muted);font-size:11.5px;line-height:1.5}
+.deadline-list{padding:6px 16px 10px}
+.deadline-row{display:grid;grid-template-columns:58px 1fr 18px;align-items:center;gap:9px;width:100%;padding:10px 2px;border:0;border-bottom:1px solid #EDF0F3;background:#fff;color:var(--text);font:inherit;text-align:left;cursor:pointer}
+.deadline-row:last-child{border-bottom:0}.deadline-row:hover .deadline-copy b{color:var(--primary)}
+.deadline-date{display:inline-flex;align-items:center;justify-content:center;min-height:28px;border-radius:6px;background:var(--primary-bg);color:var(--primary-dk);font-size:12px;font-weight:800;font-variant-numeric:tabular-nums}
+.deadline-row.urgent .deadline-date{background:var(--danger-bg);color:var(--danger)}
+.deadline-copy b{display:block;font-size:13px;line-height:1.4}.deadline-copy span{display:block;margin-top:2px;color:var(--muted);font-size:11.5px;line-height:1.4}
+.deadline-arrow{color:var(--muted-2);font-size:17px;text-align:right}
+.quick-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:0 0 10px}
+.quick-head h2{font-size:17px;letter-spacing:-.03em}.quick-head p{color:var(--muted);font-size:12px}
+.quick-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.quick-card{position:relative;display:flex;min-width:0;min-height:172px;padding:16px;border:1px solid var(--bd);border-radius:9px;background:#fff;color:var(--text);font:inherit;text-align:left;cursor:pointer;overflow:hidden;transition:transform .15s,box-shadow .15s,border-color .15s;flex-direction:column}
+.quick-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--primary)}
+.quick-card:hover{transform:translateY(-2px);border-color:#C6D6E6;box-shadow:0 7px 18px rgba(35,51,66,.09)}
+.quick-card.ai::before{background:#6045C5}.quick-card.support::before{background:#0B7A6D}.quick-card.pay::before{background:#B77910}.quick-card.year::before{background:#6A3FB5}
+.quick-icon{display:inline-flex;align-items:center;justify-content:center;min-width:35px;height:28px;padding:0 7px;border-radius:6px;background:var(--primary-bg);color:var(--primary-dk);font-size:10px;font-weight:900;letter-spacing:.04em}
+.quick-card.ai .quick-icon{background:#EEEAFB;color:#6045C5}.quick-card.support .quick-icon{background:#E8F4F1;color:#0B7A6D}.quick-card.pay .quick-icon{background:#FBF3E3;color:#8E6410}.quick-card.year .quick-icon{background:#F1EAFB;color:#6A3FB5}
+.quick-card h3{margin-top:13px;font-size:15px;line-height:1.5;letter-spacing:-.01em}.quick-card p{margin-top:6px;color:var(--muted);font-size:12.5px;line-height:1.65;letter-spacing:0}
+.quick-card .quick-meta{position:static;display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-top:auto;padding-top:12px;color:var(--primary-dk);font-size:11.5px;font-weight:700;letter-spacing:0}
+.quick-card.ai .quick-meta{color:#6045C5}.quick-card.support .quick-meta{color:#0B7A6D}.quick-card.pay .quick-meta{color:#8E6410}.quick-card.year .quick-meta{color:#6A3FB5}
+.deadline-row:focus-visible,.quick-card:focus-visible,.overview-link:focus-visible{outline:3px solid rgba(27,95,168,.3);outline-offset:-3px}
+
+.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.summary-card{min-width:0;background:#fff;border:1px solid var(--bd);border-radius:10px;overflow:hidden;box-shadow:0 4px 16px rgba(35,51,66,.05)}
+.summary-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 16px;border-bottom:1px solid var(--bd)}
+.summary-title{display:flex;align-items:center;gap:9px;min-width:0}.summary-mark{display:inline-flex;align-items:center;justify-content:center;min-width:36px;height:28px;padding:0 8px;border-radius:7px;background:var(--primary-bg);color:var(--primary-dk);font-size:10px;font-weight:900;letter-spacing:.03em}
+.summary-card.support .summary-mark{background:#E8F4F1;color:#0B7A6D}.summary-card.ai .summary-mark{background:#EEEAFB;color:#6045C5}
+.summary-head h2{font-size:15px;line-height:1.4;letter-spacing:-.01em}.summary-more{flex-shrink:0;border:0;background:none;color:var(--primary-dk);font:700 11.5px var(--sans);cursor:pointer}
+.summary-card.support .summary-more{color:#0B7A6D}.summary-card.ai .summary-more{color:#6045C5}
+.summary-list{padding:5px 15px 9px}
+.summary-row{display:grid;grid-template-columns:64px minmax(0,1fr) 16px;align-items:center;gap:9px;width:100%;padding:11px 1px;border:0;border-bottom:1px solid #EDF0F3;background:#fff;color:var(--text);font:inherit;text-align:left;cursor:pointer;letter-spacing:0}
+.summary-row:last-child{border-bottom:0}.summary-row:hover .summary-copy b{color:var(--primary)}
+.summary-card.support .summary-row:hover .summary-copy b{color:#0B7A6D}.summary-card.ai .summary-row:hover .summary-copy b{color:#6045C5}
+.summary-tag{display:inline-flex;align-items:center;justify-content:center;min-height:25px;padding:2px 6px;border-radius:6px;background:var(--primary-bg);color:var(--primary-dk);font-size:10.5px;font-weight:800;line-height:1.2}
+.summary-card.support .summary-tag{background:#E8F4F1;color:#0B7A6D}.summary-card.ai .summary-tag{background:#EEEAFB;color:#6045C5}
+.summary-copy{min-width:0}.summary-copy b{display:block;font-size:13px;line-height:1.5;letter-spacing:-.005em}.summary-copy span{display:block;margin-top:2px;color:var(--muted);font-size:11.5px;line-height:1.5}
+.summary-arrow{color:var(--muted-2);font-size:16px;text-align:right}
+.summary-row:focus-visible,.summary-more:focus-visible{outline:3px solid rgba(27,95,168,.3);outline-offset:-3px}
+
+.ai-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.ai-detail{border:1px solid var(--bd);border-radius:8px;padding:16px;background:#fff}
+.ai-detail .ai-no{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;background:#EEEAFB;color:#6045C5;font-size:12px;font-weight:800;margin-bottom:10px}
+.ai-detail h3{font-size:15px;line-height:1.45;margin-bottom:9px}.ai-detail p{font-size:13px;line-height:1.65;color:var(--text-2);margin-bottom:10px}
+.ai-detail .ai-action{padding:10px 11px;border-radius:6px;background:#F4F1FC;color:#4F3AA4;font-size:12.5px;line-height:1.6;margin-bottom:11px}
+.ai-category-nav{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px;padding:6px;border:1px solid #E3DDF5;border-radius:9px;background:#F8F6FD}
+.ai-subtab{min-height:38px;padding:8px 16px;border:1px solid transparent;border-radius:7px;background:transparent;color:#655C77;font:700 12.5px var(--sans);letter-spacing:-.01em;cursor:pointer}
+.ai-subtab:hover{background:#fff;color:#4F3AA4}.ai-subtab[aria-selected="true"]{border-color:#D8CEF4;background:#fff;color:#4F3AA4;box-shadow:0 2px 7px rgba(79,58,164,.09)}
+.ai-subtab:focus-visible{outline:3px solid rgba(96,69,197,.22);outline-offset:1px}
+.ai-subpanel{display:none}.ai-subpanel.active{display:block}
+.ai-category-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:2px 0 12px}
+.ai-category-head h3{font-size:16px;line-height:1.4}.ai-category-head p{color:var(--muted);font-size:11.5px;line-height:1.5;text-align:right}
+.ai-feed{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.ai-feed-card{display:flex;min-width:0;min-height:215px;padding:16px;border:1px solid var(--bd);border-radius:8px;background:#fff;color:var(--text);flex-direction:column}
+.ai-feed-card:hover{border-color:#CFC5ED;box-shadow:0 5px 14px rgba(60,45,112,.07);text-decoration:none}
+.ai-card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:11px}
+.ai-kind,.ai-state{display:inline-flex;align-items:center;min-height:24px;padding:3px 8px;border-radius:12px;font-size:10.5px;font-weight:800;line-height:1.2}
+.ai-kind{background:#EEEAFB;color:#6045C5}.ai-state{background:#EAF3FB;color:#235F94}.ai-state.open{background:#E8F4F1;color:#0B7A6D}.ai-state.closed{background:#F6ECEB;color:#A13F35}.ai-state.pending{background:#FBF3E3;color:#8E6410}
+.ai-feed-card h4{font-size:14.5px;line-height:1.5;letter-spacing:-.01em;margin-bottom:8px}.ai-feed-card p{color:var(--text-2);font-size:12.5px;line-height:1.65;margin-bottom:12px}
+.ai-feed-meta{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:auto;padding-top:10px;border-top:1px solid #EDF0F3;color:var(--muted);font-size:11px;line-height:1.45}.ai-feed-meta b{color:#4F3AA4}.ai-link{flex-shrink:0;color:#4F3AA4;font-weight:800}
+
+/* 법령·판례 탭의 Attention / 참고자료 영역 */
+.attention-block,.trend-block{background:#fff;border:1px solid var(--bd);border-radius:9px;margin-bottom:14px;overflow:hidden}
+.feature-head{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid #E7D8CC}
+.feature-kicker{display:inline-flex;align-items:center;justify-content:center;min-width:64px;height:25px;padding:0 10px;border-radius:13px;background:#7A5A45;color:#fff;font-size:11px;font-weight:800;letter-spacing:.01em}
+.feature-kicker.trend{background:#315F8B}
+.feature-head h2{font-size:17px;letter-spacing:-.03em}.feature-head .sub{margin-left:auto;color:var(--muted);font-size:12px}
+.attention-list{padding:0 16px}
+.attention-row{display:grid;grid-template-columns:72px 1fr 22px;align-items:center;gap:12px;width:100%;padding:13px 0;border:0;border-bottom:1px dashed #DDD3CC;background:#fff;color:var(--text);font:inherit;text-align:left;cursor:pointer}
+.attention-row:last-child{border-bottom:0}.attention-row:hover .attention-text{color:var(--primary-dk)}
+.attention-type{display:inline-flex;align-items:center;justify-content:center;min-height:24px;padding:2px 7px;border:1px solid #A98A76;color:#6D4E3A;background:#FFFDFC;font-size:11px;font-weight:700}
+.attention-text{font-size:13.5px;line-height:1.55}.attention-arrow{color:var(--muted-2);font-size:17px;text-align:right}
+.resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;background:#EEF1F4}
+.resource-card{display:grid;grid-template-columns:70px 1fr;gap:14px;min-height:132px;padding:18px;background:#fff;color:var(--text);border-right:1px solid var(--bd);border-bottom:1px solid var(--bd);transition:background .15s}
+.resource-card:nth-child(2n){border-right:0}.resource-card:nth-last-child(-n+2){border-bottom:0}.resource-card:hover{background:#F8FAFC;text-decoration:none}
+.doc-cover{position:relative;width:64px;height:88px;border:1px solid #CCD3DB;border-radius:2px;background:linear-gradient(180deg,#fff 0 18px,#EAF2FA 18px 34px,#fff 34px);box-shadow:0 2px 6px rgba(35,51,66,.08);padding:41px 6px 6px;text-align:center;color:var(--primary-dk);font-size:9px;font-weight:800;line-height:1.25}
+.doc-cover::before{content:"OFFICIAL";position:absolute;left:6px;top:6px;color:var(--muted-2);font-size:7px;letter-spacing:.08em}
+.doc-cover.ai-doc{background:linear-gradient(180deg,#fff 0 18px,#EFEAFB 18px 34px,#fff 34px);color:#6045C5}
+.resource-copy b{display:block;font-size:14px;line-height:1.45;margin:3px 0 7px}.resource-copy span{display:block;color:var(--text-2);font-size:12.5px;line-height:1.55}.resource-copy em{display:block;margin-top:8px;color:var(--primary-dk);font-size:11.5px;font-style:normal;font-weight:700}
+
+@media(max-width:1050px){.brief-hero-main{grid-template-columns:1fr}.brief-live-info{min-width:0;max-width:520px}.brief-card{grid-column:span 6}.deadline-bar{grid-template-columns:repeat(3,1fr)}.ai-list,.ai-feed{grid-template-columns:1fr}.quick-nav{grid-template-columns:repeat(3,minmax(0,1fr))}.summary-grid,.overview-grid{grid-template-columns:1fr}.schedule-hero{grid-template-columns:repeat(4,1fr)}.schedule-hero-copy{grid-column:1/-1}}
+@media(max-width:680px){
+  .body{padding:12px 12px 30px}.crumb,.ptitle,.tabbar{padding-left:12px;padding-right:12px}
+  .brief-hero{padding:18px}.brief-hero h2{font-size:21px}.brief-hero-main{gap:16px}.brief-live-info{grid-template-columns:1fr}.brief-live-item{min-height:auto}.brief-card{grid-column:1/-1;min-height:auto}
+  .brief-field{grid-template-columns:72px 1fr}.deadline-bar{grid-template-columns:repeat(2,1fr)}
+  .dashboard-heading{align-items:flex-start;flex-direction:column}.ptitle .meta{margin-left:0}
+  .overview-grid{grid-template-columns:1fr}.mini-gantt{min-width:560px}.mini-gantt-controls{align-items:flex-start;flex-direction:column}.mini-gantt-foot{align-items:flex-start;flex-direction:column}.mini-gantt-scroll::after{content:"← 좌우로 밀어 월간 일정 보기 →";position:sticky;left:10px;display:block;width:max-content;padding:6px 10px;color:var(--primary-dk);font-size:11.5px;font-weight:700}.routine-common{grid-template-columns:1fr}.routine-common .routine-label{grid-row:auto;justify-self:start}.gantt-tools,.schedule-toolbar{align-items:flex-start;flex-direction:column}.gantt-scroll::after{content:"← 좌우로 밀어 12개월 전체 보기 →";position:sticky;left:12px;display:block;width:max-content;padding:7px 12px;color:var(--primary-dk);font-size:12px;font-weight:700}.quick-head{align-items:flex-start;flex-direction:column}.quick-nav{grid-template-columns:1fr}.quick-card{min-height:156px}.summary-row{grid-template-columns:58px minmax(0,1fr) 14px}.schedule-hero{grid-template-columns:repeat(2,1fr);padding:12px}.schedule-stat{min-height:66px}.event-grid{grid-template-columns:1fr}
+  .feature-head{align-items:flex-start;flex-wrap:wrap}.feature-head .sub{width:100%;margin-left:0}.attention-row{grid-template-columns:64px 1fr 16px;gap:8px}
+  .resource-grid{grid-template-columns:1fr}.resource-card,.resource-card:nth-child(2n),.resource-card:nth-last-child(-n+2){border-right:0;border-bottom:1px solid var(--bd)}.resource-card:last-child{border-bottom:0}
+  .ai-category-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.ai-subtab{padding:8px 6px}.ai-category-head{align-items:flex-start;flex-direction:column}.ai-category-head p{text-align:left}
+}
+
+.kpidetail{display:none;background:var(--panel);border:1px solid var(--primary);border-radius:6px;padding:12px 14px;margin-bottom:14px}
+.kpidetail .kdtitle{font-size:12.5px;font-weight:700;color:var(--primary-dk);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.kpidetail .kdclose{cursor:pointer;color:var(--muted);font-size:16px;line-height:1}
+.kpidetail .kdrow{display:flex;align-items:center;gap:8px;padding:7px 4px;border-bottom:1px dashed var(--bd);font-size:12.5px;cursor:pointer;border-radius:4px}
+.kpidetail .kdrow:last-child{border-bottom:none}
+.kpidetail .kdrow:hover{background:var(--primary-bg);color:var(--primary-dk)}
+.kpidetail .kdnum{flex-shrink:0;width:20px;height:20px;border-radius:4px;background:var(--primary-bg);color:var(--primary-dk);font-size:11px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+
+.rchecked{display:inline-flex;align-items:center;gap:3px;font-size:11px;color:var(--muted);font-family:inherit}
+.rchecked.stale{color:var(--warn);font-weight:600}
+.rchecked.very-stale{color:var(--danger);font-weight:700}
+
+.rec-item.flash{animation:flashHighlight 1.6s ease}
+@keyframes flashHighlight{0%{box-shadow:0 0 0 3px var(--primary-bg)}100%{box-shadow:0 0 0 0 transparent}}
+
+.rec-item .rbody{color:var(--text-2);font-size:12.5px;line-height:1.65;margin-bottom:8px}
+.rec-item .rfoot{display:flex;gap:10px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);align-items:center}
+.rec-item .rfoot span b{color:var(--text-2);font-weight:600}
+.srclink{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border:1px solid var(--bd-2);border-radius:11px;font-size:11px;font-weight:600;color:var(--primary-dk);background:var(--primary-bg)}
+.srclink:hover{text-decoration:none;border-color:var(--primary)}
+.srcbox{margin-top:8px;padding:8px 10px;background:var(--head);border-radius:4px;font-size:11.5px;color:var(--muted)}
+.srcbox b{color:var(--text-2)}
+.srcbox a{margin-left:6px}
+
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--bd);vertical-align:top}
+th{background:var(--head);color:var(--muted);font-weight:600;font-size:11.5px;white-space:nowrap}
+tbody tr:hover{background:var(--head)}
+.status{display:inline-flex;align-items:center;padding:2px 7px;border-radius:9px;font-size:10.5px;font-weight:700}
+.status.act{background:var(--ok-bg);color:var(--ok)}
+.status.fix{background:var(--primary-bg);color:var(--primary-dk)}
+.status.case{background:#F1EAFB;color:#6A3FB5}
+.status.disc{background:var(--warn-bg);color:var(--warn)}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+.filters select, .filters input[type=text]{
+  height:30px;border:1px solid var(--bd-2);border-radius:4px;background:#fff;
+  padding:0 9px;font-family:var(--sans);font-size:12px;color:var(--text-2);
+}
+.filters input[type=text]{min-width:220px}
+.chip{display:inline-flex;align-items:center;gap:4px;height:26px;padding:0 10px;border-radius:13px;
+  border:1px solid var(--bd-2);background:#fff;font-size:11.5px;color:var(--text-2);cursor:pointer}
+.chip.on{background:var(--primary);border-color:var(--primary);color:#fff}
+.chip .n{font-weight:700}
+
+.newscard{border:1px solid var(--bd);border-radius:5px;padding:11px 13px;margin-bottom:8px}
+.newscard:last-child{margin-bottom:0}
+.newscard .nhead{display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap}
+.newscard .ntitle{font-weight:700;font-size:13px;flex:1;min-width:180px}
+.newscard .ndate{font-size:11px;color:var(--muted-2);white-space:nowrap}
+.newscard .nsum{color:var(--text-2);font-size:12.5px;line-height:1.6;margin-bottom:6px}
+.newscard .nfoot{display:flex;gap:10px;font-size:11.5px;color:var(--muted);flex-wrap:wrap;align-items:center}
+.cat{display:inline-flex;align-items:center;padding:2px 7px;border-radius:4px;font-size:10.5px;font-weight:700}
+.cat.wage{background:#EAF3EF;color:#15704B}
+.cat.union{background:#F1EAFB;color:#6A3FB5}
+.cat.safety{background:#FBEEED;color:#C4322B}
+.cat.ins{background:#EDF3FA;color:#154B85}
+.cat.case{background:#FBF3E3;color:#8E6410}
+.cat.family{background:#F1EAFB;color:#6A3FB5}
+.cat.employment{background:#E8F4F7;color:#0B6777}
+.cat.ai{background:#EEEAFB;color:#6045C5}
+
+.pastebox{width:100%;min-height:70px;border:1px dashed var(--bd-2);border-radius:5px;padding:9px;
+  font-family:var(--sans);font-size:12px;color:var(--text-2);resize:vertical;margin-bottom:8px}
+.hint{font-size:11.5px;color:var(--muted);line-height:1.6;margin-bottom:8px}
+
+.note{background:var(--head);border:1px solid var(--bd);border-radius:5px;padding:10px 12px;font-size:12px;color:var(--text-2);line-height:1.65}
+.note b{color:var(--text)}
+.footprint{margin-top:20px;padding-top:14px;border-top:1px solid var(--bd);font-size:11.5px;color:var(--muted-2);line-height:1.8}
+</style>
+</head>
+<body>
+
+<div class="crumb"><b>경영업무포털</b> › 인사노무 궁금해?</div>
+<div class="ptitle">
+  <h1>인사노무 궁금해?</h1>
+  <span class="badge access">열람: 전체 공개</span>
+  <div class="meta">
+    <span>기준일 <b class="num" id="todayLabel">자동 계산 중</b></span>
+    <span id="lastFetchLabel" hidden></span>
+    <button class="btn" onclick="location.reload()">화면 새로고침</button>
+    <button class="btn" onclick="window.print()">인쇄</button>
+  </div>
+</div>
+<div id="refreshBanner" style="display:none;margin:8px 20px 0;padding:8px 14px;border-radius:5px;font-size:12px;line-height:1.6"></div>
+
+<div class="tabbar" role="tablist">
+  <button role="tab" aria-selected="true" data-tab="t1">요약 대시보드</button>
+  <button role="tab" aria-selected="false" data-tab="t1b">월간·연간 요약</button>
+  <button role="tab" aria-selected="false" data-tab="t1c">전체 인사스케줄<span class="cnt">64</span></button>
+  <button role="tab" aria-selected="false" data-tab="t2">법령·판례 현황<span class="cnt">27</span></button>
+  <button role="tab" aria-selected="false" data-tab="t3">뉴스·이슈 조회<span class="cnt">36</span></button>
+  <button role="tab" aria-selected="false" data-tab="t6">AI·업무혁신<span class="cnt">4</span></button>
+  <button role="tab" aria-selected="false" data-tab="t4b">인사·총무 지원사업<span class="cnt" id="supportTabCount">10</span></button>
+  <button role="tab" aria-selected="false" data-tab="t4">4대보험·급여 지표</button>
+  <button role="tab" aria-selected="false" data-tab="t5">출처·안내</button>
+</div>
+
+<div class="body">
+
+<!-- ============ TAB 1: 요약 대시보드 ============ -->
+<div class="panel active" id="t1">
+
+  <section class="brief-hero" aria-labelledby="todayBriefTitle">
+    <div class="brief-hero-main">
+      <div class="brief-hero-copy">
+        <h2 id="todayBriefTitle">인사·총무 핵심 대시보드</h2>
+        <p>다가오는 제도 변화와 신청기한을 먼저 확인하고, 필요한 업무 영역으로 바로 이동할 수 있습니다.</p>
+      </div>
+      <div class="brief-live-info" aria-label="오늘의 날짜, 날씨 및 환율">
+        <div class="brief-live-item"><span class="brief-live-label">TODAY</span><strong id="heroDateTime">2026. 09. 27. (일) 07:00</strong><small>대한민국 표준시 · 실시간 표시</small></div>
+        <div class="brief-live-item"><span class="brief-live-label">ANSAN WEATHER</span><strong>17°C · 대체로 맑음</strong><small>오늘 최고 27°C 예상 · 09.27 07:00 확인</small></div>
+        <div class="brief-live-item"><span class="brief-live-label">USD / KRW</span><strong>1,365.20원</strong><small>한국무역협회 09.23 매매기준율</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="overview-grid" aria-label="핵심 인사 루틴과 다가오는 일정">
+    <article class="overview-card">
+      <div class="overview-head">
+        <div><span class="overline">MONTHLY HR GANTT</span><h2>월별 핵심 인사일정</h2><p>반복업무와 이번 달 중점업무를 일 단위로 확인합니다.</p></div>
+        <button class="overview-link" onclick="openDetail('t1c')">전체 인사스케줄 →</button>
+      </div>
+      <div class="mini-gantt-controls">
+        <div class="mini-month-nav" aria-label="월 선택">
+          <button type="button" data-mini-month-shift="-1" aria-label="이전 달">‹</button>
+          <span class="mini-month-title" id="miniMonthTitle">2026년 9월</span>
+          <button type="button" data-mini-month-shift="1" aria-label="다음 달">›</button>
+          <button type="button" id="miniMonthToday">이번 달</button>
+        </div>
+        <span class="mini-gantt-meta" id="miniGanttMeta"><b>핵심 일정</b> 불러오는 중</span>
+      </div>
+      <div class="mini-gantt-scroll" tabindex="0" aria-label="월별 핵심 인사일정 간트차트. 모바일에서는 좌우로 스크롤할 수 있습니다.">
+        <div class="mini-gantt" id="miniHrGantt" role="table" aria-label="선택한 월의 일별 핵심 인사 업무"></div>
+      </div>
+      <div class="mini-gantt-foot"><span class="mini-today-key"><i></i>빨간 점선: 오늘</span><span>핵심 일정만 표시 · 전체 64건은 전체 인사스케줄에서 확인</span></div>
+    </article>
+
+    <article class="overview-card">
+      <div class="overview-head">
+        <div><span class="overline">UPCOMING</span><h2>다가오는 일정·신청기한</h2><p>마감이 가까운 항목부터 확인합니다.</p></div>
+      </div>
+      <div class="deadline-list">
+        <button class="deadline-row urgent" onclick="openAiCategory('ai-news')"><span class="deadline-date">오늘 09.27</span><span class="deadline-copy"><b>AI 고용지표 명칭 공모 마감</b><span>한국형 AI 노출지수·고용변화 대시보드</span></span><span class="deadline-arrow">›</span></button>
+        <button class="deadline-row urgent" onclick="openDetail('t2','rec-14')"><span class="deadline-date">~09.29</span><span class="deadline-copy"><b>E-9 신규 고용허가 접수 중</b><span>신청 전 7일간 내국인 구인노력 증빙 필수</span></span><span class="deadline-arrow">›</span></button>
+        <button class="deadline-row" onclick="openDetail('t2','rec-19')"><span class="deadline-date">09.29</span><span class="deadline-copy"><b>E-9 접수·입법예고 마감</b><span>도급계약 관련 의견제출 포함</span></span><span class="deadline-arrow">›</span></button>
+        <button class="deadline-row" onclick="openDetail('t4b')"><span class="deadline-date">09.30</span><span class="deadline-copy"><b>청년일자리 강소기업 신청</b><span>온라인 신청 18:00 마감</span></span><span class="deadline-arrow">›</span></button>
+        <button class="deadline-row" onclick="openDetail('t4b')"><span class="deadline-date">10.30</span><span class="deadline-copy"><b>S-OJT 신청 마감</b><span>체계적 현장훈련 지원</span></span><span class="deadline-arrow">›</span></button>
+        <button class="deadline-row" onclick="openDetail('t2','rec-12')"><span class="deadline-date">11.27</span><span class="deadline-copy"><b>난임치료휴가 확대</b><span>유급·급여지원 4일로 확대</span></span><span class="deadline-arrow">›</span></button>
+      </div>
+    </article>
+  </section>
+
+  <div class="quick-head">
+    <h2>업무별 바로가기</h2>
+    <p>카드를 누르면 해당 상세 화면으로 이동합니다.</p>
+  </div>
+  <nav class="quick-nav" aria-label="업무별 상세 메뉴">
+    <button class="quick-card" onclick="openDetail('t2')"><span class="quick-icon">LAW</span><h3>법령·판례</h3><p>시행 법령과 주요 판례, 행정지침을 확인합니다.</p><span class="quick-meta"><span>27건</span><span>바로가기 →</span></span></button>
+    <button class="quick-card ai" onclick="openDetail('t6')"><span class="quick-icon">AI</span><h3>AI·업무혁신</h3><p>AI 기사·동향·행사·지원사업을 한곳에서 확인합니다.</p><span class="quick-meta"><span>4개 분야</span><span>바로가기 →</span></span></button>
+    <button class="quick-card support" onclick="openDetail('t4b')"><span class="quick-icon">지원</span><h3>인사·총무 지원사업</h3><p>인건비·훈련·안전·컨설팅 지원사업을 확인합니다.</p><span class="quick-meta"><span>10종</span><span>바로가기 →</span></span></button>
+    <button class="quick-card pay" onclick="openDetail('t4')"><span class="quick-icon">PAY</span><h3>4대보험·급여</h3><p>보험료율과 최저임금 등 급여 지표를 비교합니다.</p><span class="quick-meta"><span>2026↔2027</span><span>바로가기 →</span></span></button>
+    <button class="quick-card year" onclick="openDetail('t1b')"><span class="quick-icon">YEAR</span><h3>월간·연간 요약</h3><p>팀 대응사항과 월별·연간 일정을 한눈에 봅니다.</p><span class="quick-meta"><span>통합 요약</span><span>바로가기 →</span></span></button>
+  </nav>
+
+  <section class="summary-grid" aria-label="인사총무 핵심 업무 요약">
+    <article class="summary-card team">
+      <div class="summary-head">
+        <div class="summary-title"><span class="summary-mark">HR</span><h2>인사총무팀 우선 대응</h2></div>
+        <button class="summary-more" onclick="openDetail('t1b')">전체보기 →</button>
+      </div>
+      <div class="summary-list">
+        <button class="summary-row" onclick="openDetail('t3')"><span class="summary-tag">즉시</span><span class="summary-copy"><b>프리랜서·플랫폼 인력 계약 점검</b><span>정산기준·산재 위험·사회보험 가입 여부를 서면 확인</span></span><span class="summary-arrow">›</span></button>
+        <button class="summary-row" onclick="openDetail('t2','rec-14')"><span class="summary-tag">09.14~29</span><span class="summary-copy"><b>E-9 신규 고용허가 접수</b><span>7일간 내국인 구인노력 증빙을 갖춘 뒤 신청</span></span><span class="summary-arrow">›</span></button>
+        <button class="summary-row" onclick="openDetail('t2','rec-12')"><span class="summary-tag">시행 중</span><span class="summary-copy"><b>배우자 지원 3종 제도 반영</b><span>9.18 시행분의 신청서·근태코드·급여처리 즉시 점검</span></span><span class="summary-arrow">›</span></button>
+        <button class="summary-row" onclick="openDetail('t2','rec-20')"><span class="summary-tag">즉시</span><span class="summary-copy"><b>포괄임금·고정 OT 운영 점검</b><span>실근로시간 기록과 약정수당 차액 지급 확인</span></span><span class="summary-arrow">›</span></button>
+        <button class="summary-row" onclick="openDetail('t3')"><span class="summary-tag">선택</span><span class="summary-copy"><b>통합경력증명 채용 활용 검토</b><span>선택 제출로 운영하고 발급번호·QR로 진위 확인</span></span><span class="summary-arrow">›</span></button>
+        <button class="summary-row" onclick="openDetail('t2','rec-18')"><span class="summary-tag">12.10</span><span class="summary-copy"><b>4시간 근무 휴게 절차 마련</b><span>근로자 요청서·승인 절차·근태처리 기준 정비</span></span><span class="summary-arrow">›</span></button>
+      </div>
+    </article>
+
+    <article class="summary-card support">
+      <div class="summary-head">
+        <div class="summary-title"><span class="summary-mark">지원</span><h2>지원사업 주요 일정</h2></div>
+        <button class="summary-more" onclick="openDetail('t4b')">10종 보기 →</button>
+      </div>
+      <div class="summary-list">
+        <button class="summary-row" onclick="openDetail('t4b')"><span class="summary-tag">수시</span><span class="summary-copy"><b>안전동행·안전디자인 지원</b><span>50인 미만 중심·비용 50~70%·최대 1억원</span></span><span class="summary-arrow">›</span></button>
+        <button class="summary-row" onclick="openDetail('t4b')"><span class="summary-tag">10.30</span><span class="summary-copy"><b>체계적 현장훈련 S-OJT</b><span>기업 맞춤형 현장훈련 개발·운영 지원</span></span><span class="summary-arrow">›</span></button>
+        <button class="summary-row" onclick="openDetail('t4b')"><span class="summary-tag">11.30</span><span class="summary-copy"><b>일터혁신 컨설팅</b><span>임금·평가·근로시간 제도개선 지원</span></span><span class="summary-arrow">›</span></button>
+        <button class="summary-row" onclick="openDetail('t4b')"><span class="summary-tag">09.30</span><span class="summary-copy"><b>청년일자리 강소기업</b><span>온라인 신청·기업요건 확인, 18:00 마감</span></span><span class="summary-arrow">›</span></button>
+      </div>
+    </article>
+
+    <article class="summary-card ai">
+      <div class="summary-head">
+        <div class="summary-title"><span class="summary-mark">AI</span><h2>AI·업무혁신 바로가기</h2></div>
+        <button class="summary-more" onclick="openDetail('t6')">전체보기 →</button>
+      </div>
+      <div class="summary-list">
+        <button class="summary-row" onclick="openAiCategory('ai-news')"><span class="summary-tag">기사</span><span class="summary-copy"><b>AI기사</b><span>인사·총무 업무에 영향을 주는 공식 발표</span></span><span class="summary-arrow">›</span></button>
+        <button class="summary-row" onclick="openAiCategory('ai-trend')"><span class="summary-tag">동향</span><span class="summary-copy"><b>동향</b><span>채용·개인정보·노사관계 영향과 대응 방향</span></span><span class="summary-arrow">›</span></button>
+        <button class="summary-row" onclick="openAiCategory('ai-events')"><span class="summary-tag">행사</span><span class="summary-copy"><b>전시·교육·세미나</b><span>예정 행사와 재직자 AI 실무교육 일정</span></span><span class="summary-arrow">›</span></button>
+        <button class="summary-row" onclick="openAiCategory('ai-support')"><span class="summary-tag">지원</span><span class="summary-copy"><b>지원사업</b><span>AI 바우처·제조 AI·채용지원 상태 확인</span></span><span class="summary-arrow">›</span></button>
+      </div>
+    </article>
+  </section>
+
+  <div class="section" id="responseSummarySection">
+    <div class="shead"><h2>👤 인사총무팀 대응 요약</h2><span class="sub">할 일 중심으로 간단 정리</span></div>
+    <div class="sbody">
+      <table>
+        <thead><tr><th>#</th><th>해야 할 일</th><th>기한</th><th>관련 항목</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td>2027년 최저임금(10,700원) 반영해 <b>임금테이블·근로계약서</b> 갱신 준비</td><td class="num">~2026.12</td><td>①</td></tr>
+          <tr><td class="num">2</td><td><b>급여 공제 시스템</b>에 국민연금 요율 10.0% 반영(2027.01 적용)</td><td class="num">~2026.12</td><td>②</td></tr>
+          <tr><td class="num">3</td><td>상여금·수당 체계에 <b>재직조건</b>이 있는지 점검 (통상임금 재산정 리스크)</td><td class="num">가급적 조속히</td><td>③⑧</td></tr>
+          <tr><td class="num">4</td><td>협력사·도급 구조가 있다면 <b>노란봉투법 대응 매뉴얼</b> 재확인</td><td class="num">해당 시 즉시</td><td>④</td></tr>
+          <tr><td class="num">5</td><td>상시근로자 500인 이상 여부 확인 → 해당 시 <b>안전보건 현황 공시</b> 준비(내년 4.30 마감)</td><td class="num">해당 여부 우선 확인</td><td>⑤</td></tr>
+          <tr><td class="num">6</td><td>제조·생산 라인에 <b>혼합기·파쇄기·분쇄기</b> 보유 시 안전검사 일정 등록</td><td class="num">해당 시 즉시</td><td>⑦</td></tr>
+          <tr><td class="num">7</td><td>건강보험료율 <b>7.19%는 2026년 적용값</b>으로 유지하고, 2027년 요율은 공식 결정 전까지 예산·급여 시스템에 확정 반영하지 않음</td><td class="num">2027 요율 공식 결정 후</td><td>⑨</td></tr>
+          <tr><td class="num">8</td><td><b>단기 육아휴직</b> 신청사유·신청기한·급여처리를 취업규칙과 신청서에 반영</td><td class="num">2026.08.20 시행</td><td>⑪</td></tr>
+          <tr><td class="num">9</td><td>9.18 시행된 <b>배우자 출산전후·유산사산휴가와 임신 중 배우자 돌봄 육아휴직</b>이 신청서·근태·급여에 반영됐는지 즉시 점검하고, <b>난임치료휴가 유급 4일</b>은 11.27까지 정비</td><td class="num">즉시 / 2026.11.27 전</td><td>⑫</td></tr>
+          <tr><td class="num">10</td><td>성과급·공장이전·자동화 관련 노사 요구가 있다면 <b>교섭안과 경영계획을 분리</b>해 검토</td><td class="num">즉시</td><td>⑬</td></tr>
+          <tr><td class="num">11</td><td>E-9 신규 채용 계획이 있으면 <b>7일간 내국인 구인노력 증빙</b>을 갖춘 뒤 고용허가 신청</td><td class="num">2026.09.14~09.29</td><td>⑭</td></tr>
+          <tr><td class="num">12</td><td>2027년 고용보험 실업급여 보험료율 2.0% 추진안을 <b>급여예산 시나리오</b>에만 반영</td><td class="num">확정 전 모니터링</td><td>⑮</td></tr>
+          <tr><td class="num">13</td><td>도급·대체인력 운영 시 9월 2일 대법원 판결을 반영해 <b>쟁의행위 대응 절차</b> 재검토</td><td class="num">해당 시 조속히</td><td>⑯</td></tr>
+          <tr><td class="num">14</td><td>2027년 청년채용·두루누리·퇴직연금 지원 확대안은 <b>국회 확정 전까지 예산 시나리오로만</b> 관리</td><td class="num">2027 예산 확정 후 재검토</td><td>⑰</td></tr>
+          <tr><td class="num">15</td><td><b>정확히 4시간 근무하는 단시간근로자</b>의 휴게시간 미사용 요청서와 승인 절차를 마련하고, 시간단위 연차는 하위법령 확정 후 근태시스템을 개편</td><td class="num">2026.12.10 / 2027.06.10 전</td><td>⑱</td></tr>
+          <tr><td class="num">16</td><td>건설·조선 도급이 있으면 <b>임금비용 구분지급·전월 임금지급 확인</b> 대상 여부와 계약·증빙 절차를 점검</td><td class="num">의견 2026.09.29 / 시행 2027.01.01</td><td>⑲</td></tr>
+          <tr><td class="num">17</td><td><b>포괄임금·고정 OT 약정</b>이 있으면 제조업 대상 기획감독에 대비해 출퇴근·연장근로 기록, 임금명세서, 약정수당 초과분 지급 여부를 자체 점검</td><td class="num">2026.09.15부터 약 2개월</td><td>⑳</td></tr>
+          <tr><td class="num">18</td><td>가족돌봄 근로시간 단축 신청의 허용·거부 사유와 <b>서면통보·대체인력 확보 증빙</b>을 점검하되, 과태료 신설안은 통과 전까지 현행법과 분리 관리</td><td class="num">계류 중 모니터링</td><td>㉓</td></tr>
+          <tr><td class="num">19</td><td>노동조합의 교섭요구를 받으면 일정·답변·불응 사유를 <b>서면으로 즉시 기록</b>하고, 형식적 응답이나 장기 지연으로 보이지 않도록 교섭 경과를 관리</td><td class="num">교섭요구 접수 즉시</td><td>㉕</td></tr>
+          <tr><td class="num">20</td><td><b>공무직위원회 출범</b>은 공공부문 대상이므로 민간기업의 즉시 조치는 없으며, 공공기관 도급 참여 시 향후 인사관리 기준과 계약조건만 추적</td><td class="num">2026.09.18 이후 모니터링</td><td>㉔</td></tr>
+          <tr><td class="num">21</td><td>퇴직일·회계연도 기준으로 연차를 운영한다면 <b>연차 발생일 문구와 퇴직자 미사용수당 정산 로직</b>이 일치하는지 점검</td><td class="num">다음 퇴직 정산 전</td><td>㉖</td></tr>
+          <tr><td class="num">22</td><td>채용공고·입사지원 안내에서 <b>고용24 통합경력증명·직무능력인정서</b>를 선택 제출자료로 허용할지 검토하고, 수령 시 발급번호·QR로 진위를 확인</td><td class="num">선택 적용 · 법정기한 없음</td><td>뉴스</td></tr>
+          <tr><td class="num">23</td><td>프리랜서·플랫폼 등 노무제공 인력을 활용하면 <b>계약조건·정산기준·산재 위험·사회보험 가입 여부</b>를 서면으로 점검하고, 해당 직종의 권익보호 교육 참여 가능 여부 확인</td><td class="num">즉시·상시</td><td>뉴스</td></tr>
+          <tr><td class="num">24</td><td>정년 후 촉탁직·기간제 재고용 관행이 있다면 <b>재고용 기준·심사·거절 사유</b>를 서면화하고 동일 직종에 일관되게 적용</td><td class="num">다음 정년 도래자 검토 전</td><td>㉗</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section" id="briefingItemsSection">
+    <div class="shead">
+      <h2>법령·판례 상세 브리핑</h2>
+      <span class="sub">9월 18일 시행 항목 3건의 상태·실무요건 갱신</span>
+      <span class="tag">공식 원문 확인 2026.09.21</span>
+    </div>
+    <div class="sbody">
+
+      <div class="rec-item" id="rec-1" data-checked="2026-08-26">
+        <div class="rhead"><span class="rnum">1</span><span class="rtitle">2027년 최저임금 시급 10,700원 확정 고시 — 임금대장·근로계약서 재정비</span><span class="pill done">시행 확정</span><span class="conf high">신뢰도 높음</span></div>
+        <div class="rbody">고용노동부가 2026년 8월 5일 2027년도 적용 최저임금을 시간급 10,700원으로 결정·고시했습니다. 2026년 10,320원 대비 380원(3.7%) 인상이며, 월 환산액은 주 40시간·월 209시간 기준 2,236,300원입니다. 업종 구분 없이 전 사업장에 동일 적용되고, 도급제 근로자에게도 별도 최저임금을 적용하지 않습니다. 민주노총·소상공인연합회의 이의제기는 최저임금위원회 심의·의결 과정을 종합 고려해 수용되지 않았습니다.</div>
+        <div class="rfoot">
+          <span>시행일 <b>2027.01.01</b></span><span>연내 임금테이블·근로계약서 갱신 필요</span>
+          <a class="srclink" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19744" target="_blank">🔗 고용노동부 원문</a>
+        </div>
+      </div>
+
+      <div class="rec-item" id="rec-2" data-checked="2026-08-26">
+        <div class="rhead"><span class="rnum">2</span><span class="rtitle">국민연금 보험료율 2027년 10.0%로 인상 — 급여 공제 로직 반영</span><span class="pill plan">단계 확정</span><span class="conf high">신뢰도 높음</span></div>
+        <div class="rbody">2025년 3월 국회를 통과한 국민연금법 개정에 따라 보험료율이 2026년 9.5%에서 매년 0.5%p씩 올라 2033년 13%에 도달합니다. 2027년은 10.0%(근로자 부담 5.0%)입니다. 기준소득월액 상한액도 2026년 7월부터 659만원(하한 41만원)으로 조정되어 고소득자 부담이 늘었습니다. 소득대체율도 41.5%에서 43%로 함께 인상되어 2026.1.1. 이후 가입기간부터 적용됩니다(기존 수급자 제외).</div>
+        <div class="rbody rfoot" style="margin-bottom:0">
+          <span>적용 <b>2027.01.01</b></span><span>2026년 요율 9.5% 적용 중</span>
+          <a class="srclink" href="https://nps.or.kr/pnsinfo/databbs/getOHAF0275M1Detail.do?menuId=MN24001492&pstId=LA202500000000030589&hmpgCd=&hmpgBbsCd=BS20240144&sortSe=FR&pageIndex=1&searchText=&searchGbu=" target="_blank">🔗 국민연금공단 원문</a>
+        </div>
+      </div>
+
+      <div class="rec-item" id="rec-3" data-checked="2026-08-26">
+        <div class="rhead"><span class="rnum">3</span><span class="rtitle">대법원, 동아운수 정기상여금 통상임금 인정 확정 — 수당 재산정 리스크 점검</span><span class="pill now">판례 확정</span><span class="conf high">신뢰도 높음</span></div>
+        <div class="rbody">2026년 4월 30일 대법원 3부(주심 이숙연 대법관)는 동아운수 버스 운전기사 97명이 낸 임금 청구소송에서 정기상여금이 통상임금에 해당한다는 원심 판단을 유지·확정했습니다. 다만 수당 재산정 시 실제 근로시간이 아닌 노사 합의에 따른 '보장시간'을 기준으로 삼아야 한다고 보아, 연장·야간근로수당 산정 부분은 파기하고 서울고법으로 환송했습니다. 2024년 12월 대법원 전원합의체가 통상임금 판단기준에서 '고정성' 요건을 폐기한 이후, 재직조건이 붙은 정기상여금도 통상임금으로 인정되는 흐름이 이어지고 있습니다.</div>
+        <div class="rfoot">
+          <span>선고 <b>2026.04.30</b></span><span>임금체계 전면 점검 권고</span>
+          <a class="srclink" href="https://www.newspim.com/news/view/20260430000270" target="_blank">🔗 뉴스핌 기사</a>
+          <a class="srclink" href="https://imnews.imbc.com/news/2026/society/article/6819140_36918.html" target="_blank">🔗 MBC 기사</a>
+        </div>
+      </div>
+
+      <div class="rec-item" id="rec-4" data-checked="2026-08-26">
+        <div class="rhead"><span class="rnum">4</span><span class="rtitle">노란봉투법(노동조합법 2·3조 개정) 시행 5개월 경과 — 원·하청 교섭 대응 매뉴얼 재확인</span><span class="pill watch">시행중</span><span class="conf high">신뢰도 높음</span></div>
+        <div class="rbody">2025년 9월 9일 공포되고 6개월 뒤인 2026년 3월 10일 시행된 개정 노동조합법은 근로계약 당사자가 아니어도 근로조건을 실질적·구체적으로 지배·결정하는 자를 사용자로 인정합니다. 고용노동부는 원·하청 교섭 절차와 사용자성 판단 기준을 담은 시행령·해석지침, '원·하청 상생 교섭절차 매뉴얼'을 함께 마련했습니다. 시행 5개월이 지난 현재도 현대제철·한화오션 등에서 하청노조가 원청의 사용자성 판단을 노동위원회에 요청하는 등 현장 혼선이 이어지고 있어, 협력사·도급 구조가 있는 경우 대응 체계를 재확인할 필요가 있습니다.</div>
+        <div class="rfoot">
+          <span>시행일 <b>2026.03.10</b></span><span>협력사 도급구조 보유 시 해당</span>
+          <a class="srclink" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19047" target="_blank">🔗 고용노동부 원문</a>
+        </div>
+      </div>
+
+      <div class="rec-item" id="rec-5" data-checked="2026-08-26">
+        <div class="rhead"><span class="rnum">5</span><span class="rtitle">산업안전보건법 '안전보건 현황 공시' 의무 시행(8.1) — 공시대상 해당 여부 확인</span><span class="pill plan">시행</span><span class="conf high">신뢰도 높음</span></div>
+        <div class="rbody">2026년 8월 1일부터 상시근로자 500명 이상 사업주 또는 연간 건설공사금액 1,200억원 이상 건설사업주는 안전보건관리체계·산업재해 현황·안전보건 투자내역 등을 매년 4월 30일까지 공시해야 합니다. 공시 항목에는 하청·협력업체 소속 근로자의 사망사고 현황도 포함됩니다. 위반 시 과태료 1,000만원 이하입니다. 500인 이상 사업장 약 2,000개 중 절반가량이 자체 사업장 없는 인력공급 아웃소싱 업체라는 점도 업계에서 쟁점으로 제기되고 있습니다. 당사 상시근로자 규모가 기준에 해당하는지 우선 확인이 필요합니다.</div>
+        <div class="rfoot">
+          <span>시행일 <b>2026.08.01</b></span><span>500인↑ 또는 건설 1,200억↑ 해당</span>
+          <a class="srclink" href="https://www.khan.co.kr/article/202607212110005/" target="_blank">🔗 경향신문 기사</a>
+          <a class="srclink" href="https://www.safety1stnews.com/news/articleView.html?idxno=8026" target="_blank">🔗 세이프티퍼스트뉴스</a>
+        </div>
+      </div>
+
+      <div class="rec-item" id="rec-6" data-checked="2026-08-26">
+        <div class="rhead"><span class="rnum">6</span><span class="rtitle">산업안전보건법 위험성평가 강화 — 근로자 참여 의무화 및 과태료 신설</span><span class="pill plan">시행</span><span class="conf mid">신뢰도 중간</span></div>
+        <div class="rbody">2026년 8월 1일 시행령 개정으로 위험성평가 미실시 시 과태료(최대 1,000만원)가 신설되었으며, 근로자대표가 명예산업안전감독관을 추천할 수 있는 범위가 산업안전보건위원회 구성 사업장에서 전체 사업장으로 확대되었습니다. 위험성평가 과태료는 사업장 규모별로 순차 시행되어 상시근로자 50명 이상 사업장은 2027년 1월 1일부터, 50명 미만 사업장은 2028년 1월 1일부터 적용됩니다. 안전조치 미이행으로 최근 1년 내 화재·폭발·붕괴 산재가 2회 이상 발생한 사업장은 안전보건개선계획 수립·시행 명령 대상이 확대되었습니다.</div>
+        <div class="rfoot">
+          <span>시행일 <b>2026.08.01</b></span><span>2027.01.01부터 과태료 부과(50인↑)</span>
+          <a class="srclink" href="https://www.mtnews.net/news/articleView.html?idxno=25387" target="_blank">🔗 관련 기사</a>
+          <a class="srclink" href="https://www.newswhoplus.com/news/articleView.html?idxno=65056" target="_blank">🔗 관련 기사</a>
+        </div>
+      </div>
+
+      <div class="rec-item" id="rec-7" data-checked="2026-08-26">
+        <div class="rhead"><span class="rnum">7</span><span class="rtitle">안전검사대상 기계에 혼합기·파쇄기·분쇄기 추가 — 해당 설비 보유 시 안전검사 대응</span><span class="pill plan">시행</span><span class="conf high">신뢰도 높음</span></div>
+        <div class="rbody">산업안전보건법 시행규칙 개정으로 2026년 6월 26일부터 혼합기, 파쇄기 또는 분쇄기가 안전검사대상 기계·기구로 정식 추가되었습니다(시행령 제78조). 반복적으로 발생하는 회전 부위 끼임 사고를 예방하기 위한 조치로, 해당 설비는 설치 완료일로부터 3년 이내 최초 안전검사를 받고 이후 2년 주기로 정기 검사를 받아야 합니다. 가동 중 덮개를 열어야 하는 경우 자동 정지 장치 설치도 의무화되었습니다. 사내 제조·생산 라인에 해당 설비가 있는지 확인이 필요합니다.</div>
+        <div class="rfoot">
+          <span>시행일 <b>2026.06.26</b></span><span>3년 내 최초검사, 이후 2년 주기</span>
+          <a class="srclink" href="https://law.go.kr/lsLinkCommonInfo.do?chrClsCd=&lspttninfSeq=154371" target="_blank">🔗 국가법령정보센터(시행령)</a>
+          <a class="srclink" href="https://musa-lab.com/kor/board/issue?viewMode=view&idx=264" target="_blank">🔗 해설 자료</a>
+        </div>
+      </div>
+
+      <div class="rec-item" id="rec-8" data-checked="2026-08-26">
+        <div class="rhead"><span class="rnum">8</span><span class="rtitle">해외근무수당 통상임금 사건, 대법원 파기환송(한수원) — 포괄수당약정 설계 재점검</span><span class="pill watch">환송심 진행</span><span class="conf mid">신뢰도 중간</span></div>
+        <div class="rbody">아랍에미리트 원전 사업 관련 해외근무직원에게 지급된 해외근무수당 전부를 통상임금으로 인정한 원심을, 대법원이 최근 파기하고 서울고법으로 환송했습니다. 대법원은 해외근무수당이 법정수당이었다면 회사가 굳이 재량적 형식으로 규정할 이유가 없었고, 실제 지급 방식도 실근로시간이 아닌 직급별 월 정액 기준이었다는 점에서 법정수당이 아닌 '약정가산금'으로 볼 여지가 있다고 판단했습니다. 청구금액 규모가 수백억 원대에 달해 공기업·민간기업의 해외근무수당·포괄수당 제도 설계에 중요한 시사점을 주는 사건입니다.</div>
+        <div class="rfoot">
+          <span>선고 <b>2026년 8월</b></span><span>포괄수당약정 명확화 필요</span>
+          <a class="srclink" href="https://www.lawtimes.co.kr/news/articleView.html?idxno=224999" target="_blank">🔗 법률신문 기사</a>
+        </div>
+      </div>
+
+      <div class="rec-item" id="rec-9" data-checked="2026-09-17">
+        <div class="rhead"><span class="rnum">9</span><span class="rtitle">건강보험료율 연도 정정 — 7.19%는 2026년 적용, 2027년은 확인 필요</span><span class="pill watch">2027 미확정</span><span class="conf high">공식 원문 재검증</span></div>
+        <div class="rbody">국민건강보험공단과 보건복지부 공식 자료에서 확인되는 직장가입자 건강보험료율 7.19%(근로자·사용자 각 3.595%)는 <b>2026년도 적용값</b>입니다. 기존 화면의 ‘2027년 7.19% 동결 확정’ 표기는 해당 공식 자료가 2026년 요율 안내인 점을 반영해 정정했습니다. 2027년도 건강보험료율과 장기요양보험료율은 별도의 공식 결정·고시가 확인되기 전까지 ‘확인 필요’로 관리하며 급여시스템이나 확정 예산에 반영하지 않습니다.</div>
+        <div class="rfoot">
+          <span>확인일 <b>2026.09.17</b></span><span>2027 요율·시행일 <b>확인 필요</b></span>
+          <a class="srclink" href="https://www.mohw.go.kr/board.es?act=view&amp;bid=0027&amp;list_no=1487279&amp;mid=a10503010100" target="_blank">🔗 보건복지부 2026 요율 결정</a>
+          <a class="srclink" href="https://edi.nhis.or.kr/portal/images/popup/20251204_pop01longdesc.html" target="_blank">🔗 건강보험공단 2026 요율</a>
+        </div>
+      </div>
+
+      <div class="rec-item" id="rec-10" data-checked="2026-08-26">
+        <div class="rhead"><span class="rnum">10</span><span class="rtitle">부당해고 복직명령 불이행 시 형사처벌 확정 — 계약만료 항변 불인정</span><span class="pill done">판례 확정</span><span class="conf high">신뢰도 높음</span></div>
+        <div class="rbody">2026년 7월 30일 대법원 2부(주심 엄상필 대법관)는 노동위원회의 부당노동행위 구제명령(원직 복직 명령)을 계약기간 만료를 이유로 이행하지 않은 자동차 판매대리점 대표에게 벌금 150만원을 확정했습니다. 대법원은 "부당노동행위에 따른 원직 복직 구제명령은 사용자의 계약 갱신 거절이 무효임을 전제로 한다"며, 계약기간이 만료됐더라도 복직 의무가 있어 이를 따르지 않으면 구제명령 위반죄(근로기준법 제111조, 1년 이하 징역 또는 1천만원 이하 벌금)가 성립한다고 판시했습니다. 서류 제출을 조건으로 걸거나 말로만 복직을 통보하는 방식도 구제명령 이행으로 인정되지 않습니다.</div>
+        <div class="rfoot">
+          <span>선고 <b>2026.07.30</b></span><span>참고 판례 — 사내 해당 사안 없음</span>
+          <a class="srclink" href="https://www.ajunews.com/view/20260730143630474" target="_blank">🔗 아주경제 기사</a>
+        </div>
+      </div>
+
+      <div class="rec-item" id="rec-11" data-checked="2026-09-06">
+        <div class="rhead"><span class="rnum">11</span><span class="rtitle">남녀고용평등법 개정 시행(8.20) — 연 1회 단기 육아휴직 신설</span><span class="pill done">시행 확정</span><span class="conf high">신뢰도 높음</span></div>
+        <div class="rbody">2026년 8월 20일부터 만 8세 이하 또는 초등학교 2학년 이하 자녀가 있는 근로자는 휴원·휴교·방학, 자녀의 질병·사고에 따른 입원, 감염병 격리·등교중지 등 법정 사유가 있을 때 연 1회, 1주 또는 2주의 단기 육아휴직을 사용할 수 있습니다. 사용기간은 전체 육아휴직 기간에서 차감되지만 분할 사용 횟수에는 포함되지 않으며 급여 지급도 가능합니다. 방학은 원칙적으로 30일 전에 신청하고, 휴원·입원 등 긴급사유는 당일 개시 신청이 가능하므로 신청서와 승인 절차를 구분해 운영해야 합니다.</div>
+        <div class="rfoot">
+          <span>시행일 <b>2026.08.20</b></span><span>취업규칙·근로계약서 반영 및 변경신고 필요</span>
+          <a class="srclink" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19768" target="_blank">🔗 고용노동부 원문</a>
+        </div>
+      </div>
+
+      <div class="rec-item" id="rec-12" data-checked="2026-09-21">
+        <div class="rhead"><span class="rnum">12</span><span class="rtitle">배우자 지원 3종 세트 9.18 시행 — 난임치료휴가 확대는 11.27 예정</span><span class="pill done">일부 시행·일부 예정</span><span class="conf high">공식 시행 확인</span></div>
+        <div class="rbody"><b>2026년 9월 18일부터 시행 중</b>입니다. ① 배우자 유산·사산일부터 20일 이내에 5일의 휴가를 청구할 수 있고 최초 3일은 유급입니다. 우선지원대상기업 근로자의 최초 3일 급여는 통상임금 100%로, 상한은 1일 84,210원·2일 168,420원·3일 252,630원입니다. ② 배우자 출산전후휴가는 출산예정일 50일 전부터 출산 후 120일 이내에 20일을 사용할 수 있으며, 근로자는 출산(예정)일과 사용일 등을 전자문서를 포함한 문서로 고지합니다. ③ 배우자에게 유산·조산 위험이 있으면 남성 근로자도 출생 전 육아휴직을 사용할 수 있고 휴직 개시 7일 전까지 신청해야 합니다. 사용기간은 전체 육아휴직에서 차감되지만 분할 횟수에는 포함되지 않습니다. 함께 시행된 육아기 근로시간 단축 거부사유 변경도 신청서·검토 절차에 반영해야 합니다. 별도 개정법에 따라 <b>2026년 11월 27일</b>부터는 연 6일인 난임치료휴가 중 유급·급여지원 기간이 최초 2일에서 4일로 확대될 예정입니다.</div>
+        <div class="rfoot">
+          <span>확인일 <b>2026.09.21</b> · 시행 <b>2026.09.18</b></span><span>9.18 시행분 즉시 반영 · 11.27 시행분 사전 정비</span>
+          <a class="srclink" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19964" target="_blank">🔗 고용노동부 9.18 시행 원문</a>
+          <a class="srclink" href="https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1034308017" target="_blank">🔗 국가법령정보센터 시행 법률</a>
+          <a class="srclink" href="https://www.law.go.kr/LSW/lsRvsDocListP.do?lsId=000130" target="_blank">🔗 국가법령정보센터 11.27 개정문</a>
+        </div>
+      </div>
+
+      <div class="rec-item" id="rec-13" data-checked="2026-09-04">
+        <div class="rhead"><span class="rnum">13</span><span class="rtitle">경영성과급·사업경영상 결정의 노동쟁의 대상 판단지침 발표</span><span class="pill done">지침 적용</span><span class="conf high">신뢰도 높음</span></div>
+        <div class="rbody">고용노동부는 9월 3일 노동조합법상 노동쟁의 대상 판단기준을 구체화한 시행지침을 발표했습니다. 임금·복지 등 근로조건에 해당하는 일반적인 성과급은 의무적 교섭대상이 될 수 있지만, 매출액·영업이익·당기순이익의 일정 비율을 선배분하도록 요구하는 방식은 의무적 교섭·조정·쟁의행위 대상으로 보기 어렵다고 정리했습니다. 공장 이전·매각·AI·자동화 도입 결정 자체도 원칙적으로 의무적 교섭대상이 아니지만, 배치전환·정리해고·근무형태 변경 등 근로조건 변동이 객관적으로 예상되는 단계부터는 관련 대책이 교섭대상이 될 수 있습니다.</div>
+        <div class="rfoot"><span>발표·적용 <b>2026.09.03</b></span><span>성과급 규정·노사협의안·구조조정 커뮤니케이션 점검</span><a class="srclink" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19876" target="_blank">🔗 고용노동부 원문</a></div>
+      </div>
+
+      <div class="rec-item" id="rec-14" data-checked="2026-09-04">
+        <div class="rhead"><span class="rnum">14</span><span class="rtitle">2026년 4회차 외국인근로자(E-9) 신규 고용허가 접수</span><span class="pill done">접수 확정</span><span class="conf high">신뢰도 높음</span></div>
+        <div class="rbody">고용노동부는 9월 14일부터 9월 29일까지 E-9 신규 고용허가 신청을 받습니다. 전체 12,357명 중 제조업 배정은 9,020명입니다. 신청 전 7일간 내국인 구인노력이 필요하며, 신청 결과는 10월 16일 발표됩니다. 제조·광업 고용허가서 발급 예정 기간은 10월 19일부터 23일까지입니다.</div>
+        <div class="rfoot"><span>신청 <b>2026.09.14~09.29</b></span><span>신청 전 7일간 내국인 구인노력 증빙 필수</span><a class="srclink" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19873" target="_blank">🔗 고용노동부 원문</a></div>
+      </div>
+
+      <div class="rec-item" id="rec-15" data-checked="2026-09-04">
+        <div class="rhead"><span class="rnum">15</span><span class="rtitle">고용보험 제도개편 방안 발표 — 2027년 실업급여 보험료율 2.0% 추진</span><span class="pill watch">추진·미확정</span><span class="conf high">공식 발표</span></div>
+        <div class="rbody">9월 1일 고용보험위원회에 보고·심의된 정부 방안에는 2027년 실업급여 계정 보험료율을 1.8%에서 2.0%로 높이고(노동자·사용자 각 0.1%p 인상), 구직급여 지급방식을 주 7일에서 주 6일로 조정하되 총 지급액과 총 지급일수는 유지하는 내용이 포함됐습니다. 구직급여 상한액을 하한액의 103%에 연동하고 조기재취업수당 지급 제외 소득기준을 월 574만원에서 300만원으로 낮추는 방안도 추진됩니다. 연내 법률·하위법령 개정이 목표이므로 현재는 확정 수치가 아니라 예산 시나리오와 모니터링 자료로만 사용해야 합니다.</div>
+        <div class="rfoot"><span>확정 여부 <b>연내 후속 입법 확인 필요</b></span><span>급여 시스템 반영 금지 · 2027 예산 영향만 사전 계산</span><a class="srclink" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19866" target="_blank">🔗 고용노동부 원문</a></div>
+      </div>
+
+      <div class="rec-item" id="rec-16" data-checked="2026-09-10">
+        <div class="rhead"><span class="rnum">16</span><span class="rtitle">대체근로 금지의무 주체에 관한 대법원 9월 2일 판결</span><span class="pill now">판례</span><span class="conf high">신뢰도 높음</span></div>
+        <div class="rbody">대법원은 구 노동조합법이 적용되는 택배 집배점 쟁의 사건에서, 단체교섭의무를 부담하는 사용자는 근로자와 명시적·묵시적 근로계약관계를 맺은 자라는 기존 기준을 확인하고, 그 사용자가 아닌 제3자는 구 노동조합법 제43조 제1항의 대체근로 금지의무를 부담하지 않는다고 판시했습니다. 개정 노동조합법 시행 전 법률이 적용된 사건이므로 현행 원·하청 사용자성 판단에 그대로 확대 적용하지 말고, 도급·대체인력 운영 시 사건 시점과 적용 법률을 구분해야 합니다.</div>
+        <div class="rfoot"><span>선고 <b>2026.09.02</b> · 확인 <b>2026.09.10</b></span><span>사건 2021도11473 · 현행법 적용관계는 별도 검토</span><a class="srclink" href="https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=4&amp;seqnum=11284" target="_blank">🔗 대법원 판례속보</a></div>
+      </div>
+
+      <div class="rec-item" id="rec-17" data-checked="2026-09-06">
+        <div class="rhead"><span class="rnum">17</span><span class="rtitle">2027년 고용노동부 예산안 — 청년채용·두루누리·퇴직연금 지원 확대안</span><span class="pill watch">예산안·미확정</span><span class="conf high">공식 발표</span></div>
+        <div class="rbody">정부 예산안에는 청년일자리도약장려금 지원 인원 확대와 청년 지원금 상향, 두루누리 지원 인원·보험종목 확대, 30인 미만 사업장 퇴직연금 조기 도입 지원, AI 훈련 수료 청년 채용기업 지원 신설 등이 포함됐습니다. 다만 국회 심의·의결과 사업별 최종 지침 전 단계이므로 현재 운영 중인 2026년 지원금과 혼합하거나 지원금 수입으로 확정하면 안 됩니다. 지원대상·금액·시행일은 최종 예산 및 지침 공고 후 다시 확인합니다.</div>
+        <div class="rfoot"><span>확인일 <b>2026.09.06</b></span><span>기한 <b>국회 예산 확정·2027 사업지침 공고 후 재검토</b></span><a class="srclink" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19885" target="_blank">🔗 고용노동부 원문</a></div>
+      </div>
+
+      <div class="rec-item" id="rec-18" data-checked="2026-09-07">
+        <div class="rhead"><span class="rnum">18</span><span class="rtitle">근로기준법 개정 — 4시간 근무 휴게시간 선택 및 시간단위 연차 도입</span><span class="pill plan">시행 예정·확정</span><span class="conf high">신뢰도 높음</span></div>
+        <div class="rbody">법률 제21784호가 2026년 6월 9일 공포됐습니다. <b>근로시간이 정확히 4시간</b>이고 근로자가 휴게시간을 이용하지 않겠다고 명시적으로 요청하면 사용자가 휴게시간을 부여하지 않을 수 있는 특례는 2026년 12월 10일부터 시행됩니다. 2027년 6월 10일부터는 근로자가 대통령령으로 정하는 시간단위·일수 범위에서 연차휴가를 나누어 청구하면 사용자가 부여해야 하며, 연차 청구·사용을 이유로 불리한 처우를 해서는 안 됩니다. 시간단위와 일수의 세부 한도는 하위법령 확인이 필요합니다.</div>
+        <div class="rfoot"><span>확인일 <b>2026.09.07</b></span><span>기한 <b>4시간 근무 절차 2026.12.09까지 · 시간연차 시스템 2027.06.09까지</b></span><a class="srclink" href="https://law.go.kr/LSW/lsRvsDocListP.do?chrClsCd=010202&amp;lsId=001872&amp;lsRvsGubun=all" target="_blank">🔗 국가법령정보센터 원문</a></div>
+      </div>
+
+      <div class="rec-item" id="rec-19" data-checked="2026-09-07">
+        <div class="rhead"><span class="rnum">19</span><span class="rtitle">임금구분지급제 2027년 시행 — 법률 확정·적용범위와 절차는 입법예고</span><span class="pill watch">법률 확정·하위법령 예고</span><span class="conf high">공식 원문</span></div>
+        <div class="rbody">법률 제21533호에 따라 2027년 1월 1일 이후 체결하는 적용대상 도급계약부터 도급인은 임금비용을 매월 구분 지급하고 전월 임금 지급 여부를 확인해야 합니다. 고용노동부 하위법령안은 건설·조선업의 일정 규모 도급을 대상으로 하고, 임금명세서·사회보험료 납부내역 등을 확인자료로 정하는 내용입니다. 다만 업종·금액 기준과 세부 절차는 입법예고 단계이므로 확정된 최종 기준으로 사용하면 안 됩니다. 일반 제조업은 건설·조선 도급 또는 해당 계약이 있을 때만 우선 검토합니다.</div>
+        <div class="rfoot"><span>확인일 <b>2026.09.07</b></span><span>의견제출 <b>2026.09.29까지</b> · 시행 <b>2027.01.01</b></span><a class="srclink" href="https://law.go.kr/LSW/lsRvsDocListP.do?chrClsCd=010202&amp;lsId=001872&amp;lsRvsGubun=all" target="_blank">🔗 국가법령정보센터 법률</a><a class="srclink" href="https://www.moel.go.kr/common/downloadFile.do?bbs_id=12&amp;bbs_seq=19794&amp;file_ext=pdf&amp;file_seq=20260801006" target="_blank">🔗 고용노동부 하위법령안</a></div>
+      </div>
+
+      <div class="rec-item" id="rec-20" data-checked="2026-09-17">
+        <div class="rhead"><span class="rnum">20</span><span class="rtitle">하반기 포괄임금·고정 OT 오남용 기획감독 실시 — 제조업 중점</span><span class="pill done">기획감독 진행</span><span class="conf high">고용노동부 공식 발표</span></div>
+        <div class="rbody">고용노동부는 2026년 9월 15일부터 약 2개월간 익명신고가 많은 제조업·정보통신업·전문과학기술서비스업 등을 대상으로 포괄임금 오남용 기획감독을 실시합니다. 포괄임금 또는 고정 OT 약정이 있더라도 실제 연장·야간·휴일근로수당이 약정수당을 넘으면 차액을 지급해야 합니다. 감독에서는 출퇴근·연장근로 기록, 임금대장과 임금명세서의 근로시간·수당 기재, 미지급 법정수당을 중점 확인합니다. 위반 시 시정지시 또는 형사절차가 가능하므로 제조업 사업장은 즉시 자체점검이 필요합니다.</div>
+        <div class="rfoot"><span>확인일 <b>2026.09.17</b></span><span>감독기간 <b>2026.09.15부터 약 2개월 · 즉시 자체점검</b></span><a class="srclink" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19943" target="_blank">🔗 고용노동부 원문</a></div>
+      </div>
+
+      <div class="rec-item" id="rec-21" data-checked="2026-09-09">
+        <div class="rhead"><span class="rnum">21</span><span class="rtitle">공공부문 도급 노동자 보호지침 시행 — 하도급 제한·고용승계·노무비 관리 강화</span><span class="pill done">지침 시행</span><span class="conf high">공식 원문</span></div>
+        <div class="rbody">고용노동부는 기존의 용역근로자 보호지침과 민간위탁 노동자 보호가이드라인을 통합한 「공공부문 도급 노동자 보호지침」을 시행했습니다. 공공부문 하도급은 원칙적으로 제한하고, 특별한 사정이 없으면 도급계약 기간을 2년 이상으로 하며 기존 노동자의 고용유지·승계를 입찰·계약 과정에 반영하도록 했습니다. 노무비는 계약 산출내역에서 구분·공개하고 전용계좌로 지급·관리하며, 이행확약서와 계약조건 준수 여부는 수시 점검 후 2년간 보관하도록 했습니다. 민간기업에 직접 적용되는 일반 법령은 아니지만 공공기관 도급에 참여하거나 관련 계약을 수행하는 경우 신규 입찰·계약조건을 확인해야 합니다.</div>
+        <div class="rfoot"><span>확인일 <b>2026.09.09</b></span><span>기한 <b>해당 입찰·계약 전 확인 · 공공기관은 연 1회 이상 자체점검</b></span><a class="srclink" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19901" target="_blank">🔗 고용노동부 공식 원문</a></div>
+      </div>
+
+      <div class="rec-item" id="rec-22" data-checked="2026-09-21">
+        <div class="rhead"><span class="rnum">22</span><span class="rtitle">청년고용촉진 특별법 시행 — 정책대상 청년 15~34세로 확대</span><span class="pill done">시행 중</span><span class="conf high">공식 시행 확인</span></div>
+        <div class="rbody">2026년 9월 8일 국무회의에서 「청년고용촉진 특별법 시행령」 개정안이 의결됐습니다. 법률에서 청년의 나이를 종전 15세 이상 29세 이하에서 15세 이상 34세 이하로 확대해 직접 규정함에 따라, 시행령의 중복 연령 규정을 삭제하는 정비입니다. 9월 18일부터 시행되며 청년고용 정책의 대상 범위가 확대됩니다. 회사가 청년 채용지원사업이나 공공기관 청년고용 관련 제도를 검토할 때 연령 요건을 34세까지 다시 확인해야 하며, 개별 지원사업의 별도 요건은 해당 공고를 우선 적용해야 합니다.</div>
+        <div class="rfoot"><span>확인일 <b>2026.09.21</b></span><span>시행 <b>2026.09.18</b> · 개별 사업 공고의 별도 연령요건 우선</span><a class="srclink" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19902" target="_blank">🔗 고용노동부 공식 원문</a></div>
+      </div>
+
+      <div class="rec-item" id="rec-23" data-checked="2026-09-09">
+        <div class="rhead"><span class="rnum">23</span><span class="rtitle">가족돌봄 근로시간 단축 미허용 시 과태료 신설안 — 국회 위원회 검토 단계</span><span class="pill watch">계류·논의</span><span class="conf high">국회 공식자료</span></div>
+        <div class="rbody">의안번호 제2219117호는 정당한 사유 없이 가족돌봄 등을 위한 근로시간 단축 신청을 허용하지 않은 사업주에게 500만원 이하 과태료를 부과하는 내용입니다. 2026년 6월 8일 발의, 7월 1일 소관위원회 회부 후 제439회 정기회 기후에너지환경노동위원회 검토보고 단계로 진행됐습니다. 아직 국회 의결·공포 전이므로 과태료와 시행일은 확정되지 않았습니다. 현행법상 예외사유로 거부할 때에도 사유를 서면 통보하고 대체조치를 협의해야 하므로 관련 신청·검토·통보 기록은 미리 정비할 필요가 있습니다.</div>
+        <div class="rfoot"><span>확인일 <b>2026.09.09</b></span><span>시행일 <b>미확정 · 통과 전 시스템 반영 금지</b></span><a class="srclink" href="https://likms.assembly.go.kr/filegate/servlet/FileGate?bookId=FF60D429-7E61-FB53-2281-11E13DA457F3&amp;type=1" target="_blank">🔗 국회 검토보고서</a></div>
+      </div>
+
+      <div class="rec-item" id="rec-24" data-checked="2026-09-21">
+        <div class="rhead"><span class="rnum">24</span><span class="rtitle">공무직위원회법 9월 18일 시행 — 공공부문 인사관리 기준 논의 개시</span><span class="pill done">시행 중</span><span class="conf high">공식 시행 확인</span></div>
+        <div class="rbody">「공무직위원회 설치 및 운영에 관한 법률」과 시행령은 2026년 9월 18일부터 시행 중입니다. 공공부문 공무직·기간제·파견·위탁·용역 근로자의 처우개선을 논의하는 공식 노정협의 틀이 마련됐으며, 시행령은 실무위원회 30명 이내·발전협의회 20명 이내·분야별협의회 15명 이내 등 운영기준을 정했습니다. 민간 제조기업에 직접 적용되는 법은 아니므로 사규나 급여시스템을 즉시 바꿀 필요는 없습니다. 다만 공공기관 도급·용역에 참여하는 경우 후속 기준이 입찰·계약·고용승계 조건에 반영되는지 모니터링해야 합니다.</div>
+        <div class="rfoot"><span>확인일 <b>2026.09.21</b></span><span>시행 <b>2026.09.18</b> · 민간 직접 적용 없음</span><a class="srclink" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19902" target="_blank">🔗 고용노동부 공식 원문</a></div>
+      </div>
+
+      <div class="rec-item" id="rec-25" data-checked="2026-09-10">
+        <div class="rhead"><span class="rnum">25</span><span class="rtitle">헌법재판소, 정당한 이유 없는 단체교섭 거부·해태 형사처벌 합헌 결정</span><span class="pill now">헌재 결정·합헌</span><span class="conf high">공식 결정</span></div>
+        <div class="rbody">헌법재판소는 2026년 8월 27일 재판관 전원일치 의견으로, 사용자가 노동조합의 단체교섭을 정당한 이유 없이 거부하거나 해태한 경우 형사처벌하도록 한 구 노동조합법 조항이 헌법에 위반되지 않는다고 결정했습니다(2022헌바79). ‘해태’에는 형식적으로만 교섭에 응하거나 장기간 응하지 않아 교섭 성립을 어렵게 하는 행위가 포함될 수 있습니다. 노동조합의 교섭요구를 받으면 일정 제안, 회신, 참석 경과와 교섭이 어려운 구체적 사유를 서면으로 남기고 장기 지연을 피해야 합니다.</div>
+        <div class="rfoot"><span>결정 <b>2026.08.27</b> · 확인 <b>2026.09.10</b></span><span>별도 시행기한 없음 · 교섭요구 접수 즉시 대응</span><a class="srclink" href="https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267451&amp;cbIdx=1195" target="_blank">🔗 헌법재판소 결정문 요약</a></div>
+      </div>
+
+      <div class="rec-item" id="rec-26" data-checked="2026-09-11">
+        <div class="rhead"><span class="rnum">26</span><span class="rtitle">퇴직일에 연차권이 발생하도록 정한 경우 퇴직자 미사용수당 청구 가능</span><span class="pill now">대법원 판례</span><span class="conf high">공식 판례속보</span></div>
+        <div class="rbody">대법원은 연차휴가를 사용할 권리가 원칙적으로 전년도 1년간의 근로를 마친 다음 날 발생하므로 그 전에 퇴직하면 미사용수당을 청구할 수 없지만, 근로계약·취업규칙·회사의 설명자료 등에서 발생일을 달리 정해 퇴직일에 연차권이 실제 발생했다면 퇴직 후에도 미사용수당을 청구할 수 있다고 판단했습니다(대법원 2026. 9. 3. 선고 2024다206043, 일부 파기환송). 퇴직일 또는 회계연도 기준의 연차 운영규정, 임금피크제 안내문과 급여 정산 로직이 서로 다르면 추가 임금 청구 위험이 있으므로 문구와 실제 운영을 함께 대조해야 합니다.</div>
+        <div class="rfoot"><span>선고 <b>2026.09.03</b> · 확인 <b>2026.09.11</b></span><span>별도 시행기한 없음 · 다음 퇴직 정산 전 점검</span><a class="srclink" href="https://lawclerk.scourt.go.kr/portal/news/NewsViewAction.work?gubun=4&amp;pageIndex=1&amp;seqnum=11291&amp;type=5" target="_blank">🔗 대법원 판례속보</a></div>
+      </div>
+
+      <div class="rec-item" id="rec-27" data-checked="2026-09-17">
+        <div class="rhead"><span class="rnum">27</span><span class="rtitle">정년 후 재고용 관행이 있으면 기대권 인정 — 합리적 이유 없는 거절은 무효</span><span class="pill now">대법원 판례</span><span class="conf high">공식 판례속보</span></div>
+        <div class="rbody">대법원은 취업규칙 등에 명시적 재고용 의무가 없더라도 재고용 실시 경위·기간, 동일 직종의 재고용 비율과 거절 사유 등을 종합해 일정 요건 충족 시 재고용된다는 신뢰관계가 형성됐다면 정년 후 기간제 재고용 기대권을 인정할 수 있다고 판단했습니다. 기대권이 인정되는 상황에서 객관적 심사나 회신 없이 일부 근로자만 재고용하지 않은 것은 합리적 이유 없는 거절로서 부당해고와 마찬가지로 효력이 없습니다. 정년 후 촉탁직 운영 사업장은 기준, 평가자료, 통지와 예외 사유를 서면화하고 일관되게 적용해야 합니다.</div>
+        <div class="rfoot"><span>선고 <b>2026.08.12</b> · 확인 <b>2026.09.17</b></span><span>사건 2025두32673 · 다음 정년 도래자 검토 전 점검</span><a class="srclink" href="https://www.scourt.go.kr/supreme/news/NewsViewAction2.work?gubun=4&amp;pageIndex=1&amp;seqnum=11255" target="_blank">🔗 대법원 중요판결</a></div>
+      </div>
+
+      <div class="callout">
+        <b class="chead">🔎 계속 확인할 항목</b>
+        해외근무수당 통상임금 사건(한수원)의 정확한 사건번호·환송심 진행 상황, 동아운수 사건 파기환송 부분의 서울고법 심리 결과, 포괄임금 기획감독 결과, 2027년 건강보험·장기요양보험료율과 부과체계 최종안, 고용보험료율 2.0% 추진안의 법령 확정 여부, 2027년 산재보험료율 고시, 2027년 고용노동부 예산안의 국회 확정·사업지침, 가족돌봄 근로시간 단축 과태료 법안의 의결 여부, 공무직위원회 출범 후 공공부문 인사관리 기준, 임금구분지급제와 시간단위 연차의 하위법령 확정 내용을 계속 추적합니다.
+      </div>
+    </div>
+    <div class="sfoot"></div>
+  </div>
+</div>
+
+<!-- ============ TAB 1b: 월간·연간 요약 ============ -->
+<div class="panel" id="t1b">
+  <div id="responseSummaryMount"></div>
+  <div class="section">
+    <div class="shead"><h2>📅 이달의 주요 개정·판례 — 2026년 9월</h2><span class="sub">발표·선고·신청기한 기준</span></div>
+    <div class="sbody">
+      <table>
+        <thead><tr><th>일자</th><th>내용</th><th>구분</th></tr></thead>
+        <tbody>
+          <tr><td class="num">09.01</td><td>고용보험 제도개편 방안 발표 — 보험료율 2.0% 등 후속 입법 추진</td><td><span class="status disc">논의·추진</span></td></tr>
+          <tr><td class="num">09.02</td><td>대법원, 구 노동조합법상 대체근로 금지의무 주체 판단</td><td><span class="status case">판례</span></td></tr>
+          <tr><td class="num">09.03</td><td>경영성과급·사업경영상 결정의 노동쟁의 대상 시행지침 발표</td><td><span class="status act">지침</span></td></tr>
+          <tr><td class="num">09.04</td><td>2027년 고용노동부 예산안 발표 — 지원사업 확대안은 국회 확정 전 미확정</td><td><span class="status disc">예산안</span></td></tr>
+          <tr><td class="num">09.07</td><td>포괄임금·고정 OT 현장지도 지속 — 실제 근로시간 기록·약정수당 초과분 지급 재강조</td><td><span class="status disc">모니터링</span></td></tr>
+          <tr><td class="num">09.07</td><td>한국형 AI 노출지수·고용변화 조기경보 대시보드 구축계획 발표</td><td><span class="status disc">개발계획</span></td></tr>
+          <tr><td class="num">09.08</td><td>공공부문 도급 노동자 보호지침 발표 — 9월 9일부터 신규 입찰·계약 적용</td><td><span class="status act">지침</span></td></tr>
+          <tr><td class="num">09.18</td><td>청년고용촉진 특별법 시행 — 청년 범위 15~34세로 확대</td><td><span class="status act">시행</span></td></tr>
+          <tr><td class="num">09.18</td><td>공무직위원회법·시행령 시행 — 공공부문 공식 노정협의 틀 가동</td><td><span class="status act">시행</span></td></tr>
+          <tr><td class="num">09.10 확인</td><td>헌법재판소 8월 27일 결정 반영 — 사용자의 정당한 이유 없는 단체교섭 거부·해태 형사처벌 합헌</td><td><span class="status case">헌재 결정</span></td></tr>
+          <tr><td class="num">09.13</td><td>국방전직교육원·한국기술교육대 통합 추진 — 9월 추진단 구성, 연내 세부안 마련 예정</td><td><span class="status disc">논의·모니터링</span></td></tr>
+          <tr><td class="num">~09.29</td><td>임금구분지급제 하위법령안 의견제출 — 적용범위·확인자료는 아직 미확정</td><td><span class="status disc">입법예고</span></td></tr>
+          <tr><td class="num">09.14~29</td><td>2026년 4회차 외국인근로자(E-9) 신규 고용허가 접수</td><td><span class="status fix">공고</span></td></tr>
+          <tr><td class="num">09.18</td><td>배우자 출산전후휴가 확대·유산사산휴가 신설·임신 중 배우자 돌봄 육아휴직 시행</td><td><span class="status act">시행</span></td></tr>
+        </tbody>
+      </table>
+      <div class="note" style="margin-top:10px">9월은 노사관계 판단기준과 E-9 채용 일정의 실무 영향이 큽니다. 성과급·공장 이전·자동화 관련 교섭안은 근로조건 변동 여부를 중심으로 검토하고, E-9 채용 수요가 있으면 접수 전 7일간의 내국인 구인노력을 먼저 완료하세요.</div>
+      <div class="note" style="margin-top:10px;border-left-color:#6A3FB5">📌 <b>9.18 시행분 즉시 점검</b> — 배우자 출산전후휴가, 유산·사산휴가, 임신 중 배우자 돌봄 육아휴직과 육아기 근로시간 단축 거부사유 변경이 취업규칙·신청서·사내 안내·근태코드에 실제 반영됐는지 확인합니다.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="shead"><h2>🗓️ 2026년 연간 주요 타임라인</h2><span class="sub">시행·확정·판례를 월별로 정리</span></div>
+    <div class="sbody">
+      <table>
+        <thead><tr><th>월</th><th>내용</th><th>구분</th></tr></thead>
+        <tbody>
+          <tr><td class="num">2월</td><td>남녀고용평등법 개정안 국회 통과(2.12) — 단기 육아휴직 신설</td><td><span class="status fix">확정</span></td></tr>
+          <tr><td class="num">3월</td><td>노동조합법 2·3조 개정(노란봉투법) 시행(3.10) — 원·하청 사용자성 인정 범위 확대</td><td><span class="status act">시행</span></td></tr>
+          <tr><td class="num">4월</td><td>대법원, 동아운수 정기상여금 통상임금 인정 확정(4.30)</td><td><span class="status case">판례</span></td></tr>
+          <tr><td class="num">6월</td><td>산업안전보건법 시행규칙 — 안전검사대상 기계 확대(혼합기·파쇄기·분쇄기, 6.26)</td><td><span class="status act">시행</span></td></tr>
+          <tr><td class="num">7월</td><td>국민연금 기준소득월액 상한 659만원으로 조정(7월~)</td><td><span class="status fix">확정</span></td></tr>
+          <tr><td class="num">7월</td><td>부당해고 복직명령 불이행 형사처벌 확정(7.30)</td><td><span class="status case">판례</span></td></tr>
+          <tr><td class="num">8월</td><td>안전보건 현황 공시·위험성평가 강화 시행(8.1), 최저임금 10,700원 확정(8.5)</td><td><span class="status act">시행</span></td></tr>
+          <tr><td class="num">8월</td><td>연 1회, 1주 또는 2주 단기 육아휴직 시행(8.20)</td><td><span class="status act">시행</span></td></tr>
+          <tr><td class="num">9월</td><td>배우자 출산전후휴가 확대·유산사산휴가 신설·임신 중 배우자 돌봄 육아휴직 시행(9.18)</td><td><span class="status act">시행</span></td></tr>
+          <tr><td class="num">9월</td><td>2027년 고용노동부 예산안 발표 — 국회 심의 전 단계</td><td><span class="status disc">예산안·미확정</span></td></tr>
+          <tr><td class="num">9월</td><td>경영성과급 등 노동쟁의 대상 시행지침 발표(9.3), E-9 4회차 접수(9.14~29)</td><td><span class="status fix">확정</span></td></tr>
+          <tr><td class="num">9월</td><td>고용보험 보험료율·구직급여 제도개편 후속 입법 추진</td><td><span class="status disc">논의·추진</span></td></tr>
+          <tr><td class="num">9~12월</td><td>임금테이블·근로계약서·취업규칙 갱신 준비 기간 (2027.01.01 시행 대비)</td><td><span class="status disc">준비</span></td></tr>
+          <tr><td class="num">11월</td><td>난임치료휴가 유급·급여지원 기간 2일→4일 확대(11.27)</td><td><span class="status act">시행 예정·확정</span></td></tr>
+          <tr><td class="num">12월</td><td>정확히 4시간 근무자가 명시적으로 요청한 경우 휴게시간 미부여 특례 시행(12.10)</td><td><span class="status act">시행 예정·확정</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="shead"><h2>🔮 2027년 예정 사항 (미리 준비할 것)</h2></div>
+    <div class="sbody">
+      <table>
+        <thead><tr><th>시행일</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td class="num">2027.01.01</td><td>최저임금 시간급 10,700원 적용</td></tr>
+          <tr><td class="num">2027.01.01</td><td>국민연금 보험료율 10.0%(근로자 부담 5.0%) 적용</td></tr>
+          <tr><td class="num">2027.01.01</td><td>위험성평가 미실시 과태료 부과 개시(50인 이상 사업장)</td></tr>
+          <tr><td class="num">2027.01.01</td><td>임금구분지급제 시행 — 건설·조선 도급 적용범위와 절차는 하위법령 확정 필요</td></tr>
+          <tr><td class="num">2027.06.10</td><td>시간단위 연차 청구권 및 연차 청구·사용에 대한 불리한 처우 금지 시행</td></tr>
+          <tr><td class="num">확인 필요</td><td>2027년 건강보험·장기요양보험료율 — 공식 결정·고시 전까지 급여 반영 금지</td></tr>
+          <tr><td class="num">국회 확정 후</td><td>청년채용·두루누리·30인 미만 퇴직연금 지원 확대안 — 현재 예산안·미확정</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sfoot">이 탭은 인사총무팀 대응사항과 기존 브리핑 항목을 월·연 단위로 재배열한 것입니다. 개별 항목의 상세 내용과 출처는 [법령·판례 현황] 탭에서 확인할 수 있습니다.</div>
+  </div>
+</div>
+
+<!-- ============ TAB 1c: 전체 인사스케줄 ============ -->
+<div class="panel" id="t1c">
+  <section class="schedule-hero" aria-labelledby="fullScheduleTitle">
+    <div class="schedule-hero-copy">
+      <span class="overline">FULL HR SCHEDULE</span>
+      <h2 id="fullScheduleTitle">전체 인사스케줄 간트차트</h2>
+      <p>첨부한 「인사스케줄표_Rv3」의 2026년 시트를 기준으로 반복업무부터 월별 업무까지 정리했습니다.</p>
+    </div>
+    <div class="schedule-stat"><b>64건</b><span>정기·월별 업무</span></div>
+    <div class="schedule-stat"><b>10개</b><span>업무 분류</span></div>
+    <div class="schedule-stat"><b>17건</b><span>매일·매주·매월 반복</span></div>
+    <div class="schedule-stat"><b>3건</b><span>발생 시 업무</span></div>
+  </section>
+
+  <section class="section" aria-label="전체 인사스케줄">
+    <div class="shead"><h2>업무 분류별 연간 간트차트</h2><span class="sub">분류 버튼을 누르면 해당 업무만 볼 수 있습니다.</span><span class="tag">기준: 인사(2026년)</span></div>
+    <div class="schedule-toolbar">
+      <div class="schedule-filters" id="scheduleFilters" aria-label="업무 분류 필터"></div>
+      <span class="schedule-result" id="scheduleResult"><b>64건</b> 표시</span>
+    </div>
+    <div class="gantt-tools">
+      <div class="gantt-legend" aria-label="간트차트 색상 안내"><span><i class="gantt-dot recurring"></i>반복업무(투명)</span><span><i class="gantt-dot"></i>조직·채용·기타</span><span><i class="gantt-dot plan"></i>기획·평가·프로젝트</span><span><i class="gantt-dot check"></i>교육·복리후생</span><span><i class="gantt-dot deadline"></i>급여·노무</span></div>
+      <span class="badge access" data-gantt-current-label>현재 월 자동 표시</span>
+    </div>
+    <div class="gantt-scroll" tabindex="0" aria-label="전체 인사스케줄 간트차트. 모바일에서는 좌우로 스크롤할 수 있습니다.">
+      <div class="gantt-chart schedule-gantt" id="fullHrGantt" role="table" aria-label="1월부터 12월까지 전체 인사 업무 일정"></div>
+    </div>
+    <p class="routine-note">※ 엑셀에 날짜가 없는 월별 업무는 해당 월 전체 일정으로 표시했습니다. 법정기한은 공휴일·사업장 조건·관계기관 공고에 따라 달라질 수 있으므로 실제 신고 전 다시 확인하세요.</p>
+  </section>
+
+  <section class="section" aria-label="발생 시 인사업무">
+    <div class="shead"><h2>발생 시 바로 처리할 업무</h2><span class="sub">월 고정일정이 없어 간트차트와 분리했습니다.</span></div>
+    <div class="sbody">
+      <div class="event-grid">
+        <div class="event-card"><b>신규 입사자 수습평가</b><span>수습기간과 평가일정에 맞춰 진행</span></div>
+        <div class="event-card"><b>신규 입사자 OJT 진행</b><span>근로계약·서약서 체결 등 입사 절차 포함</span></div>
+        <div class="event-card"><b>명함·명찰 발주</b><span>신규 입사자 발생 시 필요한 수량 확인</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ TAB 2: 법령·판례 현황 ============ -->
+<div class="panel" id="t2">
+  <section class="attention-block" aria-labelledby="attentionTitle">
+    <div class="feature-head">
+      <span class="feature-kicker">Attention</span>
+      <h2 id="attentionTitle">판례·행정해석·주요지침</h2>
+      <span class="sub">실무 영향이 큰 항목 우선 확인</span>
+    </div>
+    <div class="attention-list">
+      <button class="attention-row" onclick="openDetail('t2','rec-3')">
+        <span class="attention-type">판례</span>
+        <span class="attention-text">정기상여금의 통상임금 인정과 수당 재산정 기준 — 동아운수 사건</span>
+        <span class="attention-arrow">›</span>
+      </button>
+      <button class="attention-row" onclick="openDetail('t2','rec-8')">
+        <span class="attention-type">판례</span>
+        <span class="attention-text">해외근무수당의 성격과 포괄수당약정 판단 — 한수원 사건 파기환송</span>
+        <span class="attention-arrow">›</span>
+      </button>
+      <button class="attention-row" onclick="openDetail('t2','rec-16')">
+        <span class="attention-type">판례</span>
+        <span class="attention-text">쟁의행위 시 대체근로 금지의무를 부담하는 사용자 범위</span>
+        <span class="attention-arrow">›</span>
+      </button>
+      <button class="attention-row" onclick="openDetail('t2','rec-13')">
+        <span class="attention-type">주요지침</span>
+        <span class="attention-text">성과급·공장 이전·AI 자동화 도입 관련 노동쟁의 대상 판단기준</span>
+        <span class="attention-arrow">›</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="trend-block" aria-labelledby="trendTitle">
+    <div class="feature-head">
+      <span class="feature-kicker trend">Trend</span>
+      <h2 id="trendTitle">인사·노무관리 참고자료</h2>
+      <span class="sub">공식 원문과 제도자료 바로가기</span>
+    </div>
+    <div class="resource-grid">
+      <a class="resource-card" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19744" target="_blank">
+        <span class="doc-cover">2027<br>최저임금</span>
+        <span class="resource-copy"><b>2027년 적용 최저임금 결정·고시</b><span>시간급 10,700원과 월 환산액, 적용범위를 확인합니다.</span><em>고용노동부 원문 →</em></span>
+      </a>
+      <a class="resource-card" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19885" target="_blank">
+        <span class="doc-cover">2027<br>예산안</span>
+        <span class="resource-copy"><b>2027년 고용노동부 예산안</b><span>청년채용·두루누리·퇴직연금 지원 확대 방향을 확인합니다.</span><em>예산안 원문 →</em></span>
+      </a>
+      <a class="resource-card" href="https://www.law.go.kr/LSW/lsInfoP.do?ancYnChk=0&amp;chrClsCd=010202&amp;efYd=20260122&amp;joNo=003100&amp;lsiSeq=268543&amp;urlMode=lsInfoP" target="_blank">
+        <span class="doc-cover ai-doc">AI<br>기본법</span>
+        <span class="resource-copy"><b>인공지능기본법과 채용 AI</b><span>고영향 AI 판단, 투명성 의무와 사람의 최종결정 기준을 확인합니다.</span><em>국가법령정보센터 →</em></span>
+      </a>
+      <a class="resource-card" href="https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS074&amp;nttId=12084" target="_blank">
+        <span class="doc-cover ai-doc">생성형 AI<br>개인정보</span>
+        <span class="resource-copy"><b>생성형 AI 개인정보 보호 가이드</b><span>업무자료 입력, 학습 활용, 기록 삭제와 외부 연동 시 주의사항입니다.</span><em>개인정보보호위원회 →</em></span>
+      </a>
+    </div>
+  </section>
+
+  <div class="section">
+    <div class="shead"><h2>집계 기준</h2></div>
+    <div class="sbody">
+      <div class="note">
+        <b>신뢰도 등급</b> — <span class="conf high">높음</span>: 정부·공공기관 공식 발표 또는 2개 이상 독립 언론사가 동일 사실을 확인한 경우. <span class="conf mid">중간</span>: 단일 출처이거나 사건번호·세부수치 등 일부 정보가 교차 확인되지 않은 경우. <span class="conf low">확인 전</span>: 논의·제안 단계로 아직 확정되지 않은 사안.<br><br>
+        <b>구분(확정 여부)</b> — 법령·판례 원문 또는 공식 시행 여부를 기준으로 확정/시행/논의/판례로 표기하며, 신뢰도와는 별개 축입니다. 즉 "시행 확정"이어도 세부 수치의 신뢰도는 중간일 수 있습니다.<br><br>
+        <b>확인일</b> — 전체 브리핑을 하나의 날짜로 묶지 않고, <b>항목마다 실제로 마지막에 재검증한 날짜</b>를 개별 표시합니다. 최근 변경 가능성이 있는 항목만 우선 재확인하며, 변동이 없는 항목은 이전 확인일을 유지합니다. 확인 후 7일이 지나면 노란색, 14일이 지나면 빨간색으로 표시되어 재검증이 필요한 항목을 바로 알아볼 수 있습니다.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="shead"><h2>법령·판례 현황</h2><span class="sub">신규·변경 항목 원문 확인 2026.09.11 · 기존 항목은 개별 확인일 유지</span></div>
+    <div class="sbody">
+      <table>
+        <thead><tr><th>항목</th><th>구분</th><th>기일</th><th>영향</th><th>신뢰도</th><th>확인일</th><th>출처</th></tr></thead>
+        <tbody>
+          <tr><td>2027년 최저임금 확정 고시(시간급 10,700원)</td><td><span class="status fix">확정</span></td><td class="num">2027.01.01</td><td>임금·인건비 전면</td><td><span class="conf high">높음</span></td><td class="checkdate" data-date="2026-08-26">2026.08.26</td><td><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19744" target="_blank">고용노동부</a></td></tr>
+          <tr><td>국민연금 보험료율 단계 인상(9%→13%, 2026~2033)</td><td><span class="status fix">확정</span></td><td class="num">2027.01.01(10.0%)</td><td>4대보험 사업주 부담</td><td><span class="conf high">높음</span></td><td class="checkdate" data-date="2026-08-26">2026.08.26</td><td><a href="https://nps.or.kr/pnsinfo/databbs/getOHAF0275M1Detail.do?menuId=MN24001492&pstId=LA202500000000030589&hmpgCd=&hmpgBbsCd=BS20240144&sortSe=FR&pageIndex=1&searchText=&searchGbu=" target="_blank">국민연금공단</a></td></tr>
+          <tr><td>국민연금 기준소득월액 상하한 조정(659만/41만원)</td><td><span class="status fix">확정</span></td><td class="num">2026.07~2027.06</td><td>고소득자 보험료</td><td><span class="conf high">공식 안내</span></td><td class="checkdate" data-date="2026-09-10">2026.09.10</td><td><a href="https://www.nps.or.kr/pnsgdnc/newgdnc/getOHAE0001M1.do?hmpgBbsCd=BS20240137&amp;hmpgCd=01&amp;menuId=MN24000897&amp;pageIndex=3&amp;pstId=ZZ202600000000000147&amp;searchGbu=%EC%A0%84%EC%B2%B4&amp;sortSe=FR" target="_blank">국민연금공단</a></td></tr>
+          <tr><td>노동조합법 2·3조 개정(노란봉투법) 및 시행령·해석지침</td><td><span class="status act">시행</span></td><td class="num">2026.03.10</td><td>노사교섭·손해배상 범위</td><td><span class="conf high">높음</span></td><td class="checkdate" data-date="2026-08-26">2026.08.26</td><td><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19047" target="_blank">고용노동부</a></td></tr>
+          <tr><td>산업안전보건법 개정 — 안전보건 현황 공시 의무</td><td><span class="status act">시행</span></td><td class="num">2026.08.01</td><td>공시의무(500인↑)</td><td><span class="conf high">높음</span></td><td class="checkdate" data-date="2026-08-26">2026.08.26</td><td><a href="https://www.khan.co.kr/article/202607212110005/" target="_blank">경향신문</a></td></tr>
+          <tr><td>산업안전보건법 개정 — 위험성평가 근로자 참여·과태료</td><td><span class="status act">시행</span></td><td class="num">2026.08.01</td><td>위험성평가 절차·과태료</td><td><span class="conf mid">중간</span></td><td class="checkdate" data-date="2026-08-26">2026.08.26</td><td><a href="https://www.mtnews.net/news/articleView.html?idxno=25387" target="_blank">관련 기사</a></td></tr>
+          <tr><td>산업안전보건법 시행규칙 — 안전검사대상 기계 확대(혼합기·파쇄기·분쇄기)</td><td><span class="status act">시행</span></td><td class="num">2026.06.26</td><td>해당 설비 안전검사</td><td><span class="conf high">높음</span></td><td class="checkdate" data-date="2026-08-26">2026.08.26</td><td><a href="https://law.go.kr/lsLinkCommonInfo.do?chrClsCd=&lspttninfSeq=154371" target="_blank">국가법령정보센터</a></td></tr>
+          <tr><td>통상임금 '고정성' 요건 폐기 — 후속판례(동아운수 확정)</td><td><span class="status case">판례</span></td><td class="num">2026.04.30 확정</td><td>수당·퇴직금 재산정</td><td><span class="conf high">높음</span></td><td class="checkdate" data-date="2026-08-26">2026.08.26</td><td><a href="https://www.newspim.com/news/view/20260430000270" target="_blank">뉴스핌</a></td></tr>
+          <tr><td>해외근무수당 통상임금 사건 — 대법원 파기환송(한수원)</td><td><span class="status case">판례</span></td><td class="num">2026.08 환송</td><td>포괄수당약정 설계</td><td><span class="conf mid">중간</span></td><td class="checkdate" data-date="2026-08-26">2026.08.26</td><td><a href="https://www.lawtimes.co.kr/news/articleView.html?idxno=224999" target="_blank">법률신문</a></td></tr>
+          <tr><td>남녀고용평등법 개정 — 연 1회 단기 육아휴직 신설</td><td><span class="status act">시행</span></td><td class="num">2026.08.20</td><td>휴원·방학·입원 등 단기 돌봄</td><td><span class="conf high">높음</span></td><td class="checkdate" data-date="2026-09-06">2026.09.06</td><td><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19768" target="_blank">고용노동부</a></td></tr>
+          <tr><td>남녀고용평등법 개정 — 배우자 지원 3종 시행·난임치료휴가 확대 예정</td><td><span class="status act">일부 시행·일부 예정</span></td><td class="num">2026.09.18 / 11.27</td><td>모성보호·근태·급여</td><td><span class="conf high">공식 시행 확인</span></td><td class="checkdate" data-date="2026-09-21">2026.09.21</td><td><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19964" target="_blank">고용노동부</a> · <a href="https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1034308017" target="_blank">국가법령정보센터</a></td></tr>
+          <tr><td>건강보험료율 연도 정정 — 7.19%는 2026년 적용, 2027년은 확인 필요</td><td><span class="status disc">2027 미확정</span></td><td class="num">확인 필요</td><td>급여공제·사업주 부담</td><td><span class="conf high">공식 원문 재검증</span></td><td class="checkdate" data-date="2026-09-17">2026.09.17</td><td><a href="https://www.mohw.go.kr/board.es?act=view&amp;bid=0027&amp;list_no=1487279&amp;mid=a10503010100" target="_blank">보건복지부</a> · <a href="https://edi.nhis.or.kr/portal/images/popup/20251204_pop01longdesc.html" target="_blank">건강보험공단</a></td></tr>
+          <tr><td>경영성과급 등 노동쟁의 대상 시행지침</td><td><span class="status act">지침</span></td><td class="num">2026.09.03</td><td>성과급·구조조정·자동화 교섭</td><td><span class="conf high">높음</span></td><td class="checkdate" data-date="2026-09-04">2026.09.04</td><td><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19876" target="_blank">고용노동부</a></td></tr>
+          <tr><td>2026년 4회차 외국인근로자(E-9) 고용허가</td><td><span class="status fix">공고</span></td><td class="num">2026.09.14~09.29</td><td>제조업 외국인력 채용</td><td><span class="conf high">높음</span></td><td class="checkdate" data-date="2026-09-04">2026.09.04</td><td><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19873" target="_blank">고용노동부</a></td></tr>
+          <tr><td>고용보험 제도개편 방안(보험료율 2.0% 등)</td><td><span class="status disc">논의·추진</span></td><td class="num">미확정</td><td>2027 인건비 예산·실업급여</td><td><span class="conf high">공식 발표</span></td><td class="checkdate" data-date="2026-09-04">2026.09.04</td><td><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19866" target="_blank">고용노동부</a></td></tr>
+          <tr><td>구 노동조합법상 대체근로 금지의무 주체 판단</td><td><span class="status case">판례</span></td><td class="num">2026.09.02</td><td>도급·쟁의행위·대체인력</td><td><span class="conf high">높음</span></td><td class="checkdate" data-date="2026-09-10">2026.09.10</td><td><a href="https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=4&amp;seqnum=11284" target="_blank">대법원</a></td></tr>
+          <tr><td>2027년 고용노동부 예산안 — 청년채용·사회보험·퇴직연금 지원 확대안</td><td><span class="status disc">예산안·미확정</span></td><td class="num">국회 확정 후</td><td>2027 채용·복리후생 예산</td><td><span class="conf high">공식 발표</span></td><td class="checkdate" data-date="2026-09-06">2026.09.06</td><td><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19885" target="_blank">고용노동부</a></td></tr>
+          <tr><td>근로기준법 개정 — 4시간 근무 휴게시간 선택·시간단위 연차</td><td><span class="status fix">예정·확정</span></td><td class="num">2026.12.10 / 2027.06.10</td><td>단시간근로·연차·근태시스템</td><td><span class="conf high">높음</span></td><td class="checkdate" data-date="2026-09-07">2026.09.07</td><td><a href="https://law.go.kr/LSW/lsRvsDocListP.do?chrClsCd=010202&amp;lsId=001872&amp;lsRvsGubun=all" target="_blank">국가법령정보센터</a></td></tr>
+          <tr><td>임금구분지급제 — 2027년 시행, 하위법령 입법예고</td><td><span class="status disc">법률 확정·세부 미확정</span></td><td class="num">의견 2026.09.29 / 시행 2027.01.01</td><td>건설·조선 도급 계약·임금확인</td><td><span class="conf high">공식 원문</span></td><td class="checkdate" data-date="2026-09-07">2026.09.07</td><td><a href="https://law.go.kr/LSW/lsRvsDocListP.do?chrClsCd=010202&amp;lsId=001872&amp;lsRvsGubun=all" target="_blank">법률</a> · <a href="https://www.moel.go.kr/common/downloadFile.do?bbs_id=12&amp;bbs_seq=19794&amp;file_ext=pdf&amp;file_seq=20260801006" target="_blank">고용노동부</a></td></tr>
+          <tr><td>하반기 포괄임금·고정 OT 오남용 기획감독</td><td><span class="status act">감독 진행</span></td><td class="num">2026.09.15부터 약 2개월</td><td>제조업 근로시간 기록·수당 차액 정산</td><td><span class="conf high">공식 발표</span></td><td class="checkdate" data-date="2026-09-17">2026.09.17</td><td><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19943" target="_blank">고용노동부</a></td></tr>
+          <tr><td>공공부문 도급 노동자 보호지침</td><td><span class="status act">지침·시행</span></td><td class="num">시행 중</td><td>공공기관 도급 입찰·계약·고용승계</td><td><span class="conf high">공식 원문</span></td><td class="checkdate" data-date="2026-09-09">2026.09.09</td><td><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19901" target="_blank">고용노동부</a></td></tr>
+          <tr><td>청년고용촉진 특별법 시행 — 청년 범위 15~34세</td><td><span class="status act">시행</span></td><td class="num">2026.09.18</td><td>청년 채용지원 대상 연령 확인</td><td><span class="conf high">공식 시행 확인</span></td><td class="checkdate" data-date="2026-09-21">2026.09.21</td><td><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19902" target="_blank">고용노동부</a></td></tr>
+          <tr><td>가족돌봄 근로시간 단축 미허용 과태료 신설안(의안 2219117)</td><td><span class="status disc">계류·위원회 검토</span></td><td class="num">미확정</td><td>신청 거부사유·서면통보·증빙</td><td><span class="conf high">국회 공식자료</span></td><td class="checkdate" data-date="2026-09-09">2026.09.09</td><td><a href="https://likms.assembly.go.kr/filegate/servlet/FileGate?bookId=FF60D429-7E61-FB53-2281-11E13DA457F3&amp;type=1" target="_blank">국회 검토보고서</a></td></tr>
+          <tr><td>공무직위원회법·시행령 시행</td><td><span class="status act">시행</span></td><td class="num">2026.09.18</td><td>공공부문 인사관리·도급 모니터링</td><td><span class="conf high">공식 시행 확인</span></td><td class="checkdate" data-date="2026-09-21">2026.09.21</td><td><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19902" target="_blank">고용노동부</a></td></tr>
+          <tr><td>단체교섭 거부·해태 형사처벌 합헌(2022헌바79)</td><td><span class="status case">헌재 결정·합헌</span></td><td class="num">2026.08.27</td><td>교섭요구 회신·경과 기록</td><td><span class="conf high">공식 결정</span></td><td class="checkdate" data-date="2026-09-10">2026.09.10</td><td><a href="https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267451&amp;cbIdx=1195" target="_blank">헌법재판소</a></td></tr>
+          <tr><td>연차권 발생일을 달리 정한 경우 퇴직자 미사용수당(2024다206043)</td><td><span class="status case">대법원 판례</span></td><td class="num">2026.09.03</td><td>퇴직정산·연차규정·급여</td><td><span class="conf high">공식 판례속보</span></td><td class="checkdate" data-date="2026-09-11">2026.09.11</td><td><a href="https://lawclerk.scourt.go.kr/portal/news/NewsViewAction.work?gubun=4&amp;pageIndex=1&amp;seqnum=11291&amp;type=5" target="_blank">대법원</a></td></tr>
+          <tr><td>정년 후 재고용 기대권과 합리적 이유 없는 거절(2025두32673)</td><td><span class="status case">대법원 판례</span></td><td class="num">2026.08.12</td><td>정년·촉탁직·재고용 기준</td><td><span class="conf high">공식 판례속보</span></td><td class="checkdate" data-date="2026-09-17">2026.09.17</td><td><a href="https://www.scourt.go.kr/supreme/news/NewsViewAction2.work?gubun=4&amp;pageIndex=1&amp;seqnum=11255" target="_blank">대법원</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sfoot">시행·확정 항목은 기일 관리 대상이고, 논의·판례(진행중) 항목은 판단을 유보한 채 변동을 추적합니다. 시행이 완료된 항목도 후속 기한(예: 과태료 부과 개시일)을 동반하는 경우가 많아 삭제하지 않고 남겨 둡니다. '출처' 열은 원문·1차 보도 링크이며, 정확한 조문·판결문은 국가법령정보센터·대법원 종합법률정보에서 재확인하시기 바랍니다.</div>
+  </div>
+
+  <div id="briefingItemsMount"></div>
+
+  <div class="section">
+    <div class="shead"><h2>배경 판례 — 통상임금 법리 변경의 기점</h2><span class="sub">2024년 전원합의체 판결</span></div>
+    <div class="sbody">
+      <div class="note">
+        <b>대법원 2024.12.19. 선고 2020다247190 전원합의체 판결</b> — 통상임금의 개념적 징표에서 '고정성' 요건을 폐기하고, '소정근로 대가성', '정기성', '일률성'을 기준으로 재직조건부·근무일수 조건부 상여금도 통상임금에 해당할 수 있다고 판시했습니다. 이 판결 이후 동아운수 사건 등 후속 판례들이 정기상여금의 통상임금 인정 범위를 구체화하고 있어, 사내 상여금·수당 체계에 재직조건이 있는지 재점검이 필요합니다.
+        <div style="margin-top:8px"><a class="srclink" href="https://www.yulchon.com/ko/resources/publications/legal-update-view/39129/page.do" target="_blank">🔗 율촌 해설 자료</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TAB 3: 뉴스·이슈 조회 ============ -->
+<div class="panel" id="t3">
+  <div class="section">
+    <div class="shead"><h2>뉴스·이슈 조회</h2><span class="sub">키워드·카테고리 검색 · <span id="dataSourceTag">공식 원문 수동 갱신(2026.09.21 07:00 확인)</span></span></div>
+    <div class="sbody">
+      <div class="filters">
+        <input type="text" id="q" placeholder="키워드 검색 (예: 최저임금, 통상임금, 산업안전)">
+        <select id="fCat">
+          <option value="">전체 카테고리</option>
+          <option value="wage">임금·근로시간</option>
+          <option value="family">육아·모성보호</option>
+          <option value="union">노동조합·노사관계</option>
+          <option value="safety">산업안전보건</option>
+          <option value="ins">4대보험·사회보험</option>
+          <option value="case">채용·해고·징계 판례</option>
+          <option value="employment">채용·고용지원</option>
+          <option value="ai">AI·업무혁신</option>
+        </select>
+        <select id="fSort">
+          <option value="date">최신순</option>
+          <option value="cat">카테고리순</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px">
+        <span class="chip on" data-chip="">전체 <span class="n">35</span></span>
+        <span class="chip" data-chip="wage">임금·근로시간 <span class="n">7</span></span>
+        <span class="chip" data-chip="family">육아·모성보호 <span class="n">3</span></span>
+        <span class="chip" data-chip="union">노동조합 <span class="n">2</span></span>
+        <span class="chip" data-chip="safety">산업안전 <span class="n">3</span></span>
+        <span class="chip" data-chip="ins">4대보험 <span class="n">3</span></span>
+        <span class="chip" data-chip="case">판례 <span class="n">4</span></span>
+        <span class="chip" data-chip="employment">채용·고용 <span class="n">9</span></span>
+        <span class="chip" data-chip="ai">AI·업무혁신 <span class="n">4</span></span>
+      </div>
+      <div id="newsList"></div>
+    </div>
+    <div class="sfoot">기사·판례 발췌는 요지만 정리했으며, 정확한 표현과 전문은 각 기사·판결문 원문을 통해 확인해야 합니다. 카드의 '원문 보기'를 클릭하면 실제 출처로 이동합니다.</div>
+  </div>
+
+  <div class="section">
+    <div class="shead"><h2>뉴스 붙여넣기(수동 갱신)</h2><span class="sub">자동 수집 전 임시 입력용</span></div>
+    <div class="sbody">
+      <div class="hint">
+        매일 자동 수집(예: 네이버 검색 기반 워크플로 → 요약 → 전달 흐름)으로 모은 오늘자 인사노무 뉴스를 이 화면에도 반영하려면,
+        아래 형식대로 <b>탭 또는 쉼표로 구분</b>된 텍스트나 JSON 배열을 붙여넣으세요. 열 순서: <b>제목 · 카테고리 · 날짜 · 요약 · 출처 · URL</b>.
+        카테고리는 wage(임금·근로시간) · union(노동조합) · safety(산업안전) · ins(4대보험) · case(판례) · employment(채용·고용) · ai(AI·업무혁신) 중 하나로 표기합니다.
+        붙여넣은 내용은 이 화면(브라우저)에서만 표시되며 서버에 저장되지 않습니다.
+      </div>
+      <textarea class="pastebox" id="pasteBox" placeholder="예) 2027년 최저임금 확정	wage	2026-08-05	고용노동부, 시급 10,700원 확정 고시	고용노동부	https://www.moel.go.kr/..."></textarea>
+      <button class="btn" id="btnLoad">붙여넣은 자료 반영</button>
+      <button class="btn" id="btnReset">기본 목록으로 되돌리기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TAB 6: AI·업무혁신 ============ -->
+<div class="panel" id="t6">
+  <div class="section">
+    <div class="shead"><h2>AI·업무혁신 브리핑</h2><span class="sub">기사부터 행사·지원사업까지 업무 활용 관점으로 정리</span><span class="tag">신규 공식자료 확인 2026.09.08</span></div>
+    <div class="sbody">
+      <div class="ai-category-nav" role="tablist" aria-label="AI 업무혁신 카테고리">
+        <button class="ai-subtab" role="tab" aria-selected="true" aria-controls="ai-news" data-ai-panel="ai-news">AI기사</button>
+        <button class="ai-subtab" role="tab" aria-selected="false" aria-controls="ai-trend" data-ai-panel="ai-trend">동향</button>
+        <button class="ai-subtab" role="tab" aria-selected="false" aria-controls="ai-events" data-ai-panel="ai-events">전시·교육·세미나</button>
+        <button class="ai-subtab" role="tab" aria-selected="false" aria-controls="ai-support" data-ai-panel="ai-support">지원사업</button>
+      </div>
+
+      <section class="ai-subpanel active" id="ai-news" role="tabpanel">
+        <div class="ai-category-head"><h3>AI기사</h3><p>인사·총무 업무에 영향을 주는 공식 발표와 주요 업데이트</p></div>
+        <div class="ai-feed">
+          <a class="ai-feed-card" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19895" target="_blank" rel="noopener">
+            <div class="ai-card-top"><span class="ai-kind">고용동향</span><span class="ai-state pending">개발계획·미완성</span></div>
+            <h4>한국형 AI 노출지수·고용변화 조기경보 대시보드 추진</h4>
+            <p>한국의 실제 직무를 분석하는 AI 노출지수와 산업·연령별 고용변화를 추적하는 ‘카나리아 대시보드’를 2027년 내 개발할 계획입니다. 현재는 연구용역 준비 단계이므로 인력계획의 확정 지표가 아닌 모니터링 자료로만 활용합니다.</p>
+            <div class="ai-feed-meta"><span><b>확인 2026.09.08</b><br>고용노동부·한국고용정보원<br>명칭 공모 09.27까지</span><span class="ai-link">원문 보기 →</span></div>
+          </a>
+          <a class="ai-feed-card" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19885" target="_blank" rel="noopener">
+            <div class="ai-card-top"><span class="ai-kind">정책기사</span><span class="ai-state pending">예산안·미확정</span></div>
+            <h4>2027년 AI 훈련·청년채용 기업 지원 확대안</h4>
+            <p>고용노동부 예산안에 AI 훈련 수료 청년을 채용하는 기업 지원 신설안이 포함됐습니다. 국회 확정과 최종 사업지침 전에는 예상 수입이 아닌 검토 과제로 관리합니다.</p>
+            <div class="ai-feed-meta"><span><b>2026.09.04</b><br>고용노동부</span><span class="ai-link">원문 보기 →</span></div>
+          </a>
+          <a class="ai-feed-card" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19876" target="_blank" rel="noopener">
+            <div class="ai-card-top"><span class="ai-kind">노사관계</span><span class="ai-state">지침 발표</span></div>
+            <h4>AI·자동화 도입과 근로조건 변경의 교섭 범위</h4>
+            <p>기술 도입 결정 자체와 배치전환·근무형태 변경 등 근로조건 영향을 구분해야 합니다. 영향이 구체화되는 단계부터 노사협의와 전환교육 계획을 함께 준비합니다.</p>
+            <div class="ai-feed-meta"><span><b>2026.09.03</b><br>고용노동부</span><span class="ai-link">원문 보기 →</span></div>
+          </a>
+          <a class="ai-feed-card" href="https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS074&amp;nttId=12084" target="_blank" rel="noopener">
+            <div class="ai-card-top"><span class="ai-kind">개인정보</span><span class="ai-state">가이드</span></div>
+            <h4>생성형 AI 업무 이용 시 개인정보 보호 기준</h4>
+            <p>학습 활용 여부, 대화기록 보관·삭제, 외부 서비스 연동을 확인해야 합니다. 인사·평가·급여자료는 입력 금지 정보와 익명화 기준을 별도로 두는 것이 핵심입니다.</p>
+            <div class="ai-feed-meta"><span><b>2026.05.19</b><br>개인정보보호위원회</span><span class="ai-link">원문 보기 →</span></div>
+          </a>
+        </div>
+      </section>
+
+      <section class="ai-subpanel" id="ai-trend" role="tabpanel">
+        <div class="ai-category-head"><h3>동향</h3><p>채용·개인정보·노사관계에 미치는 영향과 대응 방향</p></div>
+        <div class="ai-list">
+        <article class="ai-detail" id="ai-1">
+          <span class="ai-no">AI 1</span>
+          <h3>AI 기본법 시행 — 채용 AI의 고영향 여부와 사람의 최종결정 확인</h3>
+          <p>인공지능기본법과 시행령은 채용을 고영향 AI 판단 대상 분야 중 하나로 정했습니다. 다만 사람이 최종 의사결정에 개입해 통제할 수 있는 구조인지 등 실제 사용방식에 따라 판단이 달라질 수 있습니다. 생성형 AI 사용 사실과 생성물 표시 등 투명성 의무도 함께 규정됐습니다.</p>
+          <div class="ai-action"><b>인사총무팀 대응</b><br>AI 서류선별·면접분석 도구를 도입할 때 사람의 최종 검토 절차, 지원자 고지 문구, 오류·이의제기 처리, 공급업체의 법 준수 책임을 계약서와 운영지침에 남깁니다.</div>
+          <div class="rfoot"><span>시행 <b>2026.01.22</b></span><span>최소 1년 계도기간</span><a class="srclink" href="https://www.law.go.kr/LSW/lsInfoP.do?ancYnChk=0&amp;chrClsCd=010202&amp;efYd=20260122&amp;joNo=003100&amp;lsiSeq=268543&amp;urlMode=lsInfoP" target="_blank">법령 원문</a></div>
+        </article>
+        <article class="ai-detail" id="ai-2">
+          <span class="ai-no">AI 2</span>
+          <h3>생성형 AI 업무 이용 시 개인정보·회사자료 입력 기준 필요</h3>
+          <p>개인정보보호위원회 가이드는 생성형 AI의 학습 활용 여부, 대화기록 저장·삭제, 외부 서비스 연동과 업무자료 입력 시 주의사항을 핵심 점검항목으로 제시합니다. 인사자료에는 민감정보와 평가·보상정보가 함께 포함될 수 있어 일반 문서보다 엄격한 기준이 필요합니다.</p>
+          <div class="ai-action"><b>인사총무팀 대응</b><br>승인된 AI 서비스 목록, 입력 금지 정보, 익명화 기준, 결과물 검토 책임, 계정·대화기록 삭제 주기를 포함한 ‘사내 생성형 AI 이용수칙’을 마련하고 전 직원에게 공지합니다.</div>
+          <div class="rfoot"><span>발간 <b>2026.05.19</b></span><span>내부지침 즉시 점검</span><a class="srclink" href="https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS074&amp;nttId=12084" target="_blank">개인정보위 가이드</a></div>
+        </article>
+        <article class="ai-detail" id="ai-3">
+          <span class="ai-no">AI 3</span>
+          <h3>AI·자동화 도입 결정과 근로조건 변경의 노사 대응을 분리</h3>
+          <p>고용노동부 판단지침은 공장 이전이나 AI·자동화 도입 결정 자체는 원칙적으로 의무적 교섭대상이 아니지만, 배치전환·정리해고·근무형태 변경 등 근로조건 변동이 객관적으로 예상되는 단계부터 관련 대책은 교섭대상이 될 수 있다고 설명합니다.</p>
+          <div class="ai-action"><b>인사총무팀 대응</b><br>기술 도입 의사결정 자료와 인력·근무제도 영향 분석을 분리하고, 영향이 구체화되는 시점에 노사협의·직무전환·재교육 계획을 함께 준비합니다.</div>
+          <div class="rfoot"><span>지침 발표 <b>2026.09.03</b></span><span>자동화 투자안 수립 시 병행 검토</span><a class="srclink" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19876" target="_blank">고용노동부 원문</a></div>
+        </article>
+        </div>
+      </section>
+
+      <section class="ai-subpanel" id="ai-events" role="tabpanel">
+        <div class="ai-category-head"><h3>전시·교육·세미나</h3><p>신청기한과 개최일이 가까운 순서로 확인합니다.</p></div>
+        <div class="ai-feed">
+          <a class="ai-feed-card" href="https://www.bizinfo.go.kr/sie/siea/selectSIEA430Detail.do?eventInfoId=EVEN_000000000069339" target="_blank" rel="noopener">
+            <div class="ai-card-top"><span class="ai-kind">교육</span><span class="ai-state open">과정별 접수</span></div>
+            <h4>재직자 AI 역량강화 교육</h4>
+            <p>생성형 AI·프롬프트·스프레드시트 실무와 함께 인사평가·채용·보상 업무 활용 과정이 포함됩니다. 세부 과정별 일정과 신청 가능 여부를 확인합니다.</p>
+            <div class="ai-feed-meta"><span><b>09.18~10.27</b><br>대한상공회의소</span><span class="ai-link">일정 확인 →</span></div>
+          </a>
+          <a class="ai-feed-card" href="https://industrialaiexpo.or.kr/Contents.asp?LoadPage=Programall_2026" target="_blank" rel="noopener">
+            <div class="ai-card-top"><span class="ai-kind">전시·컨퍼런스</span><span class="ai-state open">10월 개최</span></div>
+            <h4>2026 산업 AI EXPO</h4>
+            <p>제조혁신 컨퍼런스, AI 기술 세미나와 비즈니스 매칭을 함께 운영합니다. 제조 현장의 자동화·품질·안전 적용 사례와 공급사를 비교하기 좋습니다.</p>
+            <div class="ai-feed-meta"><span><b>10.21~10.23</b><br>KINTEX 제2전시장</span><span class="ai-link">프로그램 →</span></div>
+          </a>
+          <a class="ai-feed-card" href="https://www.nvidia.com/ko-kr/ai-days/" target="_blank" rel="noopener">
+            <div class="ai-card-top"><span class="ai-kind">컨퍼런스·교육</span><span class="ai-state open">알림 신청</span></div>
+            <h4>NVIDIA AI Day Seoul 2026</h4>
+            <p>첫날 컨퍼런스에 이어 둘째 날 실습형 교육과 워크숍이 진행됩니다. 사내 AI 인프라·에이전트·업무자동화 검토 담당자가 참고할 행사입니다.</p>
+            <div class="ai-feed-meta"><span><b>11.09~11.10</b><br>서울 COEX</span><span class="ai-link">행사 보기 →</span></div>
+          </a>
+        </div>
+      </section>
+
+      <section class="ai-subpanel" id="ai-support" role="tabpanel">
+        <div class="ai-category-head"><h3>지원사업</h3><p>접수 상태와 오비오 적용 가능성을 구분해 표시합니다.</p></div>
+        <div class="ai-feed">
+          <a class="ai-feed-card" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?cpage=3&amp;pblancId=PBLN_000000000126064&amp;rows=15&amp;schEndAt=N" target="_blank" rel="noopener">
+            <div class="ai-card-top"><span class="ai-kind">제조 AI</span><span class="ai-state open">09.15 마감</span></div>
+            <h4>온디바이스 AI 자율제조 실증 지원</h4>
+            <p>경북 소재 또는 이전·확장 계획이 있는 관련 중소·중견기업 대상 사업입니다. 지역·컨소시엄 요건이 맞을 때만 검토하고 신청 전 자격을 확인합니다.</p>
+            <div class="ai-feed-meta"><span><b>지역조건 필수</b><br>기업마당</span><span class="ai-link">공고 보기 →</span></div>
+          </a>
+          <a class="ai-feed-card" href="https://www.nipa.kr/home/bsnsAll/1/nttDetail?bbsNo=4&amp;bsnsDtlsIemNo=580&amp;nttNo=16516&amp;tab=2" target="_blank" rel="noopener">
+            <div class="ai-card-top"><span class="ai-kind">AI 바우처</span><span class="ai-state closed">2026 접수 종료</span></div>
+            <h4>AI 통합 바우처 지원사업</h4>
+            <p>수요기업과 공급기업이 컨소시엄으로 신청하며 과제당 최대 2억원 규모입니다. 올해 접수는 끝났으므로 도입 과제와 공급사 후보를 정리해 차년도 공고를 준비합니다.</p>
+            <div class="ai-feed-meta"><span><b>차년도 준비</b><br>정보통신산업진흥원</span><span class="ai-link">공고 보기 →</span></div>
+          </a>
+          <a class="ai-feed-card" href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19885" target="_blank" rel="noopener">
+            <div class="ai-card-top"><span class="ai-kind">채용지원</span><span class="ai-state pending">예산안·미확정</span></div>
+            <h4>AI 훈련 수료 청년 채용기업 지원안</h4>
+            <p>2027년 예산안에 포함된 신설 지원 방향입니다. 아직 신청 가능한 확정사업이 아니므로 채용계획에 가능성만 반영하고 최종 예산과 지침을 재확인합니다.</p>
+            <div class="ai-feed-meta"><span><b>공고 전</b><br>고용노동부</span><span class="ai-link">원문 보기 →</span></div>
+          </a>
+        </div>
+      </section>
+    </div>
+    <div class="sfoot">행사 일정과 지원사업 접수 상태는 변경될 수 있습니다. 신청 전 주관기관 원문을 다시 확인하고, 채용·평가 등 사람의 권리에 영향을 미치는 AI는 도입 전 법무·개인정보 검토를 권고합니다.</div>
+  </div>
+</div>
+
+<!-- ============ TAB 4B: 인사·총무 지원사업 ============ -->
+<div class="panel" id="t4b">
+  <div class="section">
+    <div class="shead"><h2>인사·총무 관련 지원사업</h2><span class="sub" id="supportUpdateLabel">인건비 6종 + 인증·조직·교육·안전 4종 · 2026.09.15 확인</span></div>
+    <div class="sbody">
+      <div class="note" style="margin-bottom:12px">
+        오비오의 제조업·약 200명 규모를 기준으로 검토 가치가 높은 인건비, 조직·인사제도, 교육훈련, 산업안전 사업을 정리했습니다. 실제 지원 여부는 우선지원대상기업·소기업 해당 여부, 고용보험 가입, 중복지원 제한 및 예산 잔액에 따라 달라지므로 신청 전에 운영기관의 최종 확인이 필요합니다.
+      </div>
+      <div class="callout" style="margin:0 0 12px">
+        <b class="chead">2027년 지원 확대안 — 아직 신청 가능한 사업이 아닙니다</b>
+        정부 예산안에는 청년일자리도약장려금, 두루누리 사회보험료 지원, 30인 미만 사업장 퇴직연금 도입 지원 등의 확대·신설안이 포함됐습니다. 국회 예산 확정과 사업별 최종 지침 전까지는 아래 2026년 운영사업 6종과 분리해 모니터링합니다. <a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19885" target="_blank">고용노동부 예산안 원문</a>
+      </div>
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>지원사업</th><th>주요 대상</th><th>지원 수준</th><th>인사총무팀 확인사항</th><th>상태·원문</th></tr></thead>
+          <tbody id="supportTableBody">
+            <tr>
+              <td><b>2027년 청년일자리 강소기업</b><br><span class="sub">인증·정책우대</span></td>
+              <td>청년이 선호하는 근로여건과 기업경쟁력을 갖춘 중소·중견기업<br><span class="sub">세부 신청·제외 요건은 첨부 공고문 확인</span></td>
+              <td>직접 인건비 지원이 아닌 <b>강소기업 선정</b>과 연계 우대<br><span class="sub">세부 혜택은 공고문 기준</span></td>
+              <td>신청 누리집에서 기업요건·제출서류를 확인하고 9월 30일 18:00 전 접수. 인건비 지원사업과 혼동하지 말고 별도 인증사업으로 관리</td>
+              <td><span class="status disc">~2026.09.30 18:00</span><br><a href="https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20260900193" target="_blank">고용노동부 공고</a></td>
+            </tr>
+            <tr>
+              <td><b>청년일자리도약장려금</b></td>
+              <td>2026년 만 15~34세 청년을 정규직 채용하고 6개월 이상 고용하는 기업</td>
+              <td>기업에 1년간 최대 <b>720만원</b><br><span class="sub">비수도권은 청년 장기근속 지원 별도</span></td>
+              <td>지역 유형, 피보험자 수, 주 28시간 이상, 월평균 급여 450만원 이하 여부 확인. 채용 전 참여승인이 원칙이며 채용 후 신청은 3개월 이내</td>
+              <td><span class="status act">2026 운영</span><br><a href="https://m.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000117&amp;systCnntId=CI00001044&amp;systId=SI00000318" target="_blank">고용24 원문</a></td>
+            </tr>
+            <tr>
+              <td><b>고용촉진장려금</b></td>
+              <td>취업지원프로그램 이수자 등 취업취약계층을 신규 고용하고 6개월 이상 유지한 사업주</td>
+              <td>우선지원대상기업·중견기업 연 <b>최대 720만원</b><br><span class="sub">대규모기업 360만원</span></td>
+              <td>채용 전 구직등록·프로그램 이수 여부, 고용조정 제한, 채용일부터 12개월 내 1회차 신청기한 확인</td>
+              <td><span class="status act">운영중</span><br><a href="https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000119&amp;systId=SI00000370" target="_blank">고용24 원문</a></td>
+            </tr>
+            <tr>
+              <td><b>고령자 고용지원금</b></td>
+              <td>1년 초과 근무한 60세 이상 근로자의 고용이 과거 평균보다 증가한 우선지원대상기업·중견기업</td>
+              <td>증가 인원 1명당 분기 <b>30만원</b>, 최대 2년</td>
+              <td>제조업 우선지원대상기업 기준(500명 이하), 분기별 증가 인원 산정, 최초 신청 공고기간 확인</td>
+              <td><span class="status act">운영중</span><br><a href="https://m.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000121&amp;systId=SI00000328" target="_blank">고용24 원문</a></td>
+            </tr>
+            <tr>
+              <td><b>대체인력지원금</b></td>
+              <td>출산전후휴가·육아휴직·육아기 근로시간 단축을 허용하고 대체인력을 활용한 우선지원대상기업</td>
+              <td>대체인력 1명당 월 <b>최대 140만원</b><br><span class="sub">30인 이상은 유형별 120~130만원</span></td>
+              <td>휴직·단축 유형, 사업장 규모, 인수인계기간, 육아휴직지원금 특례와 중복 제한 확인</td>
+              <td><span class="status act">운영중</span><br><a href="https://m.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000298&amp;systId=SI00000393" target="_blank">고용24 원문</a></td>
+            </tr>
+            <tr>
+              <td><b>워라밸일자리 장려금</b><br><span class="sub">실근로시간 단축</span></td>
+              <td>근로시간 단축계획 수립 후 주 평균 실근로시간을 2시간 이상 줄인 우선지원대상기업·중견기업</td>
+              <td>지원인원 1명당 월 <b>30만원</b>, 최대 1년</td>
+              <td>시행 전 3개월 전자·기계식 출퇴근 기록, 사전 계획 승인, 지원인원 30% 한도 확인</td>
+              <td><span class="status act">운영중</span><br><a href="https://m.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000368&amp;systId=SI00000425" target="_blank">고용24 원문</a></td>
+            </tr>
+            <tr>
+              <td><b>장애인 고용장려금</b></td>
+              <td>민간 의무고용률 3.1%를 초과해 장애인을 고용한 사업주</td>
+              <td>월 지급단가 <b>35만~90만원</b><br><span class="sub">장애 정도·성별별 차등, 임금의 60% 한도</span></td>
+              <td>월별 의무고용률 초과인원, 임금지급 기초일수, 최저임금·고용보험 요건과 타 지원금 차액 여부 확인</td>
+              <td><span class="status act">운영중</span><br><a href="https://m.work24.go.kr/cm/c/f/1100/selecSystInfo.do?currentPageNo=1&amp;recordCountPerPage=10&amp;systClId=SC00000321&amp;systCnntId=CI00001898&amp;systId=SI00000376" target="_blank">고용24 원문</a></td>
+            </tr>
+            <tr>
+              <td><b>일터혁신 상생컨설팅</b><br><span class="sub">임금·평가·근로시간</span></td>
+              <td>고용보험에 가입하고 일터혁신 의지가 있는 <b>20인 이상 사업장</b></td>
+              <td>근로시간, 임금·평가체계, 직무체계, 공정채용, 장년친화 등 맞춤형 컨설팅<br><span class="sub">기업별 최대 2개 과제, 특화 포함 시 3개</span></td>
+              <td>현재 개선이 필요한 과제를 1~2개로 좁히고 사전상담 후 신청. 노사대표 참여 가능 여부와 내부 담당자 지정</td>
+              <td><span class="status act">~2026.11.30</span><br><a href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?cpage=76&amp;pblancId=PBLN_000000000119762&amp;rows=15&amp;schEndAt=N" target="_blank">기업마당 공고</a></td>
+            </tr>
+            <tr>
+              <td><b>체계적 현장훈련(S-OJT)</b><br><span class="sub">직무·현장교육</span></td>
+              <td>일반형은 우선지원대상기업. 현장에서 직무 수행과 연계한 체계적 훈련을 운영하려는 기업</td>
+              <td>기업 맞춤형 훈련과정 개발·운영 및 훈련비 지원<br><span class="sub">세부 지원수준은 참여유형·과정별 확인</span></td>
+              <td>생산·품질·설비·관리 직무 중 표준화가 필요한 과제를 정하고 훈련교사·대상자를 사전 지정</td>
+              <td><span class="status disc">일반형 ~2026.10.30</span><br><a href="https://www.hrd4u.or.kr/hrd4u/bbs/view/B0000051/210.do?menuNo=0401&amp;pageIndex=2" target="_blank">HRD4U 공고</a></td>
+            </tr>
+            <tr>
+              <td><b>안전동행 지원사업</b><br><span class="sub">연계 확인: 클린사업장 안전디자인</span></td>
+              <td>안전동행은 공고상 대상 요건 적용. 안전디자인은 산재보험 가입 <b>50인 미만</b> 사업장 중심<br><span class="sub">업종별 소기업 기준·원하청 분야는 세부요건 별도</span></td>
+              <td>안전디자인 비용의 <b>50~70%</b>, 최대 <b>1억원</b> 지원<br><span class="sub">지게차·보행자 동선, 비상구, 화재예방 등 13종</span></td>
+              <td>약 200명인 본사 전체의 직접 대상 여부를 추정하지 말고 사업장별 인원·소기업 기준과 협력사 적용 가능성을 확인. 위험동선·비상구·화재설비 개선안을 먼저 목록화</td>
+              <td><span class="status act">운영 중 · 예산 소진 시까지</span><br><a href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?cpage=3&amp;pblancId=PBLN_000000000125567&amp;rows=15&amp;schEndAt=N" target="_blank">안전동행 공고</a><br><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19924" target="_blank">고용노동부 안전디자인 원문</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="sfoot">매일 공식 출처에서 신규 공고·지원금액·대상·신청기한·예산소진 여부를 확인합니다. 자동 확인에 실패하면 기존 정상 데이터를 유지하고 마지막 확인일을 변경하지 않습니다.</div>
+  </div>
+</div>
+
+<!-- ============ TAB 4: 4대보험·급여 지표 ============ -->
+<div class="panel" id="t4">
+  <div class="section">
+    <div class="shead"><h2>최저임금·4대보험 요율 비교</h2><span class="sub">2026년 적용 중 vs 2027년 확정·미확정 구분 · 2026.09.21 재확인</span></div>
+    <div class="sbody">
+      <table>
+        <thead><tr><th>항목</th><th>2026년(적용중)</th><th>2027년</th><th>근거</th></tr></thead>
+        <tbody>
+          <tr><td>최저임금(시급)</td><td class="num">10,320원</td><td class="num">10,700원 <span class="status fix">확정</span></td><td><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19744" target="_blank">고용노동부 고시(2026.08.05)</a></td></tr>
+          <tr><td>최저임금 월 환산(209h)</td><td class="num">2,156,880원</td><td class="num">2,236,300원</td><td>주 40시간·유급주휴 포함 209시간 기준</td></tr>
+          <tr><td>국민연금 보험료율(전체)</td><td class="num">9.5%<br><span class="sub">근로자·사용자 각 4.75%</span></td><td class="num">10.0% <span class="status fix">확정</span><br><span class="sub">각 5.0%</span></td><td><a href="https://nps.or.kr/pnsinfo/databbs/getOHAF0275M1Detail.do?menuId=MN24001492&amp;pstId=LA202500000000030589&amp;hmpgCd=&amp;hmpgBbsCd=BS20240144&amp;sortSe=FR&amp;pageIndex=1&amp;searchText=&amp;searchGbu=" target="_blank">국민연금공단</a></td></tr>
+          <tr><td>국민연금 기준소득월액</td><td class="num">41만~659만원<br><span class="sub">2026.07~2027.06</span></td><td>2027년 7월 이후 <span class="status disc">확인 필요</span></td><td><a href="https://www.nps.or.kr/pnsgdnc/newgdnc/getOHAE0001M1.do?hmpgBbsCd=BS20240137&amp;hmpgCd=01&amp;menuId=MN24000897&amp;pageIndex=3&amp;pstId=ZZ202600000000000147&amp;searchGbu=%EC%A0%84%EC%B2%B4&amp;sortSe=FR" target="_blank">국민연금공단 공식 안내</a></td></tr>
+          <tr><td>건강보험료율(직장)</td><td class="num">7.19%<br><span class="sub">근로자·사용자 각 3.595%</span></td><td><span class="status disc">확인 필요</span><br><span class="sub">공식 결정 전 반영 금지</span></td><td><a href="https://www.mohw.go.kr/board.es?act=view&amp;bid=0027&amp;list_no=1487279&amp;mid=a10503010100" target="_blank">보건복지부 2026 결정</a> · <a href="https://edi.nhis.or.kr/portal/images/popup/20251204_pop01longdesc.html" target="_blank">건강보험공단 2026 안내</a></td></tr>
+          <tr><td>장기요양보험료율</td><td class="num">보수월액의 0.9448%<br><span class="sub">근로자·사용자 각 0.4724%</span></td><td>최종 요율 <span class="status disc">확인 필요</span></td><td><a href="https://www.mohw.go.kr/board.es?act=view&amp;bid=0027&amp;list_no=1487817&amp;mid=a10503010100" target="_blank">보건복지부 2026 요율</a><br>건강보험료 × 13.14%</td></tr>
+          <tr><td>고용보험료율(실업급여)</td><td class="num">1.8%<br><span class="sub">근로자·사용자 각 0.9%</span></td><td>2.0% 추진 <span class="status disc">미확정</span><br><span class="sub">확정 전 급여 반영 금지</span></td><td><a href="https://www.moel.go.kr/info/publicdata/majorpublish/majorPublishView.do?bbs_seq=20260200945" target="_blank">2026 고용보험 안내</a> · <a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19866" target="_blank">제도개편안</a></td></tr>
+          <tr><td>고용안정·직업능력개발 부담</td><td class="num">사용자 0.25~0.85%<br><span class="sub">기업규모·우선지원대상 여부별</span></td><td>확정 요율 <span class="status disc">확인 필요</span></td><td><a href="https://www.moel.go.kr/info/publicdata/majorpublish/majorPublishView.do?bbs_seq=20260200945" target="_blank">고용노동부 공식 안내</a><br>오비오 적용구간은 우선지원대상기업 여부 확인 필요</td></tr>
+          <tr><td>산재보험료율</td><td class="num">업종평균 1.47%<br><span class="sub">전액 사용자 부담</span></td><td>2027년 고시 <span class="status disc">확인 필요</span></td><td><a href="https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=18810" target="_blank">고용노동부 공식 발표</a></td></tr>
+          <tr><td>제조업 산재보험 사업종류별 요율</td><td class="num">6~24‰ + 출퇴근재해 0.6‰<br><span class="sub">세부 업종별 상이</span></td><td>2027년 고시 <span class="status disc">확인 필요</span></td><td><a href="https://www.law.go.kr/LSW/flDownload.do?flSeq=160835807" target="_blank">국가법령정보센터 고시</a><br>오비오 사업종류 코드 확인 후 적용</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sfoot">건강보험료율 7.19%는 2026년 적용값입니다. 2027년 건강보험·장기요양보험료율, 고용보험 개편안과 산재보험료율은 공식 결정·고시 전이므로 "확인 필요" 또는 "미확정"으로 구분했습니다. 산재보험은 평균요율이 아니라 회사의 사업종류 코드별 요율을 실제 급여·원가 계산에 적용해야 합니다.</div>
+  </div>
+
+  <div class="section">
+    <div class="shead"><h2>국민연금 보험료율 단계 인상 로드맵</h2><span class="sub">2026~2033년, 매년 0.5%p 인상</span></div>
+    <div class="sbody">
+      <table>
+        <thead><tr><th>연도</th><th>보험료율</th><th>근로자 부담</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr><td class="num">2026</td><td class="num">9.5%</td><td class="num">4.75%</td><td>27년 만의 첫 인상</td></tr>
+          <tr><td class="num">2027</td><td class="num">10.0%</td><td class="num">5.0%</td><td></td></tr>
+          <tr><td class="num">2028</td><td class="num">10.5%</td><td class="num">5.25%</td><td></td></tr>
+          <tr><td class="num">2029~2032</td><td class="num">11.0%~12.5%</td><td class="num">5.5%~6.25%</td><td>매년 0.5%p 순차 인상</td></tr>
+          <tr><td class="num">2033</td><td class="num">13.0%</td><td class="num">6.5%</td><td>최종 목표치</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sfoot">소득대체율도 2026년부터 41.5%에서 43%로 함께 인상되었습니다(2026.1.1. 이후 가입기간부터 적용, 기존 수급자 제외). <a href="https://www.tossbank.com/articles/nps2026" target="_blank">토스뱅크 해설 자료</a></div>
+  </div>
+</div>
+
+<!-- ============ TAB 5: 출처·안내 ============ -->
+<div class="panel" id="t5">
+  <div class="section">
+    <div class="shead"><h2>자료 출처 전체 목록</h2></div>
+    <div class="sbody">
+      <table>
+        <thead><tr><th>분야</th><th>1차 출처</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr><td>최저임금</td><td><a href="https://www.moel.go.kr" target="_blank">고용노동부</a> · <a href="https://www.minimumwage.go.kr" target="_blank">최저임금위원회</a></td><td>매년 8월 5일까지 확정·고시</td></tr>
+          <tr><td>4대보험 요율</td><td><a href="https://nps.or.kr" target="_blank">국민연금공단</a> · <a href="https://www.nhis.or.kr" target="_blank">국민건강보험공단</a> · 고용노동부</td><td>연도별 고시 확인 필요</td></tr>
+          <tr><td>노동조합법 개정(노란봉투법)</td><td>고용노동부 · <a href="https://www.law.go.kr" target="_blank">국가법령정보센터</a></td><td>시행령·해석지침 포함</td></tr>
+          <tr><td>산업안전보건법·안전검사</td><td>고용노동부 · 국가법령정보센터 · <a href="https://www.kosha.or.kr" target="_blank">안전보건공단</a></td><td>시행규칙 개정문 확인</td></tr>
+          <tr><td>육아휴직·모성보호(남녀고용평등법)</td><td>고용노동부 · 국가법령정보센터</td><td>2026.8·9·11월 순차 시행</td></tr>
+          <tr><td>인사·총무 지원사업</td><td><a href="https://www.work24.go.kr" target="_blank">고용24</a> · <a href="https://www.bizinfo.go.kr" target="_blank">기업마당</a> · <a href="https://www.hrd4u.or.kr" target="_blank">HRD4U</a> · <a href="https://portal.kosha.or.kr" target="_blank">산업안전포털</a></td><td>인건비·조직·교육·안전 분야의 요건·신청기한·예산소진 여부 확인</td></tr>
+          <tr><td>AI·업무혁신</td><td>과학기술정보통신부 · <a href="https://www.pipc.go.kr" target="_blank">개인정보보호위원회</a> · 국가법령정보센터</td><td>채용 AI·생성형 AI 개인정보·자동화 노사영향 점검</td></tr>
+          <tr><td>판례</td><td><a href="https://www.scourt.go.kr/portal/news/NewsListAction.work?gubun=4" target="_blank">대법원 판례속보</a> · <a href="https://glaw.scourt.go.kr" target="_blank">대법원 종합법률정보</a></td><td>요지만 정리, 원문 재확인 필수</td></tr>
+          <tr><td>외국인력 고용허가</td><td>고용노동부 · <a href="https://www.work24.go.kr" target="_blank">고용24</a></td><td>회차별 접수·발급 일정 확인</td></tr>
+        </tbody>
+      </table>
+      <div class="note" style="margin-top:10px">
+        2026년 9월 21일 공식 원문을 다시 대조해 9월 18일 시행된 배우자 지원 3종, 청년 정책대상 연령 확대, 공무직위원회법·시행령을 기존 항목에 통합했습니다. 4대보험 요율·급여지표·지원사업에는 새로 확정된 실질 변경이 없어 기존 정상 데이터와 항목별 확인일을 유지합니다.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="shead"><h2>표시 및 갱신 원칙</h2></div>
+    <div class="sbody">
+      <table>
+        <thead><tr><th>원칙</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td>확정 전 사안 배제</td><td>논의·제안·조사 단계인 사안(예: 2027년 장기요양보험료율·건강보험 부과체계 개편)은 권고 근거로 사용하지 않고 추적 항목으로만 관리합니다.</td></tr>
+          <tr><td>미확인 수치 공백 처리</td><td>공개 자료로 확인되지 않은 수치는 임의로 채우지 않고 "확인 필요" 또는 "미확정"으로 표시합니다.</td></tr>
+          <tr><td>시행 완료 항목 유지</td><td>이미 시행된 법령도 후속 기한(과태료 부과 개시일 등)을 동반하는 경우가 많아 삭제하지 않고 남겨 둡니다.</td></tr>
+          <tr><td>판례 인용 범위</td><td>판례는 요지와 실무 시사점만 정리하며, 정확한 법리 판단과 구체적 적용은 반드시 원문과 사내 법무·자문을 거쳐야 합니다.</td></tr>
+          <tr><td>출처 링크 표기</td><td>모든 브리핑 항목·표 항목에는 실제 1차 보도 또는 정부·공공기관 원문 링크를 함께 표기하여, 담당자가 직접 원문을 대조 확인할 수 있도록 합니다.</td></tr>
+          <tr><td>갱신 주기</td><td>임금·4대보험 요율은 확정 고시 시점마다, 법령·판례는 주 1회 이상 원문을 재확인해 갱신합니다.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section" id="linkcheck-section">
+    <div class="shead"><h2>원문 링크 상태 점검</h2><span class="sub">신규·실질 변경 여부 2026.09.21 07:00 재확인 · 기존 정상 데이터 유지</span></div>
+    <div class="sbody">
+      <table>
+        <thead><tr><th>출처</th><th>상태</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr><td>moel.go.kr(고용노동부 신규·정정 원문)</td><td><span class="status act">정상</span></td><td>2026.09.21 재확인 · 9.18 시행 3개 항목을 시행 중으로 전환</td></tr>
+          <tr><td>대법원·헌법재판소</td><td><span class="status act">정상</span></td><td>2026.09.21 재확인 · 신규 인사노무 직접영향 판례 없음</td></tr>
+          <tr><td>국가법령정보센터·국회 의안정보시스템</td><td><span class="status act">정상</span></td><td>2026.09.21 재확인 · 9.18 시행 법률 확인, 기존 계류안 상태 유지</td></tr>
+          <tr><td>work24.go.kr·kead.or.kr(인건비·장애인고용 지원)</td><td><span class="status act">정상</span></td><td>2026.09.21 재확인 · 신규 금액·신청기한 없음</td></tr>
+          <tr><td>mohw.go.kr·nps.or.kr·nhis.or.kr·comwel.or.kr(사회보험)</td><td><span class="status act">정상</span></td><td>2026.09.21 재확인 · 2027년 건강보험·장기요양보험료율은 확인 필요</td></tr>
+          <tr><td>bizinfo.go.kr·hrd4u.or.kr·portal.kosha.or.kr(조직·교육·안전)</td><td><span class="status act">정상</span></td><td>2026.09.21 재확인 · 신규 실질 변경 없음</td></tr>
+          <tr><td>pipc.go.kr(생성형 AI 개인정보 가이드)</td><td><span class="status act">정상</span></td><td>2026.09.10 기존 공식 원문 유지</td></tr>
+          <tr><td>언론사 개별 기사(경향·뉴스핌·MBC·법률신문·아주경제·뉴스웨이 등)</td><td><span class="status act">정상</span></td><td>언론사 정책에 따라 일정 기간 후 유료화·비공개 전환 가능</td></tr>
+          <tr><td>cutlinecheck.com 등 민간 정리글</td><td><span class="status disc">참고용</span></td><td>1차 출처 아님 — 수치 재확인 시 국민연금공단·건보공단 원문 우선 대조</td></tr>
+        </tbody>
+      </table>
+      <div class="note" style="margin-top:10px">신규·실질 변경 여부는 <b>2026년 9월 21일 07:00</b>에 다시 확인했습니다. 현재 배포본은 외부 자료를 자동 수집하지 않으므로 콘텐츠는 공식 원문을 확인해 수동 갱신합니다. 변경이 없는 기존 항목의 개별 확인일은 유지합니다.</div>
+    </div>
+  </div>
+
+  <div class="footprint">
+    본 대시보드는 사내 열람용 참고자료이며, 법률·세무 자문을 대체하지 않습니다. 구체적인 임금·노무 조치는 반드시 사내 법무팀 또는 외부 노무·법률 자문을 거쳐 시행하시기 바랍니다.
+  </div>
+</div>
+
+</div><!-- /.body -->
+
+<script>
+// 메인 대시보드는 요약만 유지하고, 상세 콘텐츠는 목적에 맞는 탭으로 재배치합니다.
+const responseSummarySection = document.getElementById('responseSummarySection');
+const responseSummaryMount = document.getElementById('responseSummaryMount');
+if(responseSummarySection && responseSummaryMount){
+  responseSummaryMount.appendChild(responseSummarySection);
+}
+const briefingItemsSection = document.getElementById('briefingItemsSection');
+const briefingItemsMount = document.getElementById('briefingItemsMount');
+if(briefingItemsSection && briefingItemsMount){
+  briefingItemsMount.appendChild(briefingItemsSection);
+}
+
+// ---- 탭 전환 ----
+document.querySelectorAll('.tabbar button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tabbar button').forEach(b=>b.setAttribute('aria-selected','false'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    btn.setAttribute('aria-selected','true');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+function activateAiCategory(panelId){
+  const target = document.getElementById(panelId);
+  if(!target) return;
+  document.querySelectorAll('.ai-subtab').forEach(btn=>{
+    btn.setAttribute('aria-selected', btn.dataset.aiPanel === panelId ? 'true' : 'false');
+  });
+  document.querySelectorAll('.ai-subpanel').forEach(panel=>{
+    panel.classList.toggle('active', panel.id === panelId);
+  });
+}
+
+function openAiCategory(panelId){
+  openDetail('t6');
+  activateAiCategory(panelId);
+}
+
+document.querySelectorAll('.ai-subtab').forEach(btn=>{
+  btn.addEventListener('click', ()=>activateAiCategory(btn.dataset.aiPanel));
+});
+
+// ---- 첨부 인사스케줄표_Rv3.xlsx · 인사(2026년) ----
+const HR_SCHEDULE_DATA = `매월|급여|급여 계산 및 지급|매월 1일|매월 10일|
+매월|급여|원천세 신고 및 납부|매월 1일|매월 10일|
+매월|급여|사회보험 자격 취득/상실 신고|매월 1일|매월 15일|
+매월|급여|퇴직급여추계액 마감, 전표처리|매월 1일|매월 10일|
+매월|교육|전월 교육 관리 및 당월 예정사항 관리|매월 1일|매월 5일|당월 교육 일정 안내 및 교육 환급 관리 포함
+매월|평가|KPI 지표 피드백, 업데이트 관리|매월 1일|매월 10일|전사 관리
+매월|기타|통신비(팀장↑) 전표 처리|매월 5일|매월 10일|
+매월|기타|월 사무용품 구매|||월 2회 진행
+매월|기타|법인카드 전표처리|매월 1일|매월 10일|
+매월|복리후생|임직원 생일자 상품권 발송|매월 1일|매월 5일|
+매월|조직관리|팀별 R&R 관리 및 업데이트|매월 1일|매월 10일|보완 작업
+매주|조직관리|인원 현황 보고|||전무님 보고 (매주 금요일)
+매주|조직관리|주간, 월간, 분기 실적 보고 관리|매주 금|매주 화|
+매일|조직관리|인사 규정, 취업규칙 업데이트,노동관계법 Trend 파악|||
+매일|조직관리|근태 관리|||매일 오전 11시 이전
+매일|조직관리|임직원 모니터링|||수시
+매일|채용|채용공고 관리 및 인재서칭|||오후 4시 본부장님 채용현황 보고
+1월|급여|신년도 최저임금 및 사회보험 요율 적용|1월 1일|1월 31일|1월 급여 귀속
+1월|급여|연말정산 시스템 오픈|1월 15일|2월 15일|
+1월|기획|전사 이직률 분석 및 인재 유지 전략 수립|1월 1일|1월 15일|
+1월|교육|당해년도 교육 계획 수립|1월 1일|1월 15일|
+1월|교육|분기별 교육 진행 관리|1월 20일|1월 31일|
+1월|평가|인사평가 설명회|1월 1일|1월 31일|
+1월|평가|KPI 수립|1월 1일|1월 31일|
+1월|기타|장애인 고용 현황 신고 및 채용 계획|1월 1일|1월 31일|
+2월|급여|전사 연말정산 시스템 운영 및 결과 정산|2월 1일|2월 말|2월 급여 지급 시 반영
+3월|급여|사회보험 보수총액 신고|||전년도 실제 총소득 확정 및 공단 신고
+3월|급여|지방소득세(원천징수분) 명세서 제출|||
+3월|교육|분기별 교육 진행 관리|||
+3월|노무|노사협의회 회의록|||
+4월|급여|건강보험료 연말정산 정산분 반영|||3월 신고 보수총액 내용으로 건강보험공단 확정
+4월|평가|KPI 지표 중간점검|4월 1일|4월 30일|
+4월|교육|법정의무교육|4월 1일|4월 30일|
+4월|복리후생|근무복 선정 및 발주|||
+5월|급여|종합소득세 신고 관련 중도퇴사자 대응|||전년도 중도퇴사자 대응
+6월|프로젝트|역량평가 재설계 (부서별 세팅)|6월 1일|6월 30일|1차 분류 내용 및 본부장님 보고
+6월|프로젝트|사내 공지(복리후생) 시나리오형 chatbot 제작|6월 1일|6월 30일|사업계획
+6월|교육|분기별 교육 진행 관리|||
+6월|평가|상반기 인사평가 실시 (업적평가 중심)|||
+6월|기타|병역특례 관리 신청|||발생 시 관리나 6월 신청
+6월|노무|노사협의회 회의록|||
+7월|급여|연차유급휴가 사용촉진(1차)|7월 1일|7월 10일|사용 확인서 취합
+7월|급여|국민연금 기준소득 월액 변경 반영|||7월 급여 지급 시 반영
+7월|교육|법정의무교육|7월 1일|7월 31일|4월 미진행 시
+7월|복리후생|하계 휴가 운영 및 근태 모니터링|||
+8월|복리후생|학자금 운영|||
+9월|프로젝트|인사평가 솔루션 업체 컨택|9월 1일|9월 30일|인사평가시스템 도입 업체 선정
+9월|교육|분기별 교육 진행 관리|||
+9월|노무|노사협의회 회의록|||
+10월|프로젝트|인사평가시스템 솔루션 도입 검토|10월 1일|12월 31일|업체 시스템 적용
+10월|급여|연차유급휴가 사용촉진(2차)|10월 1일|10월 10일|사용 확인서 취합
+10월|기획|사업계획 수립|10월 15일||차년도 회사방침 및 사업계획 수립
+10월|채용|채용 관련 학교 설명회(4개 학교)|||일정 확인중(하반기 실시)
+10월|교육|외부강사 초빙 집체교육|||10월 예정(9월 일정 확인 후 공지)
+10월|복리후생|근무복 선정 및 발주|||
+11월|평가|연간 인사평가 진행|11월 1일|11월 21일|
+11월|기획|사업계획 편성|11월 14일||본부별 T/O 계획 및 인건비 등 예산 편성
+12월|교육|연간 법정의무교육 이수 마감|12월 1일|12월 31일|
+12월|조직관리|인사 규정, 취업규칙 업데이트,노동관계법 Trend 파악|12월 1일|12월 31일|
+12월|조직관리|차년도 방침에 따른 조직개편(안) 수립|12월 1일|12월 31일|
+12월|조직관리|차년도 승인 및 임금 운영(안) 보고 및 승인|12월 1일|12월 31일|
+12월|평가|당해년도 인사평가 결과서 작성 및 보고|12월 1일|12월 31일|
+12월|노무|노사협의회 회의록|12월 1일|12월 31일|
+12월|복리후생|학자금 운영|||`;
+
+const hrSchedule = HR_SCHEDULE_DATA.trim().split('\n').map(line=>{
+  const [period,category,task,start,end,note] = line.split('|');
+  return {period,category,task,start,end,note};
+});
+const hrScheduleCategories = ['전체', ...new Set(hrSchedule.map(item=>item.category))];
+const escapeScheduleHtml = value => String(value || '').replace(/[&<>"']/g, char=>({
+  '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+})[char]);
+const scheduleMonth = value => {
+  const matched = String(value || '').match(/(1[0-2]|[1-9])월/);
+  return matched ? Number(matched[1]) : null;
+};
+const scheduleBarClass = category => {
+  if(['급여','노무'].includes(category)) return 'deadline';
+  if(['교육','복리후생'].includes(category)) return 'check';
+  if(['기획','평가','프로젝트'].includes(category)) return 'plan';
+  return '';
+};
+const scheduleMonthsHeader = () => Array.from({length:12},(_,index)=>`<span data-gantt-month="${index + 1}">${index + 1}월</span>`).join('');
+
+function renderHrSchedule(category='전체'){
+  const chart = document.getElementById('fullHrGantt');
+  if(!chart) return;
+  const rows = category === '전체' ? hrSchedule : hrSchedule.filter(item=>item.category === category);
+  const head = `<div class="gantt-row gantt-head" role="row"><div class="gantt-task" role="columnheader">업무 구분</div><div class="gantt-month-head" role="row">${scheduleMonthsHeader()}</div></div>`;
+  const body = rows.map(item=>{
+    const recurring = ['매일','매주','매월'].includes(item.period);
+    const startMonth = recurring ? 1 : (scheduleMonth(item.start) || scheduleMonth(item.period) || 1);
+    const endMonth = recurring ? 12 : (scheduleMonth(item.end) || startMonth);
+    const span = Math.max(1, endMonth - startMonth + 1);
+    const rangeText = item.start || item.end ? [item.start,item.end].filter(Boolean).join(' ~ ') : item.period;
+    const details = [rangeText,item.note].filter(Boolean).join(' · ');
+    const barLabel = recurring ? item.period + ' 반복' : (span > 1 ? `${startMonth}~${endMonth}월` : item.period);
+    return `<div class="gantt-row" role="row" data-schedule-category="${escapeScheduleHtml(item.category)}"><div class="gantt-task" role="rowheader"><span class="schedule-cat">${escapeScheduleHtml(item.category)}</span><b>${escapeScheduleHtml(item.task)}</b><small>${escapeScheduleHtml(details || item.period)}</small></div><div class="gantt-months"><span class="gantt-bar ${scheduleBarClass(item.category)}${recurring ? ' recurring' : ''}" style="--g-start:${startMonth};--g-span:${span}" title="${escapeScheduleHtml(details)}">${escapeScheduleHtml(barLabel)}</span></div></div>`;
+  }).join('');
+  chart.innerHTML = head + (body || '<div class="schedule-gantt-empty">선택한 분류의 일정이 없습니다.</div>');
+  document.getElementById('scheduleResult').innerHTML = `<b>${rows.length}건</b> 표시`;
+  applyCurrentGanttMonth();
+}
+
+const scheduleFilters = document.getElementById('scheduleFilters');
+if(scheduleFilters){
+  scheduleFilters.innerHTML = hrScheduleCategories.map((category,index)=>`<button class="schedule-filter${index === 0 ? ' active' : ''}" type="button" data-schedule-filter="${escapeScheduleHtml(category)}">${escapeScheduleHtml(category)}</button>`).join('');
+  scheduleFilters.addEventListener('click', event=>{
+    const button = event.target.closest('[data-schedule-filter]');
+    if(!button) return;
+    scheduleFilters.querySelectorAll('.schedule-filter').forEach(item=>item.classList.toggle('active', item === button));
+    renderHrSchedule(button.dataset.scheduleFilter);
+  });
+}
+
+const scheduleDay = value => {
+  const matched = String(value || '').match(/월\s*(\d{1,2})일/);
+  return matched ? Number(matched[1]) : null;
+};
+const MINI_COMMON_TASKS = ['급여 계산 및 지급','원천세 신고 및 납부','사회보험 자격 취득/상실 신고','퇴직급여추계액 마감, 전표처리','근태 관리'];
+const MINI_MONTH_FOCUS = {
+  1:['신년도 최저임금 및 사회보험 요율 적용','연말정산 시스템 오픈','당해년도 교육 계획 수립','KPI 수립','장애인 고용 현황 신고 및 채용 계획'],
+  2:['연말정산 시스템 오픈','전사 연말정산 시스템 운영 및 결과 정산'],
+  3:['사회보험 보수총액 신고','지방소득세(원천징수분) 명세서 제출','분기별 교육 진행 관리','노사협의회 회의록'],
+  4:['건강보험료 연말정산 정산분 반영','KPI 지표 중간점검','법정의무교육','근무복 선정 및 발주'],
+  5:['종합소득세 신고 관련 중도퇴사자 대응'],
+  6:['역량평가 재설계 (부서별 세팅)','사내 공지(복리후생) 시나리오형 chatbot 제작','상반기 인사평가 실시 (업적평가 중심)','노사협의회 회의록'],
+  7:['연차유급휴가 사용촉진(1차)','국민연금 기준소득 월액 변경 반영','법정의무교육','하계 휴가 운영 및 근태 모니터링'],
+  8:['학자금 운영'],
+  9:['인사평가 솔루션 업체 컨택','분기별 교육 진행 관리','노사협의회 회의록'],
+  10:['인사평가시스템 솔루션 도입 검토','연차유급휴가 사용촉진(2차)','사업계획 수립','채용 관련 학교 설명회(4개 학교)','외부강사 초빙 집체교육'],
+  11:['인사평가시스템 솔루션 도입 검토','연간 인사평가 진행','사업계획 편성'],
+  12:['인사평가시스템 솔루션 도입 검토','연간 법정의무교육 이수 마감','차년도 방침에 따른 조직개편(안) 수립','차년도 승인 및 임금 운영(안) 보고 및 승인','당해년도 인사평가 결과서 작성 및 보고']
+};
+
+const koreaTodayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Seoul',year:'numeric',month:'numeric',day:'numeric'}).formatToParts(new Date()).filter(part=>part.type !== 'literal').map(part=>[part.type,Number(part.value)]));
+const routineYear = koreaTodayParts.year;
+const routineMonth = koreaTodayParts.month;
+const routineDay = koreaTodayParts.day;
+let miniSelectedMonth = routineMonth;
+
+function miniScheduleRange(item, month, daysInMonth){
+  const recurring = ['매일','매주','매월'].includes(item.period);
+  if(recurring){
+    return {start:scheduleDay(item.start) || 1,end:scheduleDay(item.end) || daysInMonth,recurring:true};
+  }
+  const itemStartMonth = scheduleMonth(item.start) || scheduleMonth(item.period) || month;
+  const itemEndMonth = scheduleMonth(item.end) || itemStartMonth;
+  const start = itemStartMonth < month ? 1 : (scheduleDay(item.start) || 1);
+  const end = itemEndMonth > month ? daysInMonth : (scheduleDay(item.end) || daysInMonth);
+  return {start:Math.max(1,start),end:Math.min(daysInMonth,end),recurring:false};
+}
+
+function renderMiniHrGantt(month=miniSelectedMonth){
+  const root = document.getElementById('miniHrGantt');
+  if(!root) return;
+  miniSelectedMonth = Math.min(12,Math.max(1,month));
+  const year = 2026;
+  const daysInMonth = new Date(year,miniSelectedMonth,0).getDate();
+  const taskNames = [...MINI_COMMON_TASKS,...(MINI_MONTH_FOCUS[miniSelectedMonth] || [])];
+  const items = taskNames.map(task=>hrSchedule.find(item=>item.task === task)).filter(Boolean);
+  const dayLabels = [...new Set([1,5,10,15,20,25,daysInMonth])].sort((a,b)=>a-b);
+  const scale = dayLabels.map((day,index)=>`<span class="mini-day-label${index === 0 ? ' first' : ''}${index === dayLabels.length - 1 ? ' last' : ''}" style="left:${((day - 1) / Math.max(1,daysInMonth - 1)) * 100}%">${day}일</span>`).join('');
+  const rows = items.map(item=>{
+    const range = miniScheduleRange(item,miniSelectedMonth,daysInMonth);
+    const left = ((range.start - 1) / daysInMonth) * 100;
+    const width = ((range.end - range.start + 1) / daysInMonth) * 100;
+    const detail = [item.start && item.end ? `${item.start} ~ ${item.end}` : (item.start || item.end || item.period),item.note].filter(Boolean).join(' · ');
+    const barClass = range.recurring ? 'recurring' : (['급여','노무'].includes(item.category) ? 'deadline' : 'focus');
+    const barLabel = range.start === range.end ? `${range.start}일` : `${range.start}~${range.end}일`;
+    const displayTask = item.task === '퇴직급여추계액 마감, 전표처리' ? '퇴직급여 추계액·전표처리' : item.task;
+    return `<div class="mini-gantt-row" role="row"><div class="mini-gantt-task" role="rowheader"><span class="schedule-cat">${escapeScheduleHtml(item.category)}</span><b title="${escapeScheduleHtml(item.task)}">${escapeScheduleHtml(displayTask)}</b></div><div class="mini-gantt-track"><span class="mini-gantt-bar ${barClass}" style="--bar-left:${left}%;--bar-width:${width}%" title="${escapeScheduleHtml(detail)}">${escapeScheduleHtml(barLabel)}</span></div></div>`;
+  }).join('');
+  root.style.setProperty('--day-step',`${100 / daysInMonth}%`);
+  root.style.setProperty('--today-left',`${((routineDay - .5) / daysInMonth) * 100}%`);
+  root.classList.toggle('show-today',routineYear === year && miniSelectedMonth === routineMonth);
+  root.innerHTML = `<div class="mini-gantt-row head" role="row"><div class="mini-gantt-task" role="columnheader">핵심 업무</div><div class="mini-gantt-scale">${scale}</div></div>${rows || '<div class="mini-gantt-empty">이달의 핵심 일정이 없습니다.</div>'}`;
+  document.getElementById('miniMonthTitle').textContent = `${year}년 ${miniSelectedMonth}월`;
+  document.getElementById('miniGanttMeta').innerHTML = `<b>핵심 ${items.length}건</b>${routineYear === year && miniSelectedMonth === routineMonth ? ` · 오늘 ${routineDay}일` : ''}`;
+  document.querySelector('[data-mini-month-shift="-1"]').disabled = miniSelectedMonth === 1;
+  document.querySelector('[data-mini-month-shift="1"]').disabled = miniSelectedMonth === 12;
+}
+
+document.querySelectorAll('[data-mini-month-shift]').forEach(button=>button.addEventListener('click',()=>renderMiniHrGantt(miniSelectedMonth + Number(button.dataset.miniMonthShift))));
+const miniMonthToday = document.getElementById('miniMonthToday');
+if(miniMonthToday) miniMonthToday.addEventListener('click',()=>renderMiniHrGantt(routineMonth));
+
+// ---- 간트차트: 현재 월·일 자동 강조 ----
+function applyCurrentGanttMonth(){
+  document.querySelectorAll('.gantt-chart').forEach(chart=>chart.style.setProperty('--current-month', routineMonth));
+  document.querySelectorAll('[data-gantt-month]').forEach(month=>month.classList.toggle('current', Number(month.dataset.ganttMonth) === routineMonth));
+  document.querySelectorAll('[data-gantt-current-label]').forEach(label=>label.textContent = routineMonth + '월 · 현재');
+}
+renderHrSchedule();
+renderMiniHrGantt();
+applyCurrentGanttMonth();
+
+function openDetail(tabId, anchorId){
+  document.querySelectorAll('.tabbar button').forEach(b=>{
+    b.setAttribute('aria-selected', b.dataset.tab === tabId ? 'true' : 'false');
+  });
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  const panel = document.getElementById(tabId);
+  if(!panel) return;
+  panel.classList.add('active');
+  if(tabId === 't6'){
+    activateAiCategory(anchorId && /^ai-[123]$/.test(anchorId) ? 'ai-trend' : 'ai-news');
+  }
+  window.scrollTo({top:0, behavior:'smooth'});
+  if(anchorId){
+    setTimeout(()=>{
+      const el = document.getElementById(anchorId);
+      if(!el) return;
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      el.classList.add('flash');
+      setTimeout(()=>el.classList.remove('flash'),1600);
+    },180);
+  }
+}
+
+// ---- 뉴스 기본 데이터 (실제 출처 링크 포함) ----
+const DEFAULT_NEWS = [
+  {title:"정년 후 재고용 관행이 있으면 기대권 인정 — 대법원 2025두32673", cat:"case", date:"2026-09-16",
+   sum:"확인일 2026년 9월 17일. 대법원은 정년 후 촉탁직·기간제 재고용 관행과 신뢰관계가 형성된 사업장에서 객관적 심사나 회신 없이 일부 근로자의 재고용만 거절한 경우, 합리적 이유 없는 거절로서 부당해고와 마찬가지로 효력이 없다고 판단했습니다. 재고용 기준·평가·거절 사유를 서면화하고 동일 직종에 일관되게 적용해야 합니다.",
+   src:"대법원", url:"https://www.scourt.go.kr/supreme/news/NewsViewAction2.work?gubun=4&pageIndex=1&seqnum=11255"},
+  {title:"프리랜서·플랫폼 노동자 대상 직종별 권익보호 교육 개시", cat:"employment", date:"2026-09-14",
+   sum:"확인일 2026년 9월 15일. 노사발전재단이 9월부터 프리랜서·플랫폼 노동자 등 노무제공자를 대상으로 직종별 맞춤형 권익보호 교육을 운영합니다. 1차 대상은 자동차진단평가사이며 이후 직종별로 연중 확대될 예정입니다. 새 법정 의무나 일률적 신청기한은 없지만, 관련 인력을 활용하는 사업장은 불공정 계약·미정산·산재 위험·사회보험 미가입 가능성을 자체 점검하고 대상 직종의 참여 가능 여부를 확인해야 합니다.",
+   src:"고용노동부·노사발전재단", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19936"},
+  {title:"국방전직교육원·한국기술교육대 통합 추진 — 연내 세부안 마련", cat:"employment", date:"2026-09-13",
+   sum:"확인일 2026년 9월 14일. 고용노동부와 국방부는 9월 통합추진단을 구성하고 연내 세부 통합방안을 마련할 계획입니다. 통합 대상 기관 임직원의 노동조건·복리후생 저하 방지 원칙을 밝혔으나 구체안은 미확정입니다. 민간기업의 즉시 의무나 법정기한은 없으며, 전역예정군인 채용·직업훈련 연계 확대 가능성을 모니터링합니다.",
+   src:"고용노동부·국방부", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19933"},
+  {title:"사회보험통합징수포털 9월 14일 19:00~21:00 서비스 순단", cat:"wage", date:"2026-09-11",
+   sum:"국민건강보험공단은 사회보험통합징수포털 서비스 순단을 안내했습니다. 해당 시간에는 보험료 조회·납부, 산출내역 확인, 제증명 발급 등 사업장 업무가 제한될 수 있으므로 급여·총무 담당자는 필요한 업무를 9월 14일 19시 전에 처리해야 합니다. 요율 변경이 아닌 운영 일정으로 구분합니다.",
+   src:"국민건강보험공단 사회보험통합징수포털", url:"https://si4n.nhis.or.kr/jpza/JpZaa00102.do"},
+  {title:"고용24 통합경력증명·직무능력인정서 채용 활용 확대", cat:"employment", date:"2026-09-11",
+   sum:"고용24 통합경력증명은 자격·교육·훈련·경력 정보를 한 번에 확인할 수 있고, 기업은 발급번호나 QR로 진위를 검증할 수 있습니다. 제출은 법정 의무가 아닌 선택사항이며, 채용공고에 허용할 경우 필요한 정보만 받도록 안내해야 합니다. 민간 채용플랫폼 연계는 2026년 11월 예정으로 확정 서비스와 구분해 모니터링합니다.",
+   src:"고용노동부·한국산업인력공단", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19925"},
+  {title:"퇴직일에 연차권이 발생하도록 정한 경우 미사용수당 청구 가능", cat:"case", date:"2026-09-10",
+   sum:"대법원은 근로계약·취업규칙·설명자료 등에서 연차 발생일을 달리 정해 퇴직일에 연차권이 실제 발생했다면 퇴직자도 미사용수당을 청구할 수 있다고 판단했습니다. 연차규정과 퇴직 급여정산 로직을 함께 점검해야 합니다.",
+   src:"대법원", url:"https://lawclerk.scourt.go.kr/portal/news/NewsViewAction.work?gubun=4&pageIndex=1&seqnum=11291&type=5"},
+  {title:"공무직위원회법·시행령 9월 18일 시행", cat:"employment", date:"2026-09-18",
+   sum:"확인일 2026년 9월 21일. 공공부문 공무직·기간제·파견·위탁·용역 근로자의 처우개선을 논의하는 공식 노정협의 틀이 시행됐습니다. 민간기업에 직접 적용되는 제도는 아니며, 공공기관 도급 참여 기업은 후속 인사관리·입찰·계약 기준을 모니터링해야 합니다.",
+   src:"고용노동부", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19902"},
+  {title:"헌법재판소, 단체교섭 거부·해태 형사처벌 합헌 결정", cat:"case", date:"2026-08-27",
+   sum:"사용자가 정당한 이유 없이 단체교섭을 거부하거나 해태한 행위를 형사처벌하는 구 노동조합법 조항이 합헌으로 결정됐습니다. 교섭요구 접수 후 일정·회신·참석 경과와 불응 사유를 서면으로 관리해야 합니다.",
+   src:"헌법재판소", url:"https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267451&cbIdx=1195"},
+  {title:"가족돌봄 근로시간 단축 미허용 과태료 신설안 — 위원회 검토", cat:"family", date:"2026-09-09",
+   sum:"정당한 사유 없이 가족돌봄 근로시간 단축 신청을 허용하지 않으면 500만원 이하 과태료를 부과하는 법안이 국회 위원회 검토 단계입니다. 아직 의결·공포 전으로 시행일은 미확정이며 현행법과 분리해 모니터링합니다.",
+   src:"국회 의안정보시스템", url:"https://likms.assembly.go.kr/filegate/servlet/FileGate?bookId=FF60D429-7E61-FB53-2281-11E13DA457F3&type=1"},
+  {title:"2027년 청년일자리 강소기업 선정 신청 공고", cat:"employment", date:"2026-09-09",
+   sum:"중소·중견기업 대상 신청이 9월 30일 18시 마감됩니다. 직접 인건비 지원이 아닌 선정·우대 사업이므로 지원금과 분리하고, 첨부 공고문의 기업요건과 제출서류를 확인해야 합니다.",
+   src:"고용노동부", url:"https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20260900193"},
+  {title:"공공부문 도급 노동자 보호지침 시행", cat:"employment", date:"2026-09-08",
+   sum:"공공부문 하도급을 원칙적으로 제한하고 도급계약 2년 이상, 기존 노동자의 고용유지·승계 반영과 노무비 전용계좌 관리를 강화합니다. 공공기관 도급에 참여하는 기업은 신규 입찰·계약조건을 확인해야 합니다.",
+   src:"고용노동부", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19901"},
+  {title:"청년고용 정책대상 연령 15~34세 확대 시행", cat:"employment", date:"2026-09-18",
+   sum:"확인일 2026년 9월 21일. 청년고용촉진 특별법상 청년 범위가 15세 이상 34세 이하로 확대되어 9월 18일부터 시행 중입니다. 채용지원사업별 세부 연령·자격요건은 개별 공고를 우선 확인해야 합니다.",
+   src:"고용노동부", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19902"},
+  {title:"하반기 포괄임금·고정 OT 오남용 기획감독 실시 — 제조업 중점", cat:"wage", date:"2026-09-15",
+   sum:"확인일 2026년 9월 17일. 고용노동부가 9월 15일부터 약 2개월간 제조업·정보통신업·전문과학기술서비스업 등을 대상으로 기획감독을 실시합니다. 출퇴근·연장근로 기록, 임금대장·임금명세서의 시간·수당 기재, 실제 법정수당과 약정수당의 차액 지급 여부를 즉시 점검해야 합니다.",
+   src:"고용노동부", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19943"},
+  {title:"한국형 AI 노출지수·고용변화 조기경보 대시보드 추진", cat:"ai", date:"2026-09-07",
+   sum:"한국의 실제 직무를 분석하는 AI 노출지수와 산업·연령별 고용변화를 실시간 추적하는 대시보드를 2027년 내 개발할 계획입니다. 현재 연구용역 준비 단계이므로 확정 지표가 아닌 모니터링 자료로 관리합니다.",
+   src:"고용노동부·한국고용정보원", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19895"},
+  {title:"AI 기본법 시행 — 채용 AI 고영향 여부와 투명성 의무 점검", cat:"ai", date:"2026-01-22",
+   sum:"채용은 고영향 AI 판단 대상 분야에 포함됩니다. AI 채용도구 도입 시 사람의 최종결정 개입, 지원자 고지, 오류·이의제기 절차와 공급업체 책임범위를 확인해야 합니다.",
+   src:"과학기술정보통신부·국가법령정보센터", url:"https://www.law.go.kr/LSW/lsInfoP.do?ancYnChk=0&chrClsCd=010202&efYd=20260122&joNo=003100&lsiSeq=268543&urlMode=lsInfoP"},
+  {title:"생성형 AI 이용자를 위한 개인정보 보호 가이드 발간", cat:"ai", date:"2026-05-19",
+   sum:"업무자료 입력 시 학습 활용 여부, 대화기록 저장·삭제, 외부 서비스 연동과 개인정보 입력 주의사항을 안내합니다. 인사·평가·급여자료는 사내 AI 이용수칙으로 별도 통제할 필요가 있습니다.",
+   src:"개인정보보호위원회", url:"https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS074&nttId=12084"},
+  {title:"AI·자동화 도입과 근로조건 변경의 교섭 범위 판단지침", cat:"ai", date:"2026-09-03",
+   sum:"AI·자동화 도입 결정 자체와 그로 인한 배치전환·근무형태 변경 등 근로조건 영향을 구분해야 합니다. 영향이 객관적으로 예상되는 단계부터 관련 대책은 교섭대상이 될 수 있습니다.",
+   src:"고용노동부", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19876"},
+  {title:"2027년 고용노동부 예산안 발표", cat:"employment", date:"2026-09-04",
+   sum:"청년일자리도약장려금·두루누리·30인 미만 퇴직연금 도입 지원 등의 확대·신설안이 포함됐습니다. 국회 심의와 사업별 지침 전 단계이므로 예산안·미확정 상태로만 관리합니다.",
+   src:"고용노동부", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19885"},
+  {title:"임금구분지급제 하위법령 입법예고", cat:"wage", date:"2026-08-20",
+   sum:"2027년 1월 1일 시행되는 임금구분지급제의 건설·조선업 적용범위와 임금지급 확인자료·절차를 정하는 하위법령안입니다. 의견제출은 9월 29일까지이며 세부 기준은 미확정입니다.",
+   src:"고용노동부", url:"https://www.moel.go.kr/common/downloadFile.do?bbs_id=12&bbs_seq=19794&file_ext=pdf&file_seq=20260801006"},
+  {title:"근로기준법 개정 — 4시간 근무 휴게시간 선택·시간단위 연차", cat:"wage", date:"2026-06-09",
+   sum:"정확히 4시간 근무자가 명시적으로 요청하면 휴게시간을 사용하지 않을 수 있는 특례는 2026년 12월 10일, 시간단위 연차 청구권과 연차 사용에 대한 불리한 처우 금지는 2027년 6월 10일 시행됩니다. 시간단위·일수 한도는 하위법령 확인이 필요합니다.",
+   src:"국가법령정보센터", url:"https://law.go.kr/LSW/lsRvsDocListP.do?chrClsCd=010202&lsId=001872&lsRvsGubun=all"},
+  {title:"경영성과급 등 노동쟁의 대상 시행지침 발표", cat:"union", date:"2026-09-03",
+   sum:"기업이익의 일정 비율을 선배분하도록 요구하는 방식은 의무적 교섭·조정·쟁의행위 대상으로 보기 어렵고, 경영결정으로 근로조건 변동이 객관적으로 예상되는 단계부터 관련 대책이 교섭대상이 될 수 있다는 기준이 발표됐습니다.",
+   src:"고용노동부", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19876"},
+  {title:"2026년 4회차 외국인근로자(E-9) 신규 고용허가 접수", cat:"employment", date:"2026-09-03",
+   sum:"9월 14~29일 접수하며 제조업 배정은 9,020명입니다. 신청 전 7일간 내국인 구인노력이 필요하고 제조·광업 고용허가서 발급은 10월 19~23일 예정입니다.",
+   src:"고용노동부", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19873"},
+  {title:"대체근로 금지의무 주체에 관한 대법원 중요판결", cat:"case", date:"2026-09-02",
+   sum:"구 노동조합법 적용 사건에서 단체교섭의무를 부담하는 사용자가 아닌 제3자는 대체근로 금지의무를 부담하지 않는다고 판단했습니다. 개정법 시행 전 사건이므로 현행법 적용은 구분해서 검토해야 합니다.",
+   src:"대법원", url:"https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=4&seqnum=11284"},
+  {title:"고용보험 제도개편 방안 발표", cat:"ins", date:"2026-09-01",
+   sum:"2027년 실업급여 계정 보험료율 1.8%→2.0%, 구직급여 주 6일 지급, 상한액을 하한액의 103%에 연동하는 방안이 추진됩니다. 연내 법률·하위법령 개정 전까지 미확정입니다.",
+   src:"고용노동부", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19866"},
+  {title:"연 1회 단기 육아휴직 시행(8.20)", cat:"family", date:"2026-08-20",
+   sum:"휴원·휴교·방학, 자녀 입원, 감염병 격리 등 법정 사유가 있을 때 1주 또는 2주의 단기 육아휴직을 사용할 수 있습니다. 사용기간은 전체 육아휴직에서 차감되지만 분할 횟수에는 포함되지 않습니다.",
+   src:"고용노동부", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19768"},
+  {title:"9월 18일 배우자 휴가·휴직, 11월 27일 난임치료휴가 확대 시행", cat:"family", date:"2026-08-19",
+   sum:"배우자 출산전후휴가·유산사산휴가 등은 9월 18일, 난임치료휴가의 유급·급여지원 기간 2일→4일 확대는 11월 27일 시행됩니다. 두 시행일을 구분해 근태·급여 규정을 정비해야 합니다.",
+   src:"고용노동부·국가법령정보센터", url:"https://www.law.go.kr/LSW/lsRvsDocListP.do?lsId=000130"},
+  {title:"2027년 최저임금 시급 10,700원 확정 고시", cat:"wage", date:"2026-08-05",
+   sum:"고용노동부가 2026년 최저임금(10,320원) 대비 3.7%(380원) 인상된 10,700원을 확정 고시했습니다. 노사 이의제기는 모두 기각되었습니다.",
+   src:"고용노동부", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19744"},
+  {title:"대법원, 동아운수 정기상여금 통상임금 인정 확정", cat:"wage", date:"2026-04-30",
+   sum:"시내버스 근로자들의 정기상여금을 통상임금으로 인정한 원심을 대법원이 확정했습니다. 다만 수당 재산정 시 적용할 근로시간 기준(보장시간)은 파기환송했습니다.",
+   src:"뉴스핌", url:"https://www.newspim.com/news/view/20260430000270"},
+  {title:"국민연금 기준소득월액 상한액 659만원으로 인상", cat:"ins", date:"2026-06-09",
+   sum:"2026년 7월부터 2027년 6월까지 국민연금 기준소득월액 상한이 637만원에서 659만원으로, 하한은 40만원에서 41만원으로 조정됩니다.",
+   src:"cutlinecheck.com", url:"https://cutlinecheck.com/four-insurance-premium/"},
+  {title:"해외근무수당 통상임금 사건, 대법원 파기환송(한수원)", cat:"wage", date:"2026-08-19",
+   sum:"공기업 해외근무직원의 해외근무수당 전부를 통상임금으로 본 원심을 대법원이 파기하고 서울고법으로 환송했습니다. 포괄수당약정 성립 여부가 쟁점이 되었습니다.",
+   src:"법률신문", url:"https://www.lawtimes.co.kr/news/articleView.html?idxno=224999"},
+  {title:"노란봉투법 시행 5개월, 사용자성 판단 혼선 지속", cat:"union", date:"2026-08-10",
+   sum:"2026년 3월 10일 시행된 개정 노동조합법(2·3조) 시행 5개월이 경과했으나, 원·하청 관계에서 '사용자성' 판단 기준을 둘러싼 현장 혼선이 이어지고 있습니다.",
+   src:"고용노동부", url:"https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19047"},
+  {title:"산업안전보건법 '안전보건 현황 공시' 의무 8월 1일 시행", cat:"safety", date:"2026-08-01",
+   sum:"상시근로자 500명 이상 사업주 또는 연간 건설공사금액 1,200억원 이상 건설사업주는 안전보건관리체계·산재현황 등을 매년 공시해야 합니다. 위반 시 과태료 1,000만원 이하.",
+   src:"경향신문", url:"https://www.khan.co.kr/article/202607212110005/"},
+  {title:"산업안전보건법 위험성평가 근로자 참여 의무화·과태료 신설", cat:"safety", date:"2026-08-01",
+   sum:"위험성평가 시 근로자 참여를 보장하고, 미실시·절차 위반에 대한 과태료가 신설되었습니다. 50인 이상 사업장 과태료 부과는 2027년 1월 1일부터입니다.",
+   src:"관련 보도", url:"https://www.mtnews.net/news/articleView.html?idxno=25387"},
+  {title:"안전검사대상 기계에 혼합기·파쇄기·분쇄기 추가", cat:"safety", date:"2026-06-26",
+   sum:"산업안전보건법 시행규칙 개정으로 혼합기, 파쇄기, 분쇄기가 안전검사 대상 기계·기구로 정식 추가되었습니다.",
+   src:"국가법령정보센터", url:"https://law.go.kr/lsLinkCommonInfo.do?chrClsCd=&lspttninfSeq=154371"},
+  {title:"부당해고 복직명령 불이행 대리점주 벌금형 확정", cat:"case", date:"2026-07-30",
+   sum:"노동위원회 구제명령을 계약만료를 이유로 이행하지 않은 대리점주에게 벌금 150만원이 확정되었습니다. 계약기간 만료가 복직 거부 사유가 될 수 없다는 취지입니다.",
+   src:"아주경제", url:"https://www.ajunews.com/view/20260730143630474"},
+  {title:"건강보험료율 연도 정정 — 7.19%는 2026년 적용, 2027년은 확인 필요", cat:"ins", date:"2026-09-17",
+   sum:"공식 원문을 재대조한 결과 7.19%는 2026년도 직장가입자 건강보험료율이며 근로자와 사용자가 각각 3.595%를 부담합니다. 2027년 건강보험·장기요양보험료율은 공식 결정·고시가 확인되기 전까지 미확정으로 관리하고 급여시스템에 반영하지 않습니다.",
+   src:"보건복지부·국민건강보험공단", url:"https://www.mohw.go.kr/board.es?act=view&bid=0027&list_no=1487279&mid=a10503010100"}
+];
+
+const CAT_LABEL = {wage:"임금·근로시간", family:"육아·모성보호", union:"노동조합·노사관계", safety:"산업안전보건", ins:"4대보험·사회보험", case:"채용·해고·징계 판례", employment:"채용·고용지원", ai:"AI·업무혁신"};
+
+let newsData = DEFAULT_NEWS.slice();
+let activeChip = "";
+
+function renderNews(){
+  const q = document.getElementById('q').value.trim().toLowerCase();
+  const fCat = document.getElementById('fCat').value;
+  const sort = document.getElementById('fSort').value;
+  let list = newsData.filter(n=>{
+    if(activeChip && n.cat !== activeChip) return false;
+    if(fCat && n.cat !== fCat) return false;
+    if(q && !(n.title.toLowerCase().includes(q) || n.sum.toLowerCase().includes(q))) return false;
+    return true;
+  });
+  if(sort === 'date') list.sort((a,b)=> b.date.localeCompare(a.date));
+  else list.sort((a,b)=> a.cat.localeCompare(b.cat));
+
+  const box = document.getElementById('newsList');
+  if(list.length === 0){
+    box.innerHTML = '<div class="note">검색 조건에 맞는 뉴스·이슈가 없습니다.</div>';
+    return;
+  }
+  box.innerHTML = list.map(n => `
+    <div class="newscard">
+      <div class="nhead">
+        <span class="cat ${n.cat}">${CAT_LABEL[n.cat]||n.cat}</span>
+        <span class="ntitle">${escapeHtml(n.title)}</span>
+        <span class="ndate num">${n.date}</span>
+      </div>
+      <div class="nsum">${escapeHtml(n.sum)}</div>
+      <div class="nfoot"><span>출처 <b>${escapeHtml(n.src)}</b></span>${n.url && n.url !== '#' ? `<a class="srclink" href="${n.url}" target="_blank">🔗 원문 보기</a>` : ''}</div>
+    </div>
+  `).join('');
+}
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+document.getElementById('q').addEventListener('input', renderNews);
+document.getElementById('fCat').addEventListener('change', renderNews);
+document.getElementById('fSort').addEventListener('change', renderNews);
+document.querySelectorAll('.chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+    chip.classList.add('on');
+    activeChip = chip.dataset.chip;
+    renderNews();
+  });
+});
+
+// ---- 붙여넣기 파서 ----
+function parsePaste(text){
+  text = text.trim();
+  if(!text) return [];
+  if(text.startsWith('[')){
+    try{
+      const arr = JSON.parse(text);
+      return arr.map(o=>({
+        title:o.title||o.제목||'', cat:o.cat||o.카테고리||'wage', date:o.date||o.날짜||'',
+        sum:o.sum||o.요약||'', src:o.src||o.출처||'', url:o.url||o.URL||'#'
+      }));
+    }catch(e){ /* fallthrough */ }
+  }
+  const lines = text.split(/\r?\n/).filter(l=>l.trim());
+  const out = [];
+  for(let line of lines){
+    const sep = line.includes('\t') ? '\t' : ',';
+    const cols = line.split(sep).map(c=>c.trim());
+    if(cols[0] && ['제목','title'].includes(cols[0].toLowerCase())) continue;
+    if(cols.length < 3) continue;
+    out.push({
+      title: cols[0]||'', cat: (cols[1]||'wage').toLowerCase(), date: cols[2]||'',
+      sum: cols[3]||'', src: cols[4]||'', url: cols[5]||'#'
+    });
+  }
+  return out;
+}
+
+document.getElementById('btnLoad').addEventListener('click', ()=>{
+  const parsed = parsePaste(document.getElementById('pasteBox').value);
+  if(parsed.length === 0){
+    alert('인식할 수 있는 데이터가 없습니다. 형식을 확인해 주세요.');
+    return;
+  }
+  newsData = parsed.concat(DEFAULT_NEWS);
+  renderNews();
+});
+// 페이지를 열 때: 날짜 표시를 실제 오늘 날짜로 갱신합니다.
+// 이 부분은 순수 JS Date 계산이라 API 호출 없이 항상 100% 안정적으로 동작하며,
+// 어떤 환경(사내망 독립 호스팅 포함)에 올려도 그대로 작동합니다.
+function getKstToday(){
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit'
+  }).formatToParts(new Date());
+  const values = Object.fromEntries(parts.map(({type, value}) => [type, value]));
+  const dateKey = `${values.year}-${values.month}-${values.day}`;
+  return {
+    year: values.year,
+    month: values.month,
+    day: values.day,
+    dateKey,
+    start: new Date(dateKey + 'T00:00:00+09:00')
+  };
+}
+
+function updateHeroDateTime(){
+  const target = document.getElementById('heroDateTime');
+  if(!target) return;
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit',
+    weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+  }).formatToParts(new Date()).filter(part=>part.type !== 'literal').map(part=>[part.type,part.value]));
+  const weekday = {Sun:'일',Mon:'월',Tue:'화',Wed:'수',Thu:'목',Fri:'금',Sat:'토'}[parts.weekday] || parts.weekday;
+  target.textContent = `${parts.year}. ${parts.month}. ${parts.day}. (${weekday}) ${parts.hour}:${parts.minute}`;
+}
+
+function updateDailyLabels(){
+  const kstToday = getKstToday();
+  const today = kstToday.start;
+  document.getElementById('todayLabel').textContent =
+    `${kstToday.year}. ${kstToday.month}. ${kstToday.day}.`;
+
+  // 항목별 확인일 중 "가장 최근"을 전체 헤더 요약에 사용합니다.
+  // (전체를 하나의 고정 기준일로 묶지 않고, 실제 각 항목의 확인일 중 최신값을 반영)
+  const checkDates = Array.from(document.querySelectorAll('.rec-item[data-checked]'))
+    .map(el => new Date(el.dataset.checked + 'T00:00:00+09:00'));
+  const latestChecked = checkDates.length ? new Date(Math.max(...checkDates)) : today;
+  const latestStr = latestChecked.getFullYear() + '.' + String(latestChecked.getMonth()+1).padStart(2,'0') + '.' + String(latestChecked.getDate()).padStart(2,'0');
+  const diffLatest = Math.floor((today - latestChecked) / (1000*60*60*24));
+
+  const staleLabel = document.getElementById('lastFetchLabel');
+
+  if(diffLatest <= 0){
+    staleLabel.textContent = `최근 확인 ${latestStr} (오늘)`;
+    staleLabel.style.color = 'var(--ok)';
+  } else {
+    staleLabel.textContent = `최근 확인 ${latestStr} (${diffLatest}일 전)`;
+    staleLabel.style.color = diffLatest > 7 ? 'var(--danger)' : (diffLatest > 3 ? 'var(--warn)' : 'var(--muted-2)');
+  }
+
+  // 각 섹션의 "원문 확인 YYYY.MM.DD" 태그도 경과일 기준으로 함께 표시
+  updatePerItemChecks();
+}
+
+// =====================================================================
+// 항목별 개별 확인일 표시 — 전체를 하나의 기준일로 묶지 않고,
+// 각 브리핑 항목이 실제로 마지막에 재검증된 날짜를 개별적으로 보여줍니다.
+// (참고 사이트의 "항목별 확인일" 패턴과 동일한 방식)
+// =====================================================================
+function updatePerItemChecks(){
+  const today = getKstToday().start;
+  document.querySelectorAll('.rec-item[data-checked]').forEach(item=>{
+    const checkedDate = new Date(item.dataset.checked + 'T00:00:00+09:00');
+    const days = Math.floor((today - checkedDate) / (1000*60*60*24));
+    const dateStr = checkedDate.getFullYear() + '.' + String(checkedDate.getMonth()+1).padStart(2,'0') + '.' + String(checkedDate.getDate()).padStart(2,'0');
+
+    let cls = '', icon = '✓';
+    if(days > 14){ cls = 'very-stale'; icon = '🔴'; }
+    else if(days > 7){ cls = 'stale'; icon = '⚠️'; }
+
+    let badge = item.querySelector('.rchecked');
+    if(!badge){
+      badge = document.createElement('span');
+      badge.className = 'rchecked';
+      const foot = item.querySelector('.rfoot');
+      if(foot) foot.appendChild(badge);
+    }
+    badge.className = 'rchecked' + (cls ? ' ' + cls : '');
+    badge.textContent = `${icon} 확인 ${dateStr}${days > 0 ? ` (${days}일 전)` : ' (오늘)'}`;
+  });
+
+  // 법령·판례 현황 표의 확인일 열도 동일한 방식으로 경과일 표시
+  document.querySelectorAll('td.checkdate[data-date]').forEach(cell=>{
+    const d = new Date(cell.dataset.date + 'T00:00:00');
+    const days = Math.floor((today - d) / (1000*60*60*24));
+    const dateStr = d.getFullYear() + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + String(d.getDate()).padStart(2,'0');
+    cell.innerHTML = days > 7
+      ? `${dateStr}<br><span style="color:var(--warn);font-size:10.5px">${days}일 전</span>`
+      : `${dateStr} <span style="color:var(--muted-2);font-size:10.5px">(${days}일 전)</span>`;
+  });
+}
+
+document.getElementById('btnReset').addEventListener('click', ()=>{
+  newsData = DEFAULT_NEWS.slice();
+  document.getElementById('pasteBox').value = '';
+  renderNews();
+});
+
+renderNews();
+updateHeroDateTime();
+updateDailyLabels();
+setInterval(updateHeroDateTime, 30000);
+
+// 페이지를 장시간 열어두더라도 한국시간 날짜가 바뀌면 기준일과 경과일을 자동 갱신합니다.
+let lastKstDateKey = getKstToday().dateKey;
+setInterval(()=>{
+  const currentKstDateKey = getKstToday().dateKey;
+  if(currentKstDateKey !== lastKstDateKey){
+    lastKstDateKey = currentKstDateKey;
+    updateDailyLabels();
+  }
+}, 60 * 1000);
+
+// 새 배포가 반영된 경우 열린 화면도 최신 버전을 받도록 30분마다 다시 불러옵니다.
+setInterval(()=>{
+  if(document.visibilityState === 'visible') location.reload();
+}, 30 * 60 * 1000);
+
+// =====================================================================
+// AX Hub 연동: data/labor-news.json 파일을 읽어와 뉴스 데이터를 교체합니다.
+// 이 파일은 서버 쪽 cron 스크립트(fetch-labor-news.mjs)가 매일 새로 생성합니다.
+// 파일이 없거나(아직 배치 미구축) 접근 실패 시 조용히 넘어가고
+// 기존에 내장된 DEFAULT_NEWS로 계속 동작합니다 — 즉 이 기능이 없어도 페이지는 정상 작동합니다.
+// =====================================================================
+(async function loadFromDataFeed(){
+  try{
+    const res = await fetch('./data/labor-news.json', { cache: 'no-store' });
+    if(!res.ok) return; // 파일 없음 → 내장 데이터 유지
+    const feed = await res.json();
+    if(!feed || !Array.isArray(feed.items) || feed.items.length === 0) return;
+
+    newsData = feed.items;
+    renderNews();
+
+    const updated = new Date(feed.updated_at);
+    document.getElementById('dataSourceTag').textContent =
+      (feed.status === 'error' ? '⚠️ 마지막 자동 수집 실패 — 이전 데이터 표시 중 (' : '자동 수집 결과 (') +
+      updated.toLocaleString('ko-KR') + ')';
+  }catch(e){
+    // data/labor-news.json 자체가 없는 환경(예: 백엔드 미구축) — 조용히 무시
+  }
+})();
+
+// =====================================================================
+// KPI 카드 클릭 → 해당 항목 목록 펼치기 / 클릭 시 항목으로 스크롤
+// =====================================================================
+const KPI_GROUPS = {
+  action:    {label: '즉시 조치 권고 대상', nums: [1,2,3,7,11,12,13,14,18,19]},
+  confirmed: {label: '확정·시행 항목',      nums: [1,2,4,5,6,7,11,12,13,14,16,18,19]},
+  cases:     {label: '신규 판례·논의',      nums: [3,8,9,15,16,17,19]}
+};
+
+function toggleKpi(type){
+  const box = document.getElementById('kpiDetail');
+  if(box.dataset.type === type && box.style.display === 'block'){
+    box.style.display = 'none';
+    box.dataset.type = '';
+    return;
+  }
+  const group = KPI_GROUPS[type];
+  const rows = group.nums.map(n=>{
+    const titleEl = document.querySelector('#rec-' + n + ' .rtitle');
+    const title = titleEl ? titleEl.textContent : ('항목 ' + n);
+    return `<div class="kdrow" onclick="scrollToRec(${n})"><span class="kdnum">${n}</span><span>${title}</span></div>`;
+  }).join('');
+  box.innerHTML = `<div class="kdtitle"><span>${group.label} (${group.nums.length}건) — 클릭하면 해당 항목으로 이동</span><span class="kdclose" onclick="event.stopPropagation();document.getElementById('kpiDetail').style.display='none';document.getElementById('kpiDetail').dataset.type='';">✕</span></div>${rows}`;
+  box.style.display = 'block';
+  box.dataset.type = type;
+}
+
+function scrollToRec(n){
+  const el = document.getElementById('rec-' + n);
+  if(!el) return;
+  el.scrollIntoView({behavior:'smooth', block:'center'});
+  el.classList.add('flash');
+  setTimeout(()=> el.classList.remove('flash'), 1600);
+}
+
+function goToLinkCheck(){
+  document.querySelectorAll('.tabbar button').forEach(b=>{
+    b.setAttribute('aria-selected', b.dataset.tab === 't5' ? 'true' : 'false');
+  });
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('t5').classList.add('active');
+  setTimeout(()=>{
+    const el = document.getElementById('linkcheck-section');
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 60);
+}
+</script>
+</body>
+</html>

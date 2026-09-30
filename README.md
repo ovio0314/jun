@@ -1,5 +1,7 @@
 # 오비오 인사노무 브리핑센터
 
+> 회계팀 전표 계정과목 도우미(로컬 Streamlit 앱)는 `voucher_review/` 폴더에 있습니다. `voucher_review/README.md` 참고.
+
 이 저장소는 Sites 프로젝트 `ovio-hr-labor-briefing`의 원본 소스입니다.
 향후 수정 전에는 `PROJECT_MEMORY.md`를 먼저 확인하고 기존 데이터와 공개 설정을 유지합니다.
 

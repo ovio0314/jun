@@ -1,0 +1,13 @@
+# 실제 데이터·증빙·결과·로그는 저장소에 올리지 않습니다
+input/
+output/
+local_data/
+logs/
+*.log
+*.xlsx
+*.xls
+*.csv
+!tests/fixtures/*.xlsx
+__pycache__/
+.pytest_cache/
+.venv/

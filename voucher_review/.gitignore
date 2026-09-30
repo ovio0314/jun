@@ -10,3 +10,4 @@ logs/
 !tests/fixtures/*.xlsx
 __pycache__/
 .pytest_cache/
+.venv/

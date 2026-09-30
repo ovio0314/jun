@@ -159,6 +159,7 @@ class HeaderCandidate:
     matched: int
     title: str  # 헤더 위 첫 텍스트(예: 전표조건검색)
     headers: list[str]
+    preamble: list[str] = field(default_factory=list)  # 헤더 위 모든 텍스트(조회 조건·필터 범위)
 
     @property
     def label(self) -> str:
@@ -188,14 +189,17 @@ def find_header_candidates(source) -> list[HeaderCandidate]:
         for ws in wb.worksheets:
             best: HeaderCandidate | None = None
             title = ""
+            preamble: list[str] = []
             for idx, row in enumerate(ws.iter_rows(max_row=HEADER_SCAN_ROWS, values_only=True), start=1):
                 headers = [clean_text(v) for v in row]
                 matched = len(expected.intersection(h for h in headers if h))
                 if matched >= MIN_HEADER_MATCH and (best is None or matched > best.matched):
-                    best = HeaderCandidate(ws.title, idx, matched, title, headers)
-                if best is None and not title and matched < MIN_HEADER_MATCH:
-                    first = next((h for h in headers if h), "")
-                    title = first
+                    best = HeaderCandidate(ws.title, idx, matched, title, headers, list(preamble))
+                if best is None and matched < MIN_HEADER_MATCH:
+                    text = " ".join(h for h in headers if h)
+                    if text:
+                        preamble.append(text)
+                        title = title or next(h for h in headers if h)
             if best:
                 candidates.append(best)
     finally:
@@ -215,6 +219,7 @@ class LoadResult:
     title: str
     errors: list[str] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
+    preamble: list[str] = field(default_factory=list)  # 헤더 위 조회 조건 텍스트
 
 
 def auto_mapping(headers: list[str]) -> dict[str, str]:
@@ -289,17 +294,23 @@ def load_vouchers(source, candidate: HeaderCandidate, mapping: dict[str, str] | 
         raw = pd.DataFrame(columns=["_엑셀행", *EXPECTED_COLUMNS], dtype=object)
         df = pd.DataFrame(columns=["_엑셀행", "전표키", *EXPECTED_COLUMNS], dtype=object)
     else:
-        df.insert(
-            1,
-            "전표키",
-            df["회계단위"].astype(str) + "|" + df["전표관리단위"].astype(str) + "|" + df["기표번호"].astype(str),
-        )
+        df.insert(1, "전표키", [voucher_key(r) for r in df.to_dict("records")])
+        blank_no = int((df["기표번호"] == "").sum())
+        if blank_no:
+            warnings.append(f"기표번호가 비어 있는 행 {blank_no}건 — 다른 행과 묶지 않고 행별로 따로 표시합니다.")
         bad = df[[f"{c}_상태" for c in ("차변금액", "대변금액")]].eq("오류").any(axis=1)
         if bad.any():
             warnings.append(
                 f"원화 금액을 해석할 수 없는 행 {int(bad.sum())}건 — 0 으로 대체하지 않고 합계에서 제외했습니다."
             )
-    return LoadResult(raw, df, mapping, candidate.sheet, candidate.header_row, candidate.title, errors, warnings)
+    return LoadResult(raw, df, mapping, candidate.sheet, candidate.header_row, candidate.title, errors, warnings,
+                      list(candidate.preamble))
+
+
+def voucher_key(rec: dict) -> str:
+    """전표 키 = 회계단위|전표관리단위|기표번호. 기표번호가 비면 행마다 별도 키(묶지 않음)."""
+    no = rec.get("기표번호") or f"(기표번호없음-{rec.get('_엑셀행')}행)"
+    return f"{rec.get('회계단위', '')}|{rec.get('전표관리단위', '')}|{no}"
 
 
 def _normalize_cell(std: str, value: Any) -> dict[str, Any]:

@@ -34,3 +34,29 @@ def to_excel_bytes(sheets: dict[str, pd.DataFrame]) -> bytes:
         for name, df in sheets.items():
             safe_frame(df).to_excel(writer, sheet_name=name[:31], index=False)
     return buf.getvalue()
+
+
+def build_result_sheets(summary: pd.DataFrame, results: pd.DataFrame, raw: pd.DataFrame, df: pd.DataFrame,
+                        reviews: pd.DataFrame, criteria: pd.DataFrame) -> dict[str, pd.DataFrame]:
+    """검사 결과 엑셀: 전표요약 / 검사상세 / 원본분개 / 적용기준. 사용자 메모 포함."""
+    rv = reviews[["전표키", "검토상태", "메모", "검토자", "검토일시", "변경감지", "이전검토상태"]] if len(reviews) else \
+        pd.DataFrame(columns=["전표키", "검토상태", "메모", "검토자", "검토일시", "변경감지", "이전검토상태"])
+    s = summary.merge(rv, on="전표키", how="left", validate="one_to_one")
+    s["검토상태"] = s["검토상태"].fillna("미검토")
+    original = raw.copy()
+    original.insert(0, "전표키", list(df["전표키"]))
+    return {"전표요약": s, "검사상세": results, "원본분개": original, "적용기준": criteria}
+
+
+def check_export_counts(sheets: dict[str, pd.DataFrame], n_rows: int, n_vouchers: int) -> list[str]:
+    """다운로드 결과의 원본/요약 건수 대조. 문제가 없으면 빈 목록."""
+    problems = []
+    if len(sheets["원본분개"]) != n_rows:
+        problems.append(f"원본분개 {len(sheets['원본분개'])}행 ≠ 원본 {n_rows}행")
+    if len(sheets["전표요약"]) != n_vouchers:
+        problems.append(f"전표요약 {len(sheets['전표요약'])}건 ≠ 전표 {n_vouchers}건")
+    if sheets["전표요약"]["전표키"].duplicated().any():
+        problems.append("전표요약에 중복 전표키")
+    if set(sheets["검사상세"]["전표키"]) - set(sheets["전표요약"]["전표키"]):
+        problems.append("검사상세에 요약에 없는 전표키")
+    return problems

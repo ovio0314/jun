@@ -34,6 +34,12 @@
 - 성능: 넓은 DataFrame에서 그룹마다 `to_dict`를 호출하면 pandas 3에서 매우 느리다. `checks.group_records`처럼 레코드 변환은 한 번만 한다.
 - 상태를 바꾸는 버튼은 `ui.common.flash_and_rerun`으로 다시 그린다. 앞서 그린 탭에 옛 값이 남는 것을 막기 위해서다.
 
+## 브라우저판 (`browser/`)
+- `browser/src/engine.js`는 `voucher/`의 규칙을 JavaScript로 옮긴 것이다. **규칙을 바꾸면 양쪽을 함께 고치고** `tests/test_browser_parity.py`로 결과가 같은지 확인한다.
+- `browser/src/*`을 고친 뒤에는 `cd browser && npm run build`로 `dist/전표검토.html`을 다시 만들어 커밋한다. 빌드가 최신인지는 테스트가 검사한다.
+- 배포 HTML은 CSP `connect-src 'none'`로 외부 전송을 막는다. `unsafe-eval`이나 외부 스크립트·CDN을 추가하지 않는다.
+- 화면에 넣는 모든 값은 `esc()`로 이스케이프한다. 파일 내용이 HTML로 해석되지 않게 하기 위해서다.
+
 ## 명령
 ```
 python -m pytest -q

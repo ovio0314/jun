@@ -1,0 +1,14 @@
+{
+  "name": "voucher-review-browser",
+  "private": true,
+  "version": "1.0.0",
+  "description": "전표 검토 도우미 브라우저판 (설치 없이 HTML 하나로 실행)",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/engine.test.cjs"
+  },
+  "dependencies": {
+    "big.js": "6.2.2",
+    "exceljs": "4.4.0"
+  }
+}
